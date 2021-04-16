@@ -80,13 +80,13 @@
                                 <div class="rd-navbar-nav-wrap">
                                     <!-- RD Navbar Nav-->
                                     <ul class="rd-navbar-nav">
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="">Home</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'frontend:home'%}">Home</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="labs">Laboratories</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'frontend:labs'%}">Laboratories</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="members">Members</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'frontend:members'%}">Members</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="help">Help</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#">Help</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -97,7 +97,7 @@
             </div>
         </header>
         <!-- Swiper-->
-        <section class="section section-lg section-main-bunner text-center">
+        <section class="section section-lg section-main-bunner text-center" id="main">
             <div {% block body %}id="basePage" {% endblock %}> {# id attr change over templates #}
                 {% block content %}
                 {% endblock %}
