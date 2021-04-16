@@ -44,7 +44,7 @@ def members(request):
 
         ),
         (
-            'Nicolas Andres Velasquez Martinez - 2171065',
+            'Cristian Eduardo Rojas Pedraza - ',
             """
                 I am a petroleum engineer with a passion for programming and software development. 
                 I am a sixth semester student of systems engineering and my favorite hobby is playing chess.
