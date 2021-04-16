@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
-import django_heroku # Heroku server
+import django_heroku  # Heroku server
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',  # django-compressor
 ] + MERION_APPS
 
 MIDDLEWARE = [
@@ -60,18 +61,24 @@ ROOT_URLCONF = 'merion.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(Path(BASE_DIR / 'frontend/templates')), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
-    },
+    }
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = ['django.core.context_processors.request']
 
 WSGI_APPLICATION = 'merion.wsgi.application'
 
@@ -135,6 +142,8 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder'
 ]
+
+COMPRESS_ROOT = STATIC_ROOT
 
 # Activate django Heroku
 django_heroku.settings(locals())
