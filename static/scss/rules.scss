@@ -1,6 +1,14 @@
 @import "./containers";
 
 
+#labItem {
+    @extend .clicky;
+}
+
+.darky {
+    background-color: $c-bg--hover;
+}
+
 .member {
     &-image {
         @extend .c;

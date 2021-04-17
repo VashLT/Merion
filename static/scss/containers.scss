@@ -11,21 +11,38 @@
     border: none;
     border-radius: $c-radius;
 
-    &-member {
+    &-holder {
         @extend .c;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        background-color: $c-bg;
+
+    }
+
+    &-member {
+        @extend .c-holder;
 
 
         overflow-y: auto;
 
-        align-items: flex-start;
-        justify-content: flex-start;
-
-        background-color: rgb(95, 95, 95);
-        flex-direction: row;
-
         max-width: 70%;
 
         max-height: 500px;
+    }
+
+    &-lab {
+        @extend .c-holder;
+    }
+}
+
+.clicky {
+    background-color: $c-bg;
+
+    :hover {
+        cursor: pointer;
+        // background-color: $c-bg--hover;
+        // box-shadow: 0 2px 3px 0 #c0c0c0, 0 3px 3px 0 #c0bfbf;
     }
 }
 

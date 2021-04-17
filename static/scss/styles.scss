@@ -22,7 +22,7 @@ html {
     height: 100%;
 
     padding: 0;
-    maring: 0;
+    margin: 0;
 
     padding-top: 20px;
 }
@@ -31,6 +31,28 @@ html {
     @extend #basePage;
 }
 
+#labsPage {
+    @extend #basePage;
+
+    padding-top: 50px;
+
+    align-self: flex-start;
+
+    justify-content: center;
+    align-items: center;
+}
+
 #membersList {
     padding-top: 30px;
+}
+
+#labsList {
+    @extend #basePage;
+    width: 80%;
+    max-width: 80%;
+
+    margin-top: 50px;
+
+    justify-content: flex-start;
+    align-items: flex-start;
 }
