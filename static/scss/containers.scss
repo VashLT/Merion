@@ -23,6 +23,7 @@
     &-member {
         @extend .c-holder;
 
+        flex-direction: row;
 
         overflow-y: auto;
 
@@ -32,8 +33,62 @@
     }
 
     &-lab {
-        @extend .c-holder;
+        @extend .c;
+
+        &--preview {
+            @extend .c-holder;
+        }
+
     }
+}
+
+.lab {
+    @extend .c;
+
+    text-align: left;
+
+    &-content {
+        @extend .lab;
+
+        padding: 5px;
+
+        padding-right: 15px;
+
+        margin-top: 50px;
+
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
+
+#labPage {
+    @extend .c;
+
+    margin-top: 50px;
+
+    width: 100%;
+
+    background-color: #e1e1e1;
+
+    height: auto;
+    max-height: 80%;
+
+    margin-left: $lab-page-sides-space;
+    margin-right: $lab-page-sides-space;
+
+    padding: 50px 50px;
+    background-color: rgb(233, 232, 232);
+
+    h2,
+    h3,
+    h4,
+    p {
+        color: #111;
+    }
+}
+
+#firstLab {
+    @extend #labPage;
 }
 
 .clicky {
@@ -47,5 +102,5 @@
 }
 
 #main {
-    overflow-y: auto;
+    height: auto;
 }

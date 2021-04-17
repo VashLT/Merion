@@ -102,7 +102,8 @@ LABS = [
              agregue los principales elementos de entrega de la práctica: códigos realizados (bien documentados), video, 
              resultados y descripción de los mismos. """,
         ],
-        'finished': False
+        'finished': False,
+        'id': 2,
     },
     {
         'title': 'Aritmética Booleana Y Lógica Secuencial',
@@ -114,7 +115,8 @@ LABS = [
              agregue los principales elementos de entrega de la práctica: códigos realizados (bien documentados), video, 
              resultados y descripción de los mismos. """,
         ],
-        'finished': False
+        'finished': False,
+        'id': 3,
     },
     {
         'title': 'Lenguaje de Máquina y Arquitectura Computacional',
@@ -126,7 +128,8 @@ LABS = [
              agregue los principales elementos de entrega de la práctica: códigos realizados (bien documentados), video, 
              resultados y descripción de los mismos. """,
         ],
-        'finished': False
+        'finished': False,
+        'id': 4,
     },
     {
         'title': 'Ensamblador',
@@ -139,6 +142,7 @@ LABS = [
              resultados y descripción de los mismos. """,
         ],
         'finished': False,
+        'id': 5,
 
     },
     {
@@ -152,5 +156,6 @@ LABS = [
              resultados y descripción de los mismos. """,
         ],
         'finished': False,
+        'id': 6,
     }
 ]

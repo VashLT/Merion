@@ -18,7 +18,7 @@
         <h5 style="text-align: left;" id="t{{ forloop.counter }}" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             {{ lab|get_item:"title"}}
         </h5>
-        <a class="btn btn-primary" href="{{ lab|get_url}}" role="button">View lab</a>
+        <a class="btn btn-primary" href="{% url 'frontend:labs' id_lab=lab|get_item:'id' %}" role="button">View lab</a>
         </div>
         <div id="collapseOne" class="collapse show" aria-labelledby="h{{ forloop.counter }}" data-parent="#accordion">
             <div class="card card-body darky">

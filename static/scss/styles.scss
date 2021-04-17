@@ -34,16 +34,14 @@ html {
 #labsPage {
     @extend #basePage;
 
-    padding-top: 50px;
-
     align-self: flex-start;
 
-    justify-content: center;
     align-items: center;
 }
 
+
 #membersList {
-    padding-top: 30px;
+    margin-top: 50px;
 }
 
 #labsList {

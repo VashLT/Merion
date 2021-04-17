@@ -15,4 +15,5 @@ def labs(request, id_lab=0):
     if not id_lab:
         return render(request, "labs.html", {"LABS": LABS})
     if id_lab == 1:
-        return render(request, "lab1.html")
+        lab = [lab_dict for lab_dict in LABS if lab_dict['id'] == 1][0]
+        return render(request, "lab1.html", {'lab': lab})
