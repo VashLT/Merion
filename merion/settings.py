@@ -145,11 +145,17 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 
+STATICFILES_DIRS = [
+    ('frontend_js', 'frontend/static/frontend')
+]
+
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder'
 ]
+
+
 
 COMPRESS_ROOT = STATIC_ROOT
 
