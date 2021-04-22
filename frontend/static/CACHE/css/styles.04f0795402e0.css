@@ -1,0 +1,92 @@
+/* line 3, c:/users/jose2/programming/python/django/merion/static/scss/containers.scss */
+.c, .member-content div.bio, .member-content div.header, .member-content, .member-image, .c-member {
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px; }
+  /* line 14, c:/users/jose2/programming/python/django/merion/static/scss/containers.scss */
+  .c-member {
+    overflow-y: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #5f5f5f;
+    flex-direction: row;
+    max-width: 70%;
+    max-height: 500px; }
+
+/* line 3, c:/users/jose2/programming/python/django/merion/static/scss/containers.scss */
+.c, .member-content div.bio, .member-content div.header, .member-content, .member-image, .c-member {
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px; }
+  /* line 14, c:/users/jose2/programming/python/django/merion/static/scss/containers.scss */
+  .c-member {
+    overflow-y: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #5f5f5f;
+    flex-direction: row;
+    max-width: 70%;
+    max-height: 500px; }
+
+/* line 5, c:/users/jose2/programming/python/django/merion/static/scss/rules.scss */
+.member-image {
+  align-self: center;
+  width: 30%;
+  max-width: 30%;
+  height: auto;
+  max-height: inherit;
+  padding: 20px; }
+  /* line 19, c:/users/jose2/programming/python/django/merion/static/scss/rules.scss */
+  .member-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: inherit; }
+
+/* line 27, c:/users/jose2/programming/python/django/merion/static/scss/rules.scss */
+.member-content {
+  flex-direction: column;
+  background-color: blue;
+  align-items: flex-start;
+  max-width: 70%;
+  width: 70%;
+  height: 100%;
+  max-height: inherit;
+  padding: 20px;
+  margin: 0; }
+  /* line 44, c:/users/jose2/programming/python/django/merion/static/scss/rules.scss */
+  .member-content div.header {
+    height: 20%;
+    min-height: 20%;
+    width: 100%; }
+    /* line 51, c:/users/jose2/programming/python/django/merion/static/scss/rules.scss */
+    .member-content div.header p {
+      font-size: 30px;
+      font-weight: 500; }
+  /* line 57, c:/users/jose2/programming/python/django/merion/static/scss/rules.scss */
+  .member-content div.bio {
+    align-items: flex-start;
+    height: 80%;
+    min-height: 80%;
+    width: 100%; }
+    /* line 66, c:/users/jose2/programming/python/django/merion/static/scss/rules.scss */
+    .member-content div.bio p {
+      font-size: 20px;
+      font-weight: 400; }
+
+/* line 9, c:/users/jose2/programming/python/django/merion/static/scss/styles.scss */
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth; }

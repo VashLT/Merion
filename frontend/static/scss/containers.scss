@@ -1,0 +1,106 @@
+@import "./constants";
+
+.c {
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: $c-radius;
+
+    &-holder {
+        @extend .c;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        background-color: $c-bg;
+
+    }
+
+    &-member {
+        @extend .c-holder;
+
+        flex-direction: row;
+
+        overflow-y: auto;
+
+        max-width: 70%;
+
+        max-height: 500px;
+    }
+
+    &-lab {
+        @extend .c;
+
+        &--preview {
+            @extend .c-holder;
+        }
+
+    }
+}
+
+.lab {
+    @extend .c;
+
+    text-align: left;
+
+    &-content {
+        @extend .lab;
+
+        padding: 5px;
+
+        padding-right: 15px;
+
+        margin-top: 50px;
+
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
+
+#labPage {
+    @extend .c;
+
+    margin-top: 50px;
+
+    width: 100%;
+
+    height: auto;
+    max-height: 80%;
+
+    margin-left: $lab-page-sides-space;
+    margin-right: $lab-page-sides-space;
+
+    padding: 50px 50px;
+    // background-color: rgb(233, 232, 232);
+    background-color: white;
+
+
+    h2,
+    h3,
+    h4,
+    p {
+        color: #111;
+    }
+}
+
+#firstLab {
+    @extend #labPage;
+}
+
+.clicky {
+    background-color: $c-bg;
+
+    :hover {
+        cursor: pointer;
+        // background-color: $c-bg--hover;
+        // box-shadow: 0 2px 3px 0 #c0c0c0, 0 3px 3px 0 #c0bfbf;
+    }
+}
+
+#main {
+    height: auto;
+}

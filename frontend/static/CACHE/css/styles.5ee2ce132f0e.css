@@ -1,0 +1,29 @@
+/* line 1, c:/users/jose2/programming/python/django/merion/static/scss/containers.scss */
+.c, .c-member.content, .c-member.image, .c-member {
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  justify-content: center;
+  align-items: center;
+  border: none; }
+  /* line 11, c:/users/jose2/programming/python/django/merion/static/scss/containers.scss */
+  .c-member {
+    height: 400px;
+    flex-direction: row; }
+    /* line 17, c:/users/jose2/programming/python/django/merion/static/scss/containers.scss */
+    .c-member.image {
+      width: 30%;
+      max-width: 30%;
+      height: auto;
+      max-height: 100%;
+      padding: 10px; }
+      /* line 28, c:/users/jose2/programming/python/django/merion/static/scss/containers.scss */
+      .c-member.image img {
+        width: auto;
+        height: 100%;
+        max-width: 100%; }
+    /* line 35, c:/users/jose2/programming/python/django/merion/static/scss/containers.scss */
+    .c-member.content {
+      width: 70%;
+      align-items: flex-start;
+      padding: 20px; }
