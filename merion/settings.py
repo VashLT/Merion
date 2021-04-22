@@ -41,7 +41,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 MERION_APPS = [
-    'frontend.apps.FrontendConfig'
+    'frontend.apps.FrontendConfig',
+    'backend.apps.BackendConfig'
 ]
 
 INSTALLED_APPS = [
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',  # django-compressor
+    'rest_framework', #djangorestframework
 ] + MERION_APPS
 
 MIDDLEWARE = [
@@ -138,7 +140,7 @@ USE_TZ = True
 TEMPLATE_CONTEXT_PROCESSORS = ['django.core.context_processors.request']
 
 STATIC_URL = '/static/'
-STATIC_ROOT = Path(BASE_DIR / 'static')
+STATIC_ROOT = Path(BASE_DIR / 'frontend' / 'static')
 
 # for scss use
 COMPRESS_PRECOMPILERS = (
