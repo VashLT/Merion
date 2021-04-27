@@ -1,5 +1,6 @@
 # Merion
-static/CACHE
+**/**/frontend/static/frontend
+**/**/CACHE
 .webasssets-cache/
 settings.py
 /media
