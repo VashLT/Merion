@@ -2,14 +2,14 @@ import React from "react";
 
 function Lab1() {
     return (
-        <div className="lab" id="firstLab">
+        <div className="lab" id="labSheet">
             <div className="d-flex flex-row justify-content-start mb-4">
                 <h3 className="text-center">Laboratorio 1: <br /> Familiarizándose con las prácticas</h3>
             </div>
             <div className="hbar"></div>
             <div className="lab-content mt-2">
                 <h4 id="TOC">Contenido del laboratorio</h4>
-                <hr className="mb-3" />
+                <div className="hbar"></div>
                 <div className="list-group list-group-flush mb-4">
                     <a href="#Qt1" className="list-group-item list-group-item-action">
                         ¿Qué es lo más trascendental para usted en esta charla?
