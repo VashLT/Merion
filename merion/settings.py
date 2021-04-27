@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',  # django-compressor
-    'rest_framework', #djangorestframework
+    # 'rest_framework', #djangorestframework
 ] + MERION_APPS
 
 MIDDLEWARE = [
