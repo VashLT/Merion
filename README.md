@@ -30,11 +30,11 @@ Up to this point, all the dependencies has been installed and it lefts to run th
 ```
     npm start
 ```
-To run the application it will be necessary to initialize two servers, one for Django and the other for  the `webpack` stuff, which is in `npm`. So, inside `merion` directory run:
+To run the application it will be necessary to initialize two servers, one for Django and the other for  the `webpack` stuff, which is in `npm`. So, in the root directory run:
 ```
     python manage.py runserver
 ```
-and now, insde `merion/frontend` run:
+and now, inside `/frontend` run:
 ```
     npm run dev
 ```
