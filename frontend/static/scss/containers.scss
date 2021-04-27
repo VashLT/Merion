@@ -27,9 +27,16 @@
 
         overflow-y: auto;
 
-        max-width: 70%;
+        transition: all 0.5s ease;
+        
+        width: 70%;
+        height: 500px;
 
         max-height: 500px;
+
+        :hover {
+            background-color: $c-bg--hover;
+        }
     }
 
     &-lab {
@@ -61,22 +68,17 @@
     }
 }
 
-#labPage {
+#labSheet {
     @extend .c;
-
-    margin-top: 50px;
 
     width: 100%;
 
     height: auto;
     max-height: 80%;
 
-    margin-left: $lab-page-sides-space;
-    margin-right: $lab-page-sides-space;
+    padding: 30px 20px 50px 40px;
 
-    padding: 50px 50px;
-    // background-color: rgb(233, 232, 232);
-    background-color: white;
+    background-color: $sheet-color;
 
 
     h2,
@@ -85,10 +87,6 @@
     p {
         color: #111;
     }
-}
-
-#firstLab {
-    @extend #labPage;
 }
 
 .clicky {

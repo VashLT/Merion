@@ -6,6 +6,10 @@
 
 @import "./rules";
 
+@import "./other";
+
+@import "./position";
+
 body,
 html {
     height: 100%;
@@ -15,28 +19,73 @@ html {
     scroll-behavior: smooth;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100%;
+    height: auto;
+    width: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    background-color: $bg-color;
+}
+
 .App {
     display: flex;
     flex-direction: column;
+
+    width: 100%;
+    height: 100%;
 
     margin: 0;
     padding: 0;
 
     scroll-behavior: smooth;
+
+    background-color: $bg-color;
+}
+
+#main-title {
+    font-size: 60px;
+    color: white;
+}
+
+#navbar {
+    height: $navbar--height;
+    max-height: $navbar--height;
+    min-height: $navbar--height;
+
 }
 
 #basePage {
     display: flex;
     flex-direction: column;
+
+    
     width: 100%;
-    height: 100%;
+    height: auto;
+    min-height: 100%;
+
+    align-items: center;
+    justify-content: center;
 
     padding: 0;
     margin: 0;
 
-    padding-top: 20px;
+    padding-top: $navbar--height;
+
+    p, h3, h4, h5 {
+        color: white;
+    }
+
 }
 
+#homePage {
+    @extend #basePage;
+}
 #membersPage {
     @extend #basePage;
 }
@@ -47,6 +96,20 @@ html {
     align-self: flex-start;
 
     align-items: center;
+}
+
+#labPage {
+    @extend #labsPage;
+
+    padding: 50px $lab-page-sides-space;
+    padding-top: $navbar--height + 50px;
+
+    background-color: inherit;
+
+    p, h1, h2, h3, h4, h5 {
+        color: #111;
+    }
+
 }
 
 

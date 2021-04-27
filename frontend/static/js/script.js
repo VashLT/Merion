@@ -36,8 +36,8 @@
 			wow: $(".wow"),
 			maps: $(".google-map-container"),
 			slick: $('.slick-slider'),
-			selectFilter: $( 'select' ),
-			bootstrapDateTimePicker: $( '[data-time-picker]' )
+			selectFilter: $('select'),
+			bootstrapDateTimePicker: $('[data-time-picker]')
 		};
 
 	/**
@@ -45,8 +45,8 @@
 	 * @param {object} elem - jQuery object
 	 * @return {boolean}
 	 */
-	function isScrolledIntoView ( elem ) {
-		if ( isNoviBuilder ) return true;
+	function isScrolledIntoView(elem) {
+		if (isNoviBuilder) return true;
 		return elem.offset().top + elem.outerHeight() >= $window.scrollTop() && elem.offset().top <= $window.scrollTop() + $window.height();
 	}
 
@@ -55,16 +55,16 @@
 	 * @param {object} element - jQuery object
 	 * @param {function} func - init function
 	 */
-	function lazyInit( element, func ) {
+	function lazyInit(element, func) {
 		var scrollHandler = function () {
-			if ( ( !element.hasClass( 'lazy-loaded' ) && ( isScrolledIntoView( element ) ) ) ) {
+			if ((!element.hasClass('lazy-loaded') && (isScrolledIntoView(element)))) {
 				func.call();
-				element.addClass( 'lazy-loaded' );
+				element.addClass('lazy-loaded');
 			}
 		};
 
 		scrollHandler();
-		$window.on( 'scroll', scrollHandler );
+		$window.on('scroll', scrollHandler);
 	}
 
 	// Initialize scripts that require a loaded page
@@ -72,7 +72,7 @@
 		// Page loader & Page transition
 		if (plugins.preloader.length && !isNoviBuilder) {
 			pageTransition({
-				target: document.querySelector( '.page' ),
+				target: document.querySelector('.page'),
 				delay: 0,
 				duration: 500,
 				classIn: 'fadeIn',
@@ -81,10 +81,10 @@
 				conditions: function (event, link) {
 					return link && !/(\#|javascript:void\(0\)|callto:|tel:|mailto:|:\/\/)/.test(link) && !event.currentTarget.hasAttribute('data-lightgallery');
 				},
-				onTransitionStart: function ( options ) {
-					setTimeout( function () {
+				onTransitionStart: function (options) {
+					setTimeout(function () {
 						plugins.preloader.removeClass('loaded');
-					}, options.duration * .75 );
+					}, options.duration * .75);
 				},
 				onReady: function () {
 					plugins.preloader.addClass('loaded');
@@ -94,25 +94,25 @@
 		}
 
 		// Isotope
-		if ( plugins.isotope.length ) {
-			for ( var i = 0; i < plugins.isotope.length; i++ ) {
+		if (plugins.isotope.length) {
+			for (var i = 0; i < plugins.isotope.length; i++) {
 				var
-					wrap = plugins.isotope[ i ],
-					filterHandler = function ( event ) {
+					wrap = plugins.isotope[i],
+					filterHandler = function (event) {
 						event.preventDefault();
-						for ( var n = 0; n < this.isoGroup.filters.length; n++ ) this.isoGroup.filters[ n ].classList.remove( 'active' );
-						this.classList.add( 'active' );
-						this.isoGroup.isotope.arrange( { filter: this.getAttribute( "data-isotope-filter" ) !== '*' ? '[data-filter*="' + this.getAttribute( "data-isotope-filter" ) + '"]' : '*' } );
+						for (var n = 0; n < this.isoGroup.filters.length; n++) this.isoGroup.filters[n].classList.remove('active');
+						this.classList.add('active');
+						this.isoGroup.isotope.arrange({ filter: this.getAttribute("data-isotope-filter") !== '*' ? '[data-filter*="' + this.getAttribute("data-isotope-filter") + '"]' : '*' });
 					},
 					resizeHandler = function () {
 						this.isoGroup.isotope.layout();
 					};
 
 				wrap.isoGroup = {};
-				wrap.isoGroup.filters = wrap.querySelectorAll( '[data-isotope-filter]' );
-				wrap.isoGroup.node = wrap.querySelector( '.isotope' );
-				wrap.isoGroup.layout = wrap.isoGroup.node.getAttribute( 'data-isotope-layout' ) ? wrap.isoGroup.node.getAttribute( 'data-isotope-layout' ) : 'masonry';
-				wrap.isoGroup.columnWidth = wrap.isoGroup.node.getAttribute( 'data-column-class' );
+				wrap.isoGroup.filters = wrap.querySelectorAll('[data-isotope-filter]');
+				wrap.isoGroup.node = wrap.querySelector('.isotope');
+				wrap.isoGroup.layout = wrap.isoGroup.node.getAttribute('data-isotope-layout') ? wrap.isoGroup.node.getAttribute('data-isotope-layout') : 'masonry';
+				wrap.isoGroup.columnWidth = wrap.isoGroup.node.getAttribute('data-column-class');
 
 				wrap.isoGroup.opts = {
 					itemSelector: '.isotope-item',
@@ -120,35 +120,35 @@
 					filter: '*',
 				};
 
-				if ( wrap.isoGroup.columnWidth ) {
+				if (wrap.isoGroup.columnWidth) {
 					wrap.isoGroup.opts.masonry = {
 						columnWidth: wrap.isoGroup.columnWidth
 					};
 				};
 
-				wrap.isoGroup.isotope = new Isotope( wrap.isoGroup.node, wrap.isoGroup.opts );
+				wrap.isoGroup.isotope = new Isotope(wrap.isoGroup.node, wrap.isoGroup.opts);
 
-				for ( var n = 0; n < wrap.isoGroup.filters.length; n++ ) {
-					var filter = wrap.isoGroup.filters[ n ];
+				for (var n = 0; n < wrap.isoGroup.filters.length; n++) {
+					var filter = wrap.isoGroup.filters[n];
 					filter.isoGroup = wrap.isoGroup;
-					filter.addEventListener( 'click', filterHandler );
+					filter.addEventListener('click', filterHandler);
 				}
 
 
-				window.addEventListener( 'resize', resizeHandler.bind( wrap ) );
+				window.addEventListener('resize', resizeHandler.bind(wrap));
 			}
 		}
 
 		// Material Parallax
-		if ( plugins.materialParallax.length ) {
-			if ( !isNoviBuilder && !isIE && !isMobile) {
+		if (plugins.materialParallax.length) {
+			if (!isNoviBuilder && !isIE && !isMobile) {
 				plugins.materialParallax.parallax();
 			} else {
-				for ( var i = 0; i < plugins.materialParallax.length; i++ ) {
+				for (var i = 0; i < plugins.materialParallax.length; i++) {
 					var $parallax = $(plugins.materialParallax[i]);
 
-					$parallax.addClass( 'parallax-disabled' );
-					$parallax.css({ "background-image": 'url('+ $parallax.data("parallax-img") +')' });
+					$parallax.addClass('parallax-disabled');
+					$parallax.css({ "background-image": 'url(' + $parallax.data("parallax-img") + ')' });
 				}
 			}
 		}
@@ -182,21 +182,21 @@
 		 * SwiperCounter
 		 * @description
 		 */
-		function getSwiperActiveSlideNumber( swiper ) {
-			for ( var i = 0; i < plugins.swiper.length; i++ ) {
-				var slider       = $( plugins.swiper[i] ),
-					swiperSlides = slider.find( '.'+ swiper.params.slideClass ),
-					counter      = slider.find(".swiper-counter"),
-					total        = slider.find(".swiper-slide").length;
+		function getSwiperActiveSlideNumber(swiper) {
+			for (var i = 0; i < plugins.swiper.length; i++) {
+				var slider = $(plugins.swiper[i]),
+					swiperSlides = slider.find('.' + swiper.params.slideClass),
+					counter = slider.find(".swiper-counter"),
+					total = slider.find(".swiper-slide").length;
 
-				for( var n = 0; n < swiperSlides.length; n++ ) {
-					if( $( swiperSlides[n] ).hasClass( swiper.params.slideActiveClass ) ) {
-						counter.html( '<span class="count">'+ '0' + (n + 1) +'</span>');
+				for (var n = 0; n < swiperSlides.length; n++) {
+					if ($(swiperSlides[n]).hasClass(swiper.params.slideActiveClass)) {
+						counter.html('<span class="count">' + '0' + (n + 1) + '</span>');
 					};
 				}
 			}
 		}
-		
+
 		/**
 		 * @desc Toggle swiper animations on active slides
 		 * @param {object} swiper - swiper slider
@@ -315,8 +315,8 @@
 				animateIn: c.attr('data-animation-in') ? c.attr('data-animation-in') : false,
 				animateOut: c.attr('data-animation-out') ? c.attr('data-animation-out') : false,
 				responsive: responsive,
-				navText: c.attr("data-nav-text") ? $.parseJSON( c.attr("data-nav-text") ) : [],
-				navClass: c.attr("data-nav-class") ? $.parseJSON( c.attr("data-nav-class") ) : ['owl-prev', 'owl-next']
+				navText: c.attr("data-nav-text") ? $.parseJSON(c.attr("data-nav-text")) : [],
+				navClass: c.attr("data-nav-class") ? $.parseJSON(c.attr("data-nav-class")) : ['owl-prev', 'owl-next']
 			});
 		}
 
@@ -329,9 +329,9 @@
 			regula.custom({
 				name: 'PhoneNumber',
 				defaultMessage: 'Invalid phone number format',
-				validator: function() {
-					if ( this.value === '' ) return true;
-					else return /^(\+\d)?[0-9\-\(\) ]{5,}$/i.test( this.value );
+				validator: function () {
+					if (this.value === '') return true;
+					else return /^(\+\d)?[0-9\-\(\) ]{5,}$/i.test(this.value);
 				}
 			});
 
@@ -348,7 +348,7 @@
 				if (e.type !== "blur") if (!$this.parent().hasClass("has-error")) return;
 				if ($this.parents('.rd-mailform').hasClass('success')) return;
 
-				if (( results = $this.regula('validate') ).length) {
+				if ((results = $this.regula('validate')).length) {
 					for (i = 0; i < results.length; i++) {
 						$this.siblings(".form-validation").text(results[i].message).parent().addClass("has-error");
 					}
@@ -423,9 +423,9 @@
 			plugins.bootstrapTooltip.tooltip('dispose');
 
 			if (window.innerWidth < 576) {
-				plugins.bootstrapTooltip.tooltip({placement: 'bottom'});
+				plugins.bootstrapTooltip.tooltip({ placement: 'bottom' });
 			} else {
-				plugins.bootstrapTooltip.tooltip({placement: tooltipPlacement});
+				plugins.bootstrapTooltip.tooltip({ placement: tooltipPlacement });
 			}
 		}
 
@@ -508,7 +508,7 @@
 					coordinates.lng
 				), marker, map)
 			} catch (e) {
-				map.geocoder.geocode({'address': str}, function (results, status) {
+				map.geocoder.geocode({ 'address': str }, function (results, status) {
 					if (status === google.maps.GeocoderStatus.OK) {
 						var latitude = results[0].geometry.location.lat();
 						var longitude = results[0].geometry.location.lng();
@@ -528,14 +528,14 @@
 		function initMaps() {
 			var key;
 
-			for ( var i = 0; i < plugins.maps.length; i++ ) {
-				if ( plugins.maps[i].hasAttribute( "data-key" ) ) {
-					key = plugins.maps[i].getAttribute( "data-key" );
+			for (var i = 0; i < plugins.maps.length; i++) {
+				if (plugins.maps[i].hasAttribute("data-key")) {
+					key = plugins.maps[i].getAttribute("data-key");
 					break;
 				}
 			}
 
-			$.getScript('//maps.google.com/maps/api/js?'+ ( key ? 'key='+ key + '&' : '' ) +'sensor=false&libraries=geometry,places&v=quarterly', function () {
+			$.getScript('//maps.google.com/maps/api/js?' + (key ? 'key=' + key + '&' : '') + 'sensor=false&libraries=geometry,places&v=quarterly', function () {
 				var head = document.getElementsByTagName('head')[0],
 					insertBefore = head.insertBefore;
 
@@ -556,7 +556,7 @@
 						zoom: zoom,
 						styles: styles,
 						scrollwheel: false,
-						center: {lat: 0, lng: 0}
+						center: { lat: 0, lng: 0 }
 					});
 
 					// Add map object to map node
@@ -572,11 +572,11 @@
 					// Add markers from google-map-markers array
 					var markerItems = plugins.maps[i].querySelectorAll(".google-map-markers li");
 
-					if (markerItems.length){
+					if (markerItems.length) {
 						var markers = [];
-						for (var j = 0; j < markerItems.length; j++){
+						for (var j = 0; j < markerItems.length; j++) {
 							var markerElement = markerItems[j];
-							getLatLngObject(markerElement.getAttribute("data-location"), markerElement, plugins.maps[i], function(location, markerElement, mapElement){
+							getLatLngObject(markerElement.getAttribute("data-location"), markerElement, plugins.maps[i], function (location, markerElement, mapElement) {
 								var icon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon");
 								var activeIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active");
 								var info = markerElement.getAttribute("data-description") || "";
@@ -588,15 +588,15 @@
 									position: location,
 									map: mapElement.map
 								}
-								if (icon){
+								if (icon) {
 									markerData.icon = icon;
 								}
 								var marker = new google.maps.Marker(markerData);
 								markerElement.gmarker = marker;
-								markers.push({markerElement: markerElement, infoWindow: infoWindow});
+								markers.push({ markerElement: markerElement, infoWindow: infoWindow });
 								marker.isActive = false;
 								// Handle infoWindow close click
-								google.maps.event.addListener(infoWindow,'closeclick',(function(markerElement, mapElement){
+								google.maps.event.addListener(infoWindow, 'closeclick', (function (markerElement, mapElement) {
 									var markerIcon = null;
 									markerElement.gmarker.isActive = false;
 									markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon");
@@ -605,16 +605,16 @@
 
 
 								// Set marker active on Click and open infoWindow
-								google.maps.event.addListener(marker, 'click', (function(markerElement, mapElement) {
+								google.maps.event.addListener(marker, 'click', (function (markerElement, mapElement) {
 									if (markerElement.infoWindow.getContent().length === 0) return;
 									var gMarker, currentMarker = markerElement.gmarker, currentInfoWindow;
-									for (var k =0; k < markers.length; k++){
+									for (var k = 0; k < markers.length; k++) {
 										var markerIcon;
-										if (markers[k].markerElement === markerElement){
+										if (markers[k].markerElement === markerElement) {
 											currentInfoWindow = markers[k].infoWindow;
 										}
 										gMarker = markers[k].markerElement.gmarker;
-										if (gMarker.isActive && markers[k].markerElement !== markerElement){
+										if (gMarker.isActive && markers[k].markerElement !== markerElement) {
 											gMarker.isActive = false;
 											markerIcon = markers[k].markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon")
 											gMarker.setIcon(markerIcon);
@@ -624,13 +624,13 @@
 
 									currentMarker.isActive = !currentMarker.isActive;
 									if (currentMarker.isActive) {
-										if (markerIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active")){
+										if (markerIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active")) {
 											currentMarker.setIcon(markerIcon);
 										}
 
 										currentInfoWindow.open(map, marker);
-									}else{
-										if (markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon")){
+									} else {
+										if (markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon")) {
 											currentMarker.setIcon(markerIcon);
 										}
 										currentInfoWindow.close();
@@ -691,8 +691,8 @@
 		}
 
 		// Google maps
-		if( plugins.maps.length ) {
-			lazyInit( plugins.maps, initMaps );
+		if (plugins.maps.length) {
+			lazyInit(plugins.maps, initMaps);
 		}
 
 		// UI To Top
@@ -819,7 +819,7 @@
 					.end();
 
 				s.swiper({
-					autoplay: !isNoviBuilder && $.isNumeric( s.attr('data-autoplay') ) ? s.attr('data-autoplay') : false,
+					autoplay: !isNoviBuilder && $.isNumeric(s.attr('data-autoplay')) ? s.attr('data-autoplay') : false,
 					direction: s.attr('data-direction') ? s.attr('data-direction') : "horizontal",
 					effect: s.attr('data-slide-effect') ? s.attr('data-slide-effect') : "slide",
 					speed: s.attr('data-slide-speed') ? s.attr('data-slide-speed') : 600,
@@ -848,10 +848,10 @@
 						toggleSwiperInnerVideos(swiper);
 						toggleSwiperCaptionAnimation(swiper);
 						initLightGalleryItem(s.find('[data-lightgallery="item"]'), 'lightGallery-in-carousel');
-						getSwiperActiveSlideNumber( swiper );
+						getSwiperActiveSlideNumber(swiper);
 					},
-					onSlideChangeStart: function( swiper ) {
-						getSwiperActiveSlideNumber( swiper );
+					onSlideChangeStart: function (swiper) {
+						getSwiperActiveSlideNumber(swiper);
 					}
 				});
 			}
@@ -931,7 +931,7 @@
 								$.ajax({
 									method: "POST",
 									url: "bat/reCaptcha.php",
-									data: {'g-recaptcha-response': captchaToken},
+									data: { 'g-recaptcha-response': captchaToken },
 									async: false
 								})
 									.done(function (responceCode) {
@@ -1137,46 +1137,46 @@
 			}
 		}
 		// parallax scroll
-		if($('[data-parallax-scroll]').length && !isNoviBuilder && !isMobile){
+		if ($('[data-parallax-scroll]').length && !isNoviBuilder && !isMobile) {
 			ParallaxScroll.init();
 		}
 
 		// Select 2
-		if ( plugins.selectFilter.length ) {
-			for ( var i = 0; i < plugins.selectFilter.length; i++ ) {
-				var select = $( plugins.selectFilter[ i ] );
+		if (plugins.selectFilter.length) {
+			for (var i = 0; i < plugins.selectFilter.length; i++) {
+				var select = $(plugins.selectFilter[i]);
 
-				select.select2( {
-					placeholder:             select.attr( 'data-placeholder' ) || null,
-					minimumResultsForSearch: select.attr( 'data-minimum-results-search' ) || Infinity,
-					containerCssClass:       select.attr( 'data-container-class' ) || null,
-					dropdownCssClass:        select.attr( 'data-dropdown-class' ) || null
-				} );
+				select.select2({
+					placeholder: select.attr('data-placeholder') || null,
+					minimumResultsForSearch: select.attr('data-minimum-results-search') || Infinity,
+					containerCssClass: select.attr('data-container-class') || null,
+					dropdownCssClass: select.attr('data-dropdown-class') || null
+				});
 			}
 		}
 
 		// Bootstrap Date time picker
-		if ( plugins.bootstrapDateTimePicker.length ) {
-			for ( var i = 0; i < plugins.bootstrapDateTimePicker.length; i++ ) {
+		if (plugins.bootstrapDateTimePicker.length) {
+			for (var i = 0; i < plugins.bootstrapDateTimePicker.length; i++) {
 				var
-					$dateTimePicker = $( plugins.bootstrapDateTimePicker[ i ] ),
+					$dateTimePicker = $(plugins.bootstrapDateTimePicker[i]),
 					options = {
-						date:      $dateTimePicker.attr( "data-time-picker" ) === "date",
-						time:      $dateTimePicker.attr( "data-time-picker" ) === "time",
+						date: $dateTimePicker.attr("data-time-picker") === "date",
+						time: $dateTimePicker.attr("data-time-picker") === "time",
 						shortTime: true
 					};
 
-				if ( options.date ) {
+				if (options.date) {
 					options.format = 'DD/MM/YY';
 					options.minDate = new Date();
-				} else if ( options.time ) {
+				} else if (options.time) {
 					options.format = 'HH:mm';
 				} else {
 					options.format = 'dddd DD MMMM YYYY - HH:mm';
 				}
 
-				$dateTimePicker.bootstrapMaterialDatePicker( options );
-				$dateTimePicker.bootstrapMaterialDatePicker( 'setDate', moment() );
+				$dateTimePicker.bootstrapMaterialDatePicker(options);
+				$dateTimePicker.bootstrapMaterialDatePicker('setDate', moment());
 			}
 		}
 

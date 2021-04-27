@@ -2,10 +2,14 @@
 
 #labItem {
     @extend .clicky;
+    // li {
+    //     color: rgb(213, 213, 213);
+    // }
 }
 
 .darky {
     background-color: $c-bg--hover;
+    color: rgb(213, 213, 213);
 }
 
 .member {
@@ -24,6 +28,7 @@
 
 
         & img {
+            border-radius: $c-radius;
             width: 100%;
             max-width: 100%;
             height: auto;
@@ -57,6 +62,7 @@
             margin-bottom: 20px;
 
             & p {
+                color: $merion-yellow !important;
                 font-size: 30px;
                 font-weight: 600;
             }
@@ -65,15 +71,18 @@
         & div.bio {
             @extend .c;
 
-            align-items: flex-start;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
 
             height: 80%;
             min-height: 80%;
             width: 100%;
 
             & p {
+                color: white;
                 font-size: 20px;
                 font-weight: 400;
+                padding-bottom: 20px;
             }
         }
     }
