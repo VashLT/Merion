@@ -33,7 +33,7 @@ html {
     background-color: $bg-color;
 }
 
-.App {
+#app {
     display: flex;
     flex-direction: column;
 
@@ -110,20 +110,4 @@ html {
         color: #111;
     }
 
-}
-
-
-#membersList {
-    margin-top: 50px;
-}
-
-#labsList {
-    @extend #basePage;
-    width: 80%;
-    max-width: 80%;
-
-    margin-top: 50px;
-
-    justify-content: flex-start;
-    align-items: flex-start;
 }
