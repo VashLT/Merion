@@ -31,7 +31,7 @@ let members = [
 
     },
     {
-        name: 'Cristian Eduardo Rojas Pedraza -',
+        name: 'Cristian Eduardo Rojas Pedraza - 2155505',
         content: ` I am a petroleum engineer with a passion for programming and software development. 
         I am a sixth semester student of systems engineering and my favorite hobby is playing chess.`,
         image: staticRoot + 'member_cristian.jpg',

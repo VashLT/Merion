@@ -21,10 +21,10 @@ function getMemberHTML(element, index) {
             </div>
             <div className="member-content">
                 <div className="header">
-                    <p>{element.name}</p>
+                    <p class="typo-h1--members">{element.name}</p>
                 </div>
                 <div className="bio">
-                    <p className="text-left">{element.content}</p>
+                    <p className="typo-p--merion text-justify pb-4">{element.content}</p>
                     <a className="btn btn-primary" href={element.github} target="_blank" role="button">Github</a>
                 </div>
             </div>

@@ -33,14 +33,14 @@
         max-width: 30%;
 
         height: auto;
-        max-height: inherit;
+        max-height: 80%;
 
-        padding: 20px;
+        margin: 0;
 
 
         & img {
             border-radius: $c-radius;
-            width: 100%;
+            width: 95%;
             max-width: 100%;
             height: auto;
             max-height: inherit;
@@ -54,12 +54,13 @@
 
         align-items: flex-start;
 
-        max-width: 70%;
+        min-width: 70%;
         width: 70%;
         height: 100%;
         max-height: inherit;
 
-        padding: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
 
         margin: 0;
 
@@ -71,12 +72,6 @@
             width: 100%;
 
             margin-bottom: 20px;
-
-            & p {
-                color: $merion-yellow !important;
-                font-size: 30px;
-                font-weight: 600;
-            }
         }
 
         & div.bio {
@@ -88,13 +83,6 @@
             height: 80%;
             min-height: 80%;
             width: 100%;
-
-            & p {
-                color: white;
-                font-size: 20px;
-                font-weight: 400;
-                padding-bottom: 20px;
-            }
         }
     }
 }
@@ -119,29 +107,62 @@
             font-size: 4rem;
             color: white;
         }
+
+        &--members {
+            color: $merion-yellow !important;
+            font-size: 2rem;
+            font-weight: 600;
+        }
     }
     &-p {
         font-weight:300;
         line-height:1.2;
-        font-size:1.5rem;        
+        font-size: 1.2rem;
+
         &--merion {
             @extend .typo-p;
             font-size:1.5rem;        
+        }
+        &--members {
+            @extend .typo-p--merion;
+            font-weight: 400;
         }
     }
 }
 
 @media screen and (max-width: 1200px) {
     .typo {
-        &-h1--merion {
-            font-size:2rem;
+        &-h1 {
+            &--members {
+                color: $merion-yellow !important;
+                font-size: 2.5vw;
+            }
+
+            &--merion {font-size:2rem;}
         }
-        &-p--merion {
-            font-size:1rem;
+        &-p {
+            &--merion { font-size:1rem;}
+            &--members {font-size: 1.8vw;}
         }
     }
-    .c-home {
-        margin-top: 0px !important;
+    .c {
+        &-home {
+            margin-top: 0px !important;
+        }
+        &-member {
+            min-width: 85%;
+            overflow-y: hidden !important;
+            height: auto !important;
+            max-height: 280px !important;
+
+            & img {
+                width: 60% !important;
+            }
+        }
+    }
+    .bio {
+        overflow-y: auto;
+        max-height: 120px !important;
     }
 
     #labPage {
