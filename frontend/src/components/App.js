@@ -7,7 +7,6 @@ import {
     Link,
     useParams
 } from 'react-router-dom';
-import Loader from './Loader';
 import HomePage from './HomePage';
 import LabsPage from './LabsPage';
 import MembersPage from './MembersPage';
@@ -25,8 +24,8 @@ function App() {
 
     return (
         <div id="app">
-            <header className="section page-header">
-                <Navbar bg="dark" variant="dark" id="navbar">
+            <div>
+                <Navbar collapseOnSelect sticky="top" expand="lg" bg="dark" variant="dark" id="navbar">
                     <Navbar.Brand href="/">
                         <img
                             alt=""
@@ -36,17 +35,20 @@ function App() {
                             className="d-inline-block align-center merion-logo"
                         />{' '}
                     </Navbar.Brand>
-                    <Nav className="mr-auto">
-                        <Nav.Link href="/">Hogar</Nav.Link>
-                        <Nav.Link href="/members">Miembros</Nav.Link>
-                        <Nav.Link href="/labs">Labs</Nav.Link>
-                    </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
-                        <Button variant="outline-info">Buscar</Button>
-                    </Form>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link href="/">Hogar</Nav.Link>
+                            <Nav.Link href="/members">Miembros</Nav.Link>
+                            <Nav.Link href="/labs">Labs</Nav.Link>
+                        </Nav>
+                        <Nav>
+                            <Nav.Link href="#">Trabajo final</Nav.Link>
+                            <Nav.Link eventKey={2} href="#">Proyecto</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
                 </Navbar>
-            </header>
+            </div>
             <Router>
                 <Switch>
                     <Route exact path='/'>

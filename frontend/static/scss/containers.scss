@@ -1,4 +1,6 @@
 @import "./constants";
+@import "./position";
+
 
 .c {
     display: flex;
@@ -10,6 +12,13 @@
 
     border: none;
     border-radius: $c-radius;
+
+    &-home {
+        @extend .c;
+        @extend .center-full;
+
+        margin-top: 50px !important;
+    }
 
     &-holder {
         @extend .c;
@@ -47,6 +56,16 @@
         }
 
     }
+
+    &-nav {
+        @extend .c;
+
+        min-height: $navbar--height;
+        height: auto;
+
+        width: 100%;
+        min-width: 100%;
+    }
 }
 
 .lab {
@@ -75,6 +94,8 @@
 
     height: auto;
     max-height: 80%;
+
+    transition: all 0.2s ease-in-out;
 
     padding: 30px 20px 50px 40px;
 

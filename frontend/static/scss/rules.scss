@@ -7,10 +7,6 @@
     // }
 }
 
-#membersList {
-    margin-top: 50px;
-}
-
 #labsList {
     @extend #basePage;
     width: 80%;
@@ -109,4 +105,47 @@
     width: 95%;
     height: 2px;
     background-color: rgb(189, 189, 189);
+}
+
+.typo {
+    &-h1 {
+        font-size:6rem;
+        font-weight:300;
+        line-height:1.2;
+
+        &--merion {
+            @extend .typo-h1;
+            font-weight: 600;
+            font-size: 4rem;
+            color: white;
+        }
+    }
+    &-p {
+        font-weight:300;
+        line-height:1.2;
+        font-size:1.5rem;        
+        &--merion {
+            @extend .typo-p;
+            font-size:1.5rem;        
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .typo {
+        &-h1--merion {
+            font-size:2rem;
+        }
+        &-p--merion {
+            font-size:1rem;
+        }
+    }
+    .c-home {
+        margin-top: 0px !important;
+    }
+
+    #labPage {
+        padding: 50px 30px !important;
+    }
+
 }

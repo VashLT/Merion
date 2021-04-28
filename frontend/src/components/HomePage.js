@@ -5,10 +5,10 @@ export default function HomePage() {
 
     return (
         <div id="homePage">
-            <div className="d-flex flex-column w-80 align-items-center justify-content-center center-full">
+            <div className="c-home" style={{ width: "60%" }}>
                 <div className="d-flex flex-column w-80 align-items-center justify-content-center mb-5">
-                    <h1 id="main-title">Bienvenido a Merion</h1>
-                    <p style={{ fontSize: "20px", textAlign: "justify" }}>
+                    <h1 className="typo-h1--merion">Bienvenido a Merion</h1>
+                    <p className="typo-p--merion" style={{ textAlign: "justify" }}>
                         <strong style={{ color: "#4f6c9bff" }}>Merion</strong> es una pagina web que contiene los laboratorios correspondientes a la asignatura
                         de Arquitectura de Computadores. El nombre proviene de la unión entre Merlin y Orion
                     </p>
