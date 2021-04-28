@@ -7,6 +7,7 @@ import {
     Link,
     useParams
 } from 'react-router-dom';
+import Loader from './Loader';
 import HomePage from './HomePage';
 import LabsPage from './LabsPage';
 import MembersPage from './MembersPage';
@@ -23,10 +24,10 @@ function App() {
     // console.log(labId);
 
     return (
-        <div className="App">
+        <div id="app">
             <header className="section page-header">
                 <Navbar bg="dark" variant="dark" id="navbar">
-                    <Navbar.Brand href="#">
+                    <Navbar.Brand href="/">
                         <img
                             alt=""
                             src="../static/images/merion-170x66.png"
