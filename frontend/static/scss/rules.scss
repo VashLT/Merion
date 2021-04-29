@@ -1,11 +1,5 @@
 @import "./containers";
 
-.lab-item {
-    @extend .clicky;
-    // li {
-    //     color: rgb(213, 213, 213);
-    // }
-}
 
 #labsList {
     @extend #basePage;
@@ -16,6 +10,15 @@
 
     justify-content: flex-start;
     align-items: flex-start;
+}
+#Qt {
+    & p, h4 {
+        text-align: justify;
+    }
+}
+
+.lab-item {
+    @extend .clicky;
 }
 
 .darky {

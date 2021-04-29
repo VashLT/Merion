@@ -5,7 +5,6 @@ import {
     Switch,
     Route,
     Link,
-    useParams
 } from 'react-router-dom';
 import HomePage from './HomePage';
 import LabsPage from './LabsPage';
@@ -18,9 +17,6 @@ function App() {
     const loader = () => {
         setLoaded(true)
     }
-
-    // var { labId } = useParams();
-    // console.log(labId);
 
     return (
         <div id="app">
@@ -61,7 +57,7 @@ function App() {
                         <LabsPage />
                     </Route>
                     <Route exact path='/labs/:labId'>
-                        <LabPage id={parseInt(1)} />
+                        <LabPage />
                     </Route>
                 </Switch>
             </Router>

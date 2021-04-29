@@ -7,12 +7,12 @@ function Lab1() {
         return <a href={"#Qt" + index} className="list-group-item list-group-item-action tof-item">{question}</a>
     }
     return (
-        <div className="lab" id="labSheet">
-            <div className="d-flex flex-row justify-content-start mb-4">
+        <div id="labSheet">
+            <div className="lab-header">
                 <h3 className="text-center">{lab.header}: <br /> {lab.title}</h3>
+                <div className="hbar"></div>
             </div>
-            <div className="hbar"></div>
-            <div className="lab-content mt-2">
+            <div className="lab-content">
                 <h4 id="TOC">Contenido del laboratorio</h4>
                 <div className="hbar"></div>
                 <div className="list-group list-group-flush mb-4">
