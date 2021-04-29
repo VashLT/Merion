@@ -99,7 +99,7 @@ html {
 #labPage {
     @extend #labsPage;
 
-    padding: 50px $lab-page-sides-space;
+    padding: 50px 0;
 
     background-color: inherit;
 
@@ -107,4 +107,19 @@ html {
         color: #111;
     }
 
+}
+
+#labSheet {
+    :hover {
+        box-shadow: 0 1px 1px rgba(0,0,0,0.08), 
+                    0 2px 2px rgba(0,0,0,0.12), 
+                    0 4px 4px rgba(0,0,0,0.16), 
+                    0 8px 8px rgba(0,0,0,0.20);
+    }
+
+    // & div, & div div, & div div div, & div div div div {
+    //     :hover {
+    //         box-shadow: none;
+    //     }
+    // }
 }
