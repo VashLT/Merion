@@ -112,7 +112,15 @@
     p {
         color: #111;
     }
+
+    &:hover {
+        box-shadow: 0 4px 4px rgba(160, 159, 159, 0.08), 
+                    0 8px 8px rgba(179, 178, 178, 0.12), 
+                    0 8px 8px rgba(189, 187, 187, 0.16), 
+                    0 8px 8px rgba(179, 177, 177, 0.2);
+    }
 }
+
 
 .clicky {
     background-color: $c-bg;

@@ -1,6 +1,10 @@
 @import "./constants.scss";
 @import "./containers.scss";
 
+#video {
+    width: 100%;
+}
+
 .home-img {
     border-radius: $c-radius;
     width: 100%;
@@ -30,5 +34,12 @@
 
     &:hover  {
         transform: scale(1.1);
+    }
+}
+
+// table of content
+.tof-item {
+    &:hover {
+        background-color: rgb(231, 236, 247);
     }
 }

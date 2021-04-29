@@ -4,7 +4,7 @@ import labs from "../labs.js";
 function Lab1() {
     const lab = labs[0];
     function mapQuestionToLink(question, index) {
-        return <a href={"#Qt" + index} className="list-group-item list-group-item-action">{question}</a>
+        return <a href={"#Qt" + index} className="list-group-item list-group-item-action tof-item">{question}</a>
     }
     return (
         <div className="lab" id="labSheet">
@@ -17,8 +17,8 @@ function Lab1() {
                 <div className="hbar"></div>
                 <div className="list-group list-group-flush mb-4">
                     {lab.raw_questions.map((question, index) => mapQuestionToLink(question, index + 1))}
-                    <a href="#video" className="list-group-item list-group-item-action" >Video del grupo</a>
-                    <a href="#biblio" className="list-group-item list-group-item-action" >Bibliografia</a>
+                    <a href="#video" className="list-group-item list-group-item-action tof-item" >Video del grupo</a>
+                    <a href="#biblio" className="list-group-item list-group-item-action tof-item" >Bibliografia</a>
                 </div>
 
                 <section id="Qt">
@@ -175,14 +175,16 @@ function Lab1() {
 
                 </section>
 
-                <h4>Video</h4>
-                <div className="hbar"></div>
-                <div className="embed-responsive embed-responsive-16by9 mb-4">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/QN6vZLFRKYo" title="YouTube video player"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+                <section id="video">
+                    <h4>Video</h4>
+                    <div className="hbar"></div>
+                    <div className="embed-responsive embed-responsive-16by9 mb-4">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/QN6vZLFRKYo" title="YouTube video player"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </section>
 
                 <section id="biblio">
                     <h4>Bibliografia</h4>
