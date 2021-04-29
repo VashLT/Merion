@@ -2,8 +2,8 @@ import React from "react";
 import Lab1 from './components/Lab1';
 import Lab2 from './components/Lab2';
 
+const staticRoot = "../../static/files";
 
-const prefix = "/labs/2";
 var labIndex = 0;
 
 let labs = [
@@ -32,10 +32,20 @@ let labs = [
         ],
         content: <Lab2 />,
         date: "30 de Abril del 2021",
+        files: [
+            `${staticRoot}/lab2/Not.hdl`,
+            `${staticRoot}/lab2/And.hdl`,
+            `${staticRoot}/lab2/Or.hdl`,
+            `${staticRoot}/lab2/Xor.hdl`,
+            `${staticRoot}/lab2/Mux.hdl`,
+            `${staticRoot}/lab2/Dmux.hdl`,
+            `${staticRoot}/lab2/Not16.hdl`
+        ]
     }
 ];
 
-// assign questions attr which is a React component
+// assign:
+//          questions: React component
 for (const lab of labs) {
     lab.questions = () => {
         const prefix = "/labs/" + (labIndex++); // increases labIndex before concatenate

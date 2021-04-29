@@ -1,8 +1,11 @@
 @import "./constants.scss";
 @import "./containers.scss";
 
-#video {
-    width: 100%;
+
+#biblio {
+    & strong {
+        font-weight: 500;
+    }
 }
 
 .home-img {

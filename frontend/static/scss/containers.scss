@@ -94,6 +94,11 @@
 
         align-items: flex-start;
         justify-content: flex-start;
+
+        & section {
+            width: 100%;
+            padding-bottom: 20px;
+        }
     }
 }
 
@@ -131,10 +136,10 @@
 .clicky {
     background-color: $c-bg;
 
-    :hover {
+    &:hover {
         cursor: pointer;
-        // background-color: $c-bg--hover;
-        // box-shadow: 0 2px 3px 0 #c0c0c0, 0 3px 3px 0 #c0bfbf;
+        background-color: $c-bg--hover;
+        box-shadow: 0 2px 3px 0 #c0c0c0, 0 3px 3px 0 #c0bfbf;
     }
 }
 

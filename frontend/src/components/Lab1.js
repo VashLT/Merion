@@ -9,17 +9,20 @@ function Lab1() {
     return (
         <div id="labSheet">
             <div className="lab-header">
-                <h3 className="text-center">{lab.header}: <br /> {lab.title}</h3>
+                <h3>{lab.header}: <br /> {lab.title}</h3>
                 <div className="hbar"></div>
             </div>
             <div className="lab-content">
-                <h4 id="TOC">Contenido del laboratorio</h4>
-                <div className="hbar"></div>
-                <div className="list-group list-group-flush mb-4">
-                    {lab.raw_questions.map((question, index) => mapQuestionToLink(question, index + 1))}
-                    <a href="#video" className="list-group-item list-group-item-action tof-item" >Video del grupo</a>
-                    <a href="#biblio" className="list-group-item list-group-item-action tof-item" >Bibliografia</a>
-                </div>
+                <section id="TOC">
+                    <h4>Contenido del laboratorio</h4>
+                    <div className="hbar"></div>
+                    <div className="list-group list-group-flush mb-4">
+                        {lab.raw_questions.map((question, index) => mapQuestionToLink(question, index + 1))}
+                        <a href="#video" className="list-group-item list-group-item-action tof-item" >Video del grupo</a>
+                        <a href="#biblio" className="list-group-item list-group-item-action tof-item" >Bibliografia</a>
+                    </div>
+
+                </section>
 
                 <section id="Qt">
 
