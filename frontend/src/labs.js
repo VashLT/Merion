@@ -39,8 +39,17 @@ let labs = [
             `${staticRoot}/lab2/Xor.hdl`,
             `${staticRoot}/lab2/Mux.hdl`,
             `${staticRoot}/lab2/Dmux.hdl`,
-            `${staticRoot}/lab2/Not16.hdl`
-        ]
+            `${staticRoot}/lab2/Not16.hdl`,
+            `${staticRoot}/lab2/And16.hdl`,
+            `${staticRoot}/lab2/Or16.hdl`,
+            `${staticRoot}/lab2/Mux16.hdl`,
+            `${staticRoot}/lab2/Or8Way.hdl`,
+            `${staticRoot}/lab2/Mux4Way16.hdl`,
+            `${staticRoot}/lab2/Mux8Way16.hdl`,
+            `${staticRoot}/lab2/DMux4Way.hdl`,
+            `${staticRoot}/lab2/DMux8Way.hdl`
+        ],
+        zip: `${staticRoot}/lab2/Grupo4_lab2.rar`
     }
 ];
 

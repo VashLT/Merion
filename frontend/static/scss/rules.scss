@@ -17,6 +17,24 @@
     }
 }
 
+.btn {
+    &-file {
+        &:hover {
+            background-color: $merion-soft-blue--hover;
+        }
+    }
+
+    &-merion {
+        background-color: $merion-dolphin-color;
+        color: white;
+
+        &:hover {
+            background-color: $merion-dolphin-color--hover;
+            color: white;
+        }
+    }
+}
+
 .lab-item {
     @extend .clicky;
 }

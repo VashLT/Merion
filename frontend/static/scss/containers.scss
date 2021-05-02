@@ -70,6 +70,18 @@
         width: 100%;
         min-width: 100%;
     }
+
+    &-files {
+        @extend .c;
+
+        width: 100%;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        align-items: flex-start !important;
+        justify-content: space-around;
+    }
 }
 
 .lab {
@@ -135,11 +147,13 @@
 
 .clicky {
     background-color: $c-bg;
+    transition: transform .2s;
 
     &:hover {
         cursor: pointer;
-        background-color: $c-bg--hover;
-        box-shadow: 0 2px 3px 0 #c0c0c0, 0 3px 3px 0 #c0bfbf;
+        // background-color: $c-bg--hover;
+        transform: scale(1.005);
+        // box-shadow: 0 2px 3px 0 #999999, 0 3px 3px 0 #686868;
     }
 }
 

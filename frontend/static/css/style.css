@@ -2793,7 +2793,6 @@ hr {
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 	letter-spacing: 0;
-	text-transform: uppercase;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	text-align: center;
@@ -3304,7 +3303,6 @@ hr {
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 	letter-spacing: .05em;
-	text-transform: uppercase;
 	transition: .33s;
 }
 
@@ -3318,8 +3316,8 @@ hr {
 
 .btn-primary:hover {
 	color: #ffffff;
-	background: #000000;
-	border-color: #000000;
+	background: rgb(43, 59, 85);
+	border-color: rgb(91, 124, 179);
 }
 
 .block-video-button a {
@@ -3988,7 +3986,6 @@ textarea.form-input {
 
 .booking-title {
 	font-weight: 400;
-	text-transform: uppercase;
 }
 
 @media (min-width: 576px) {
