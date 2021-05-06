@@ -45,8 +45,11 @@
 }
 
 .member {
+    @extend .c;
+    // background-color: $c-bg;
+
     &-image {
-        @extend .c;
+        @extend .member;
 
         align-self: center;
 
@@ -58,7 +61,6 @@
 
         margin: 0;
 
-
         & img {
             border-radius: $c-radius;
             width: 95%;
@@ -69,7 +71,7 @@
     }
 
     &-content {
-        @extend .c;
+        @extend .member;
 
         flex-direction: column;
 
@@ -96,7 +98,7 @@
         }
 
         & div.bio {
-            @extend .c;
+            @extend .member;
 
             align-items: flex-start !important;
             justify-content: flex-start !important;

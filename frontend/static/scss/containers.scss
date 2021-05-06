@@ -13,8 +13,6 @@
     border: none;
     border-radius: $c-radius;
 
-    background-color: inherit;
-
     &-home {
         @extend .c;
         @extend .center-full;
@@ -47,8 +45,9 @@
 
         max-height: 500px;
 
-        :hover {
+        &:hover {
             background-color: $c-bg--hover;
+            box-shadow: 0 2px 4px rgba(196, 195, 195, 0.08);
         }
     }
 
