@@ -4,8 +4,6 @@ import Lab2 from './components/Lab2';
 
 const staticRoot = "../../static/files";
 
-var labIndex = 0;
-
 let labs = [
     {
         id: 1,
@@ -55,9 +53,10 @@ let labs = [
 
 // assign:
 //          questions: React component
-for (const lab of labs) {
+labs.forEach((lab, index) => {
     lab.questions = () => {
-        const prefix = "/labs/" + (labIndex++); // increases labIndex before concatenate
+        console.log(index);
+        const prefix = "/labs/" + (index + 1); // increases labIndex before concatenate
         return (
             <div className="card card-body darky">
                 <ul className="list-group list-group-flush">
@@ -68,7 +67,7 @@ for (const lab of labs) {
             </div>
         );
     }
-}
+});
 
 function formatQuestion(question, index, prefix = "/labs/1") {
     return (
