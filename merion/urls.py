@@ -18,6 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('frontend.urls'), name='frontend'),
-    path('api/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
 ]
