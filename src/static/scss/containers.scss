@@ -1,0 +1,158 @@
+@import "./constants";
+@import "./position";
+
+.c {
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: $c-radius;
+
+    &-home {
+        @extend .c;
+        @extend .center-full;
+
+        margin-top: 50px !important;
+    }
+
+    &-holder {
+        @extend .c;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        background-color: $c-bg;
+    }
+
+    &-member {
+        @extend .c-holder;
+
+        flex-direction: row;
+
+        overflow-y: auto;
+
+        padding: 2%;
+
+        transition: all 0.5s ease;
+
+        width: 70%;
+        height: 500px;
+
+        max-height: 500px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        &:hover {
+            background-color: $c-bg--hover;
+        }
+    }
+
+    &-lab {
+        @extend .c;
+
+        &--preview {
+            @extend .c-holder;
+        }
+    }
+
+    &-nav {
+        @extend .c;
+
+        min-height: $navbar--height;
+        height: auto;
+
+        width: 100%;
+        min-width: 100%;
+    }
+
+    &-files {
+        @extend .c;
+
+        width: 100%;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        align-items: flex-start !important;
+        justify-content: space-around;
+    }
+}
+
+.lab {
+    @extend .c;
+
+    text-align: left;
+    width: 100%;
+
+    &-header {
+        @extend .lab;
+
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &-content {
+        @extend .lab;
+
+        padding: 5px;
+
+        padding-right: 15px;
+
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        & section {
+            width: 100%;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+#labSheet {
+    @extend .c;
+
+    max-width: 1100px;
+    min-width: 300px;
+
+    width: 90vw;
+
+    height: auto;
+    max-height: 80%;
+
+    transition: all 0.2s ease-in-out;
+
+    padding: 30px 40px 40px;
+    margin-top: 40px;
+
+    background-color: $sheet-color;
+
+    h2,
+    h3,
+    h4,
+    p {
+        color: #111;
+    }
+
+    &:hover {
+        box-shadow: 0 4px 4px rgba(160, 159, 159, 0.08), 0 8px 8px rgba(179, 178, 178, 0.12),
+            0 8px 8px rgba(189, 187, 187, 0.16), 0 8px 8px rgba(179, 177, 177, 0.2);
+    }
+}
+
+.clicky {
+    background-color: $c-bg;
+    transition: transform 0.2s;
+
+    &:hover {
+        cursor: pointer;
+        // background-color: $c-bg--hover;
+        transform: scale(1.005);
+        // box-shadow: 0 2px 3px 0 #999999, 0 3px 3px 0 #686868;
+    }
+}
+
+#main {
+    height: auto;
+}
