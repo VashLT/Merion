@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState, useLayoutEffect, useCallback } from 'react';
 import labs from '../../data/labs';
 
-const mapQuestion = (question: string, index: number) => {
-    return (
-        <a href={"#Qt" + index} className="list-group-item list-group-item-action tof-item">
-            {question}
-        </a>
-    )
-}
+import TableOfContent from './TableOfContent';
+import Section from './Section';
+
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { githubGist } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+const sections: Isection[] = [
+    {
+        href: "#files",
+        displayName: "Archivos de la practica"
+    },
+    {
+        href: "#gates",
+        displayName: "Compuertas"
+    },
+    {
+        href: "#biblio",
+        displayName: "Bibliografia"
+    }
+]
 
 export const Lab2: React.FC = () => {
     const lab = labs[1];
@@ -17,24 +30,12 @@ export const Lab2: React.FC = () => {
                 <h3>{lab.header}: <br /> {lab.title}</h3>
             </div>
             <div className="lab-content">
-                <section id="TOC">
-                    <h4>Contenido del laboratorio</h4>
-                    <div className="hbar"></div>
-                    <div className="list-group list-group-flush mb-4">
-                        {lab.raw_questions.map((question, index) => mapQuestion(question, index + 1))}
-                        <a href="#files" className="list-group-item list-group-item-action tof-item" >Archivos de la practica</a>
-                        <a href="#biblio" className="list-group-item list-group-item-action tof-item" >Bibliografia</a>
-                    </div>
+                <TableOfContent
+                    questions={lab.raw_questions}
+                    sections={sections}
+                />
 
-                </section>
-
-                <section id="Qt">
-                    <h4>Preguntas</h4>
-                    <div className="hbar"></div>
-
-                    <h4 id="Qt1">
-                        {lab.raw_questions[0]}
-                    </h4>
+                <Section id="Qt" title="Preguntas">
                     <p className="mb-4">
                         Para este segundo laboratorio, desarrollaremos el proyecto 1 llamado Lógica Booleana propuesto por Nand to Tetris. Nuestro objetivo en el desarrollo del segundo laboratorio es acercarnos a la construcción de las compuertas lógicas principales descritas en el mismo, el cual nos introduce a la metodología de trabajo del curso y nos permite acceder a los conocimientos necesarios para desarrollar las actividades programadas en este.
 
@@ -53,12 +54,14 @@ export const Lab2: React.FC = () => {
                         Nuestro principal soporte para desarrollarlas fue basarnos en el diagrama de cada compuerta lógica, no obstante, para el desarrollo de una de las compuertas, se hizo necesario el uso de internet, y a partir de la lógica utilizada en esta, se lograron desarrollar varias compuertas más.
 
                     </p>
+                </Section>
 
-                </section>
 
-                <section id="files">
-                    <h4>Archivos</h4>
-                    <div className="hbar"></div>
+                <Section id="gates" title="Compuertas">
+                    <CodeBlock filePath="/files/lab2/Or.hdl" />
+                </Section>
+
+                <Section id="files" title="Archivos">
 
                     <p className="mb-3">
                         A continuación se adjunta el codigo en HDL (Hardware Descriptive Language)
@@ -66,33 +69,19 @@ export const Lab2: React.FC = () => {
                     </p>
 
                     <div className="c-files">
-                        <div className="btn-group">
-                            <a className="btn btn-merion btn-lg" type="button" href={lab.zip}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-files" viewBox="0 0 16 16">
-                                    <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
-                                </svg>
-                                &nbsp; Archivos
-                            </a>
-                            <button type="button" className="btn btn-lg btn-merion dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span className="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <div className="dropdown-menu">
-                                {lab.files!.map((file) => <LabFile src={file} />)}
-                            </div>
-                        </div>
+                        <DownloadFilesButton files={lab.files!} zipSrc={lab.zip!} />
                     </div>
-                </section>
+                </Section>
 
-                <section id="biblio">
-                    <h4>Bibliografia</h4>
-                    <div className="hbar"></div>
+                <Section id="biblio" title="Bibliografia">
                     <p className="mb-1"><strong>1.</strong>&nbsp;
-                        Nand2tetris
+                        Nand2tetris&nbsp;
                         <a target="_blank" rel="noreferrer" href="https://google.com" >
                             Libro
                         </a>
+                        .
                     </p>
-                </section>
+                </Section>
             </div >
         </div >
     )
@@ -109,6 +98,63 @@ const LabFile: React.FC<LabFileProps> = ({ src }) => {
             </svg>
             &nbsp; {fileName}
         </a>
+    );
+}
+
+const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
+    const [fileContent, setFileContent] = useState<string | null>(null);
+
+    const loadFile = useCallback(async () => {
+
+        const rawFileContent = await fetch(filePath)
+            .then(response => response.text());
+
+        rawFileContent.split(/\r?\n/).forEach((line, index) => console.log(`line: ${index}, content: ${line}`));
+
+        setFileContent(rawFileContent);
+
+    }, [setFileContent, filePath]);
+
+
+    useLayoutEffect(() => {
+        if (fileContent) return;
+        loadFile();
+
+    }, [fileContent, filePath])
+
+    fetch(filePath)
+        .then(response => response.text());
+
+    return (
+        <SyntaxHighlighter language="javascript" style={githubGist}>
+            {fileContent ? fileContent : ''}
+        </SyntaxHighlighter>
+    );
+}
+
+const DownloadFilesButton: React.FC<DownloadFilesButtonProps> = ({ files, zipSrc }) => {
+    return (
+        <div className="btn-group">
+            <a
+                className="btn btn-merion btn-lg"
+                type="button"
+                target="_blank"
+                href={zipSrc}
+                rel="noopener noreferrer"
+                download
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-files" viewBox="0 0 16 16">
+                    <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
+                </svg>
+                &nbsp; Archivos
+            </a>
+            <button type="button" className="btn btn-lg btn-merion dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span className="sr-only">Toggle Dropdown</span>
+            </button>
+            <div className="dropdown-menu">
+                {files!.map((file) => <LabFile src={file} />)}
+            </div>
+        </div>
     );
 }
 
