@@ -89,7 +89,7 @@ export const Lab2: React.FC = () => {
 
 const LabFile: React.FC<LabFileProps> = ({ src }) => {
     var fileName = src.split("/").slice(-1);
-    console.log(fileName);
+    
     return (
         <a className="btn-file dropdown-item" href={src} role="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-file-earmark-code" viewBox="0 0 16 16">
@@ -109,7 +109,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
         const rawFileContent = await fetch(filePath)
             .then(response => response.text());
 
-        rawFileContent.split(/\r?\n/).forEach((line, index) => console.log(`line: ${index}, content: ${line}`));
+        // rawFileContent.split(/\r?\n/).forEach((line, index) => console.log(`line: ${index}, content: ${line}`));
 
         setFileContent(rawFileContent);
 
@@ -120,7 +120,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
         if (fileContent) return;
         loadFile();
 
-    }, [fileContent, filePath])
+    }, [fileContent, filePath, loadFile])
 
     fetch(filePath)
         .then(response => response.text());
@@ -152,7 +152,7 @@ const DownloadFilesButton: React.FC<DownloadFilesButtonProps> = ({ files, zipSrc
                 <span className="sr-only">Toggle Dropdown</span>
             </button>
             <div className="dropdown-menu">
-                {files!.map((file) => <LabFile src={file} />)}
+                {files!.map((file, i) => <LabFile key={i} src={file} />)}
             </div>
         </div>
     );
