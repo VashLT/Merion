@@ -24,12 +24,12 @@ const Member: React.FC<MemberProps> = ({ name, content, image, github, index }) 
             <div className="member-content">
                 <div className="header">
                     <p className="typo-h1--members">{name}</p>
-                </div>
+                </div>  
                 <div className="bio">
                     <p className="typo-p--merion text-justify pb-4">{content}</p>
                     <a className="btn-github" rel="noreferrer" href={github} title={`${name}'s github`} target="_blank" role="button">
                         <GithubLogo />
-                        Github profile
+                        Profile
                     </a>
                 </div>
             </div>

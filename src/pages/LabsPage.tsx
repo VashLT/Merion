@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 
 import labs from '../data/labs';
 
@@ -15,8 +15,15 @@ export const LabsPage: React.FC = () => {
 }
 
 const LabPreview: React.FC<LabPreviewProps> = ({ header, title, index, id, raw_questions }) => {
+    const readBtnRef = useRef(null);
+    const onClick = useCallback((e: React.MouseEvent) => {
+        if (e.target === readBtnRef.current) return;
+
+        (e.currentTarget.querySelector('.card-header h5') as HTMLElement).click();
+    }, [readBtnRef]);
+
     return (
-        <div className="card lab-item">
+        <div className="card lab-item" onClick={onClick}>
             <div
                 className="card-header d-flex flex-row justify-content-between clicky align-items-center"
                 id={'h' + index}
@@ -28,7 +35,14 @@ const LabPreview: React.FC<LabPreviewProps> = ({ header, title, index, id, raw_q
                 >
                     {header}: {title}
                 </h5>
-                <a className="btn btn-primary" href={'/labs/' + id} role="button">READ</a>
+                <a
+                    className="btn btn-primary"
+                    href={'/labs/' + id}
+                    ref={readBtnRef}
+                    role="button"
+                >
+                    READ
+                </a>
             </div>
             <div id={"c" + index} className="collapse" aria-labelledby={'h' + index} data-parent="#accordion">
                 <div className="card card-body darky">
@@ -47,7 +61,7 @@ const QuestionPreview: React.FC<QuestionPreviewProps> = ({ questions, index }) =
         <ul className="list-group list-group-flush">
             {questions.map(question => {
                 return (
-                    <a className="list-group-item darky text-left" href={prefix + `#Qt${index}`} >
+                    <a className="list-group-item darky text-left lab-qt__preview" href={prefix + `#Qt${index}`} >
                         {question}
                     </a>
                 );
