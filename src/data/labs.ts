@@ -1,20 +1,4 @@
-// import NotChipPath from "../static/files/lab2/Not.hdl";
-// import AndChipPath from "../static/files/lab2/And.hdl";
-// import OrChipPath from "../static/files/lab2/Or.hdl";
-// import XorChipPath from "../static/files/lab2/Xor.hdl";
-// import MuxChipPath from "../static/files/lab2/Mux.hdl";
-// import DmuxChipPath from "../static/files/lab2/Dmux.hdl";
-// import Not16ChipPath from "../static/files/lab2/Not16.hdl";
-// import And16ChipPath from "../static/files/lab2/And16.hdl";
-// import Or16ChipPath from "../static/files/lab2/Or16.hdl";
-// import Mux16ChipPath from "../static/files/lab2/Mux16.hdl";
-// import Or8WayChipPath from "../static/files/lab2/Or8.hdl";
-// import Mux4Way16ChipPath from "../static/files/lab2/Mux4Way16.hdl";
-// import Mux8Way16ChipPath from "../static/files/lab2/Mux8Way16.hdl";
-// import DMux4WayChipPath from "../static/files/lab2/DMux4Way.hdl";
-// import DMux8WayChipPath from "../static/files/lab2/DMux8Way.hdl";
-
-const staticRoot = "../../static/files";
+const staticRoot = "/files";
 
 let labs = [
     {
@@ -56,7 +40,7 @@ let labs = [
             `${staticRoot}/lab2/DMux4Way.hdl`,
             `${staticRoot}/lab2/DMux8Way.hdl`
         ],
-        zip: `${staticRoot}/lab2/Grupo4_lab2.rar`
+        zip: `${staticRoot}/lab2/grupo4_lab2.zip`
     }
 ];
 

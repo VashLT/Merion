@@ -49,3 +49,27 @@ interface QuestionPreviewProps {
 interface LabFileProps {
     src: string;
 }
+
+interface Isection {
+    href: string;
+    displayName: string;
+}
+
+interface TableOfContentProps {
+    questions: string[];
+    sections: Isection[];
+}
+
+interface SectionProps {
+    id: string;
+    title: string;
+}
+
+interface DownloadFilesButtonProps {
+    files: string[];
+    zipSrc: string;
+}
+
+interface CodeBlockProps {
+    filePath: string;
+}
