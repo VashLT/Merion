@@ -22,7 +22,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
         if (fileContent) return;
         loadFile();
 
-    }, [fileContent, filePath])
+    }, [fileContent, filePath, loadFile])
 
     fetch(filePath)
         .then(response => response.text());

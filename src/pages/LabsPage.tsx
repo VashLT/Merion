@@ -7,7 +7,7 @@ export const LabsPage: React.FC = () => {
         <div id="labsPage">
             <div id="labsList">
                 <div className="w-100" id="accordion">
-                    {labs.map((lab, index) => <LabPreview {...lab} index={index} />)}
+                    {labs.map((lab, index) => <LabPreview key={lab.id} {...lab} index={index} />)}
                 </div>
             </div>
         </div>
@@ -59,9 +59,9 @@ const QuestionPreview: React.FC<QuestionPreviewProps> = ({ questions, index }) =
     const prefix = "/labs/" + (index + 1); // increases labIndex before concatenate
     return (
         <ul className="list-group list-group-flush">
-            {questions.map(question => {
+            {questions.map((question, i) => {
                 return (
-                    <a className="list-group-item darky text-left lab-qt__preview" href={prefix + `#Qt${index}`} >
+                    <a key={i} className="list-group-item darky text-left lab-qt__preview" href={prefix + `#Qt${index}`} >
                         {question}
                     </a>
                 );

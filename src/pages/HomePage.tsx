@@ -32,8 +32,8 @@ const members: ImemberCard[] = [
 export const HomePage: React.FC = () => {
     return (
         <div id="homePage">
-            <div className="c-home" style={{ width: "60%" }}>
-                <div className="d-flex flex-column w-80 align-items-center justify-content-center mb-5">
+            <div className="c-home bg-blue" style={{ width: "60%" }}>
+                <div className="d-flex flex-column w-80 align-items-center justify-content-center">
                     <h1 className="typo-h1--merion">Bienvenido a Merion</h1>
                     <p className="typo-p--merion" style={{ textAlign: "justify" }}>
                         <strong style={{ color: "#4f6c9bff" }}>Merion</strong> es una pagina web que contiene los laboratorios correspondientes a la asignatura
@@ -43,7 +43,7 @@ export const HomePage: React.FC = () => {
                 <div className="d-flex flex-column justify-content-center align-items-center mt-3">
                     <h2 style={{ color: "#ecca24ff", marginBottom: "30px" }}>Contribuidores</h2>
                     <div className="d-flex flex-row justify-content-center w-100 mw-100">
-                        {members.map(member => <MemberCard {...member} redirectUrl="/members/" />)}
+                        {members.map((member, i) => <MemberCard key={i} {...member} redirectUrl="/members/" />)}
                     </div>
                 </div>
             </div>
