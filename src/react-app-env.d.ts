@@ -1,5 +1,9 @@
 /// <reference types="react-scripts" />
 
+interface IntrinsicProps {
+    id?: string;
+}
+
 type MemberProps = Imember & {
     index: number;
 }
@@ -72,4 +76,13 @@ interface DownloadFilesButtonProps {
 
 interface CodeBlockProps {
     filePath: string;
+}
+
+type LabAnswerProps = IntrinsicProps & {
+    question: string;
+    text?: string[];
+}
+
+interface GateSectionProps {
+    title: string;
 }

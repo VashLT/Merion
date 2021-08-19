@@ -1,20 +1,16 @@
-import React, { useState, useLayoutEffect, useCallback } from 'react';
+import React from 'react';
 import labs from '../../data/labs';
 
-import TableOfContent from './TableOfContent';
-import Section from './Section';
+import TableOfContent from '../TableOfContent';
+import Section from '../Section';
+import LabAnswer from './LabAnswer';
+import CodeBlock from '../CodeBlock';
 
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { githubGist } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const sections: Isection[] = [
     {
-        href: "#files",
-        displayName: "Archivos de la practica"
-    },
-    {
         href: "#gates",
-        displayName: "Compuertas"
+        displayName: "Compuertas Lógicas"
     },
     {
         href: "#biblio",
@@ -36,36 +32,30 @@ export const Lab2: React.FC = () => {
                 />
 
                 <Section id="Qt" title="Preguntas">
-                    <p className="mb-4">
-                        Para este segundo laboratorio, desarrollaremos el proyecto 1 llamado Lógica Booleana propuesto por Nand to Tetris. Nuestro objetivo en el desarrollo del segundo laboratorio es acercarnos a la construcción de las compuertas lógicas principales descritas en el mismo, el cual nos introduce a la metodología de trabajo del curso y nos permite acceder a los conocimientos necesarios para desarrollar las actividades programadas en este.
-
-                    </p>
-
-                    <p className="mb-4">
-                        En primera instancia, debemos revisar los temas de lógica Booleana, síntesis de funciones booleanas, compuertas lógicas y luego enfocarnos en el lenguaje de descripción de hardware (HDL) adentrándonos en su funcionamiento, entorno y características ya que es el lenguaje  con el cual llevaremos a cabo la práctica.
-
-                    </p>
-
-                    <p className="mb-4">
-                        Las compuertas, se construyeron gradualmente desde la más sencilla (partiendo de la NAND) hasta la más compleja (DMux8Way) dando como resultado un conjunto de chips básicos, cabe decir que la compuerta principal es la Nand, puesto que con ella se crearon las compuertas básicas (And, Or, Not) que dieron lugar a desarrollar las los chips más complejos.
-                    </p>
-                    <p className="mb-4">
-
-                        Nuestro principal soporte para desarrollarlas fue basarnos en el diagrama de cada compuerta lógica, no obstante, para el desarrollo de una de las compuertas, se hizo necesario el uso de internet, y a partir de la lógica utilizada en esta, se lograron desarrollar varias compuertas más.
-
-                    </p>
+                    <LabAnswer
+                        question={lab.raw_questions[0]}
+                        text={[
+                            "Para este segundo laboratorio, desarrollaremos el proyecto 1 llamado Lógica Booleana propuesto por Nand to Tetris. Nuestro objetivo en el desarrollo del segundo laboratorio es acercarnos a la construcción de las compuertas lógicas principales descritas en el mismo, el cual nos introduce a la metodología de trabajo del curso y nos permite acceder a los conocimientos necesarios para desarrollar las actividades programadas en este.",
+                            "En primera instancia, debemos revisar los temas de lógica Booleana, síntesis de funciones booleanas, compuertas lógicas y luego enfocarnos en el lenguaje de descripción de hardware (HDL) adentrándonos en su funcionamiento, entorno y características ya que es el lenguaje  con el cual llevaremos a cabo la práctica.",
+                            "Las compuertas, se construyeron gradualmente desde la más sencilla (partiendo de la NAND) hasta la más compleja (DMux8Way) dando como resultado un conjunto de chips básicos, cabe decir que la compuerta principal es la Nand, puesto que con ella se crearon las compuertas básicas (And, Or, Not) que dieron lugar a desarrollar las los chips más complejos.",
+                            "Nuestro principal soporte para desarrollarlas fue basarnos en el diagrama de cada compuerta lógica, no obstante, para el desarrollo de una de las compuertas, se hizo necesario el uso de internet, y a partir de la lógica utilizada en esta, se lograron desarrollar varias compuertas más."
+                        ]}
+                    />
                 </Section>
 
 
-                <Section id="gates" title="Compuertas">
-                    <CodeBlock filePath="/files/lab2/Or.hdl" />
+                <Section id="gates" title="Compuertas Lógicas">
+                    <GateSection title="And">
+                        <p>La compuerta AND se construyó a partir de 2 compuertas NAND conectadas entre sí</p>
+                        
+                        <CodeBlock filePath="/files/lab2/Or.hdl" />
+                    </GateSection>
                 </Section>
 
                 <Section id="files" title="Archivos">
 
                     <p className="mb-3">
-                        A continuación se adjunta el codigo en HDL (Hardware Descriptive Language)
-                        en el que se programaron los chips.
+                        A continuación se adjuntan los archivos HDL (Hardware Descriptive Language) de cada uno de los chips.
                     </p>
 
                     <div className="c-files">
@@ -101,36 +91,15 @@ const LabFile: React.FC<LabFileProps> = ({ src }) => {
     );
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
-    const [fileContent, setFileContent] = useState<string | null>(null);
-
-    const loadFile = useCallback(async () => {
-
-        const rawFileContent = await fetch(filePath)
-            .then(response => response.text());
-
-        rawFileContent.split(/\r?\n/).forEach((line, index) => console.log(`line: ${index}, content: ${line}`));
-
-        setFileContent(rawFileContent);
-
-    }, [setFileContent, filePath]);
-
-
-    useLayoutEffect(() => {
-        if (fileContent) return;
-        loadFile();
-
-    }, [fileContent, filePath])
-
-    fetch(filePath)
-        .then(response => response.text());
-
+const GateSection: React.FC<GateSectionProps> = ({ title, children }) => {
     return (
-        <SyntaxHighlighter language="javascript" style={githubGist}>
-            {fileContent ? fileContent : ''}
-        </SyntaxHighlighter>
-    );
+        <section>
+            <h4>{title}</h4>
+            {children}
+        </section>
+    )
 }
+
 
 const DownloadFilesButton: React.FC<DownloadFilesButtonProps> = ({ files, zipSrc }) => {
     return (
