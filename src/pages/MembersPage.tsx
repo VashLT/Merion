@@ -1,7 +1,7 @@
 import React from 'react';
 import members from '../data/members';
 
-import { ReactComponent as GithubLogo } from '../static/images/github_logo.svg';
+import { ReactComponent as GithubLogo } from '../static/images/icon/github_logo.svg';
 
 export const MembersPage: React.FC = () => {
     return (
@@ -24,7 +24,7 @@ const Member: React.FC<MemberProps> = ({ name, content, image, github, index }) 
             <div className="member-content">
                 <div className="header">
                     <p className="typo-h1--members">{name}</p>
-                </div>  
+                </div>
                 <div className="bio">
                     <p className="typo-p--merion text-justify pb-4">{content}</p>
                     <a className="btn-github" rel="noreferrer" href={github} title={`${name}'s github`} target="_blank" role="button">

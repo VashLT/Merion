@@ -86,3 +86,9 @@ type LabAnswerProps = IntrinsicProps & {
 interface GateSectionProps {
     title: string;
 }
+
+interface GateDiagramProps {
+    img: string;
+    title: string;
+    src: string;
+}

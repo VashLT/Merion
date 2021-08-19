@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Navbar, Nav } from 'react-bootstrap';
 
-import logoPath from '../static/images/merion-170x66.png';
+import logoPath from '../static/images/logo/merion-170x66.png';
 
 export const MerionNavbar: React.FC<NavbarProps> = ({ theme }) => {
     return (

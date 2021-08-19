@@ -1,8 +1,8 @@
-import joseImg from '../static/images/member_jose.jpg';
-import javierImg from '../static/images/member_javier.jpg';
-import gabrielImg from '../static/images/member_gabriel.jpg';
-import cristianImg from '../static/images/member_cristian.jpg';
-import nicolasImg from '../static/images/member_nicolas.jpg';
+import joseImg from '../static/images/members/member_jose.jpg';
+import javierImg from '../static/images/members/member_javier.jpg';
+import gabrielImg from '../static/images/members/member_gabriel.jpg';
+import cristianImg from '../static/images/members/member_cristian.jpg';
+import nicolasImg from '../static/images/members/member_nicolas.jpg';
 
 let members = [
     {
