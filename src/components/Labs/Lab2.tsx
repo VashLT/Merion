@@ -6,6 +6,7 @@ import Section from '../Section';
 import LabAnswer from './LabAnswer';
 import CodeBlock from '../CodeBlock';
 
+import andDiagram from '../../static/images/lab2/AND.png'
 
 const sections: Isection[] = [
     {
@@ -46,9 +47,14 @@ export const Lab2: React.FC = () => {
 
                 <Section id="gates" title="Compuertas Lógicas">
                     <GateSection title="And">
-                        <p>La compuerta AND se construyó a partir de 2 compuertas NAND conectadas entre sí</p>
-                        
-                        <CodeBlock filePath="/files/lab2/Or.hdl" />
+                        <p>La compuerta AND se construyó a partir de 2 compuertas NAND conectadas entre sí.</p>
+                        <GateDiagram
+                            title="Compuerta AND construida con NANDs"
+                            img={andDiagram}
+                            src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
+                        />
+                        <p>El código para la compuerta se presenta a continuación: </p>
+                        <CodeBlock filePath="/files/lab2/And.hdl" />
                     </GateSection>
                 </Section>
 
@@ -98,6 +104,15 @@ const GateSection: React.FC<GateSectionProps> = ({ title, children }) => {
             {children}
         </section>
     )
+}
+
+const GateDiagram: React.FC<GateDiagramProps> = ({ img, src, title }) => {
+    return (
+        <figure>
+            <img src={img} />
+            <p>{title}. <a href={src} title="Fuente de la imagen">Fuente</a></p>
+        </figure>
+    );
 }
 
 
