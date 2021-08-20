@@ -3,6 +3,7 @@ import labs from '../../data/labs';
 
 import TableOfContent from '../TableOfContent';
 import Section from '../Section';
+import Biblio from '../Biblio';
 import LabAnswer from './LabAnswer';
 import CodeBlock from '../CodeBlock';
 import Figure from '../Figure';
@@ -118,6 +119,26 @@ const sections: Isection[] = [
     {
         href: "#biblio",
         displayName: "Bibliografia"
+    }
+]
+
+const bibliography: IbibItem[] = [
+    {
+        srcName: "Nand2tetris",
+        srcLink: "https://www.nand2tetris.org/course",
+        srcLinkName: "Course"
+    },
+    {
+        srcName: "Inductiveload. (2006, 12 julio). AND Gate constructed only from NAND Gates. [Ilustración]. ",
+        srcLink: "https://es.m.wikipedia.org/wiki/Archivo:AND_from_NAND.svg"
+    },
+    {
+        srcName: "Lowe, D. (2016, 26 marzo). Electronics Logic Gates: Universal NAND Gates. Dummies. ",
+        srcLink: "https://www.dummies.com/programming/electronics/components/electronics-logic-gates-universal-nand-gates/"
+    },
+    {
+        srcName: "Storr, W. (2021, 22 junio). Demultiplexer (DEMUX) Digital Decoder Tutorial. Basic Electronics Tutorials. ",
+        srcLink: "https://www.electronics-tutorials.ws/combination/comb_3.html"
     }
 ]
 
@@ -431,15 +452,7 @@ export const Lab2: React.FC = () => {
                     </div>
                 </Section>
 
-                <Section id="biblio" title="Bibliografia">
-                    <p className="mb-1"><strong>1.</strong>&nbsp;
-                        Nand2tetris&nbsp;
-                        <a target="_blank" rel="noreferrer" href="https://www.nand2tetris.org/course" >
-                            Curso
-                        </a>
-                        .
-                    </p>
-                </Section>
+                <Biblio items={bibliography} />
             </div >
         </div >
     )

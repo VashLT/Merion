@@ -99,3 +99,13 @@ interface FigureProps {
     figIndex: string;
     src: string;
 }
+
+interface IbibItem {
+    srcName: string;
+    srcLink?: string;
+    srcLinkName?: string;
+}
+
+interface BiblioProps {
+    items: IbibItem[];
+}
