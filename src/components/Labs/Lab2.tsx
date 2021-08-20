@@ -434,8 +434,8 @@ export const Lab2: React.FC = () => {
                 <Section id="biblio" title="Bibliografia">
                     <p className="mb-1"><strong>1.</strong>&nbsp;
                         Nand2tetris&nbsp;
-                        <a target="_blank" rel="noreferrer" href="https://google.com" >
-                            Libro
+                        <a target="_blank" rel="noreferrer" href="https://www.nand2tetris.org/course" >
+                            Curso
                         </a>
                         .
                     </p>
