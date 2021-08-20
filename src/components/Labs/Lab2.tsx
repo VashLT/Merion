@@ -456,7 +456,7 @@ export const Lab2: React.FC = () => {
                     </div>
                 </Section>
 
-                <Biblio items={bibliography} title="4. Bibliografía"/>
+                <Biblio items={bibliography} title="4. Bibliografía" />
             </div >
         </div >
     )
