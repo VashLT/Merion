@@ -182,6 +182,14 @@
 
     background-color: $sheet-color;
 
+    section:not(#TOC, #files) a {
+        font-weight: 550;
+        color: hsl(221, 38%, 52%);
+        &:hover {
+            color: hsl(221, 38%, 42%);
+        }
+    }
+
     h2,
     h3,
     h4,
@@ -200,9 +208,7 @@
 
     &:hover {
         cursor: pointer;
-        // background-color: $c-bg--hover;
         transform: scale(1.005);
-        // box-shadow: 0 2px 3px 0 #999999, 0 3px 3px 0 #686868;
     }
 }
 

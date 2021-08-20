@@ -113,6 +113,17 @@
     > pre {
         margin-left: 20px;
     }
+
+    p {
+        em {
+            background-color: rgba(0, 0, 0, 0.062);
+            border-radius: $c-radius;
+            font-family: Consolas, Monaco, Lucida Console, Liberation Mono, monospace;
+            font-style: normal;
+            font-size: 16px;
+        }
+    }
+
     .img__test {
         width: 90%;
         height: auto;

@@ -58,10 +58,13 @@ interface LabFileProps {
 interface Isection {
     href: string;
     displayName: string;
+    subSections?: {
+        href: string;
+        displayName: string;
+    }[]
 }
 
 interface TableOfContentProps {
-    questions: string[];
     sections: Isection[];
 }
 
@@ -88,7 +91,7 @@ type GateSectionProps = IntrinsicProps & {
     title: string;
 }
 
-interface GateDiagramProps {
+interface FigureProps {
     img: string;
     imgClass?: string;
     imgStyle?: { [key: string]: string; }

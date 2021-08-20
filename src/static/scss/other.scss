@@ -44,6 +44,10 @@
     &:hover {
         background-color: $merion-soft-blue--hover;
     }
+    &__subsection {
+        margin-left: 25px;
+        width: calc(100% - 25px);
+    }
 }
 
 .arrow {
