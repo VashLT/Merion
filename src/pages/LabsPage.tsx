@@ -1,5 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import labs from '../data/labs';
 
 export const LabsPage: React.FC = () => {
@@ -35,14 +37,14 @@ const LabPreview: React.FC<LabPreviewProps> = ({ header, title, index, id, raw_q
                 >
                     {header}: {title}
                 </h5>
-                <a
+                <Link
                     className="btn btn-primary"
-                    href={'/labs/' + id}
+                    to={'/labs/' + id}
                     ref={readBtnRef}
                     role="button"
                 >
                     READ
-                </a>
+                </Link>
             </div>
             <div id={"c" + index} className="collapse" aria-labelledby={'h' + index} data-parent="#accordion">
                 <div className="card card-body darky">
@@ -61,9 +63,9 @@ const QuestionPreview: React.FC<QuestionPreviewProps> = ({ questions, index }) =
         <ul className="list-group list-group-flush">
             {questions.map((question, i) => {
                 return (
-                    <a key={i} className="list-group-item darky text-left lab-qt__preview" href={prefix + `#qt${index}`} >
+                    <Link key={i} className="list-group-item darky text-left lab-qt__preview" to={prefix + `#qt${index}`} >
                         {question}
-                    </a>
+                    </Link>
                 );
             })
             }

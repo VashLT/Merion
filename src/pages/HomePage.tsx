@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import joseImg from '../static/images/members/member_jose.jpg';
 import javierImg from '../static/images/members/member_javier.jpg';
 import gabrielImg from '../static/images/members/member_gabriel.jpg';
@@ -53,12 +55,12 @@ export const HomePage: React.FC = () => {
 
 const MemberCard: React.FC<MemberCardProps> = ({ redirectUrl, displayName, srcImg }) => {
     return (
-        <div className="card home-img-c" onClick={() => window.location.href = redirectUrl}>
+        <Link className="card home-img-c" to="/members">
             <img className="card-img-top home-img" src={srcImg} alt="Card cap" />
             <div className="card-body card-transparent">
                 <h5 className="card-title">{displayName}</h5>
             </div>
-        </div>
+        </Link>
     )
 }
 

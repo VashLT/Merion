@@ -8,7 +8,7 @@ export const MembersPage: React.FC = () => {
         <div id="membersPage">
             <div id="membersList">
                 <div className="list-group align-items-center">
-                    {members.map((member, index) => <Member {...member} index={index} />)}
+                    {members.map((member, index) => <Member key={index} {...member} index={index} />)}
                 </div>
             </div>
         </div >

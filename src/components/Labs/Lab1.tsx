@@ -3,7 +3,7 @@ import labs from '../../data/labs';
 
 const mapQuestion = (question: string, index: number) => {
     return (
-        <a href={"#Qt" + index} className="list-group-item list-group-item-action tof-item">
+        <a key={index} href={"#Qt" + index} className="list-group-item list-group-item-action tof-item">
             {question}
         </a>
     )

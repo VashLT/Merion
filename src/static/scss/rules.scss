@@ -1,4 +1,4 @@
-@import "./containers";
+@import './containers';
 
 #homePage,
 #membersPage,
@@ -9,12 +9,15 @@
     h5,
     p,
     .btn-github {
-        font-family: "Libre Baskerville", serif;
+        font-family: 'Libre Baskerville', serif;
     }
 }
 
 #navbar a {
-    font-family: "Libre Baskerville", serif;
+    font-family: 'Libre Baskerville', serif;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    padding: 0 0.5rem;
 }
 
 #labsList {
@@ -104,7 +107,8 @@
             cursor: pointer;
             text-decoration: none;
             color: white;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+                rgba(0, 0, 0, 0.23) 0px 3px 6px;
         }
     }
 }
@@ -119,7 +123,8 @@
         em {
             background-color: rgba(0, 0, 0, 0.062);
             border-radius: $c-radius;
-            font-family: Consolas, Monaco, Lucida Console, Liberation Mono, monospace;
+            font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
+                monospace;
             font-style: normal;
             font-size: 16px;
         }

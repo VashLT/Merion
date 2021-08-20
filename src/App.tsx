@@ -18,10 +18,11 @@ import './static/scss/App.scss';
 const App: React.FC = () => {
   return (
     <div id="app">
-      <header>
-        <MerionNavbar theme="dark" />
-      </header>
+
       <Router>
+        <header>
+          <MerionNavbar theme="dark" />
+        </header>
         <Switch>
           <Route exact path='/'>
             <HomePage />

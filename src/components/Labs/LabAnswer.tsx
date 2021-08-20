@@ -7,7 +7,7 @@ export const LabAnswer: React.FC<LabAnswerProps> = ({ question, text, children, 
                 {question}
             </h4>
             {text
-                ? text.map(paragraph => <p className="mb-4">{paragraph}</p>)
+                ? text.map((paragraph, i) => <p key={i} className="mb-4">{paragraph}</p>)
                 : ''
             }
             {children}
