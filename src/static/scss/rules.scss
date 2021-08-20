@@ -34,6 +34,36 @@
     }
 }
 
+#scrollUp {
+    opacity: 0;
+    background-color: $merion-yellow;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 5px;
+    border: none;
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background-color: $merion-yellow__hover;
+        opacity: 1;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    &:focus {
+        border: none;
+        outline: none;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn {
     &-file {
         &:hover {
@@ -76,6 +106,21 @@
             color: white;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
         }
+    }
+}
+
+.section__gate {
+    > pre {
+        margin-left: 20px;
+    }
+    .img__test {
+        width: 90%;
+        height: auto;
+        border-radius: $c-radius;
+
+        // center img
+        display: block;
+        margin: 0 auto;
     }
 }
 

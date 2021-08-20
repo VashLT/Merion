@@ -11,6 +11,7 @@ import MembersPage from './pages/MembersPage';
 import LabPage from './pages/LabPage';
 
 import MerionNavbar from './components/Navbar';
+import ScrollUp from './components/ScrollUp';
 
 import './static/scss/App.scss';
 
@@ -36,6 +37,7 @@ const App: React.FC = () => {
           </Route>
         </Switch>
       </Router>
+      <ScrollUp />
     </div>
   );
 }

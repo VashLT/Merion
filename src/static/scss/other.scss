@@ -1,7 +1,6 @@
 @import "./constants.scss";
 @import "./containers.scss";
 
-
 #biblio {
     & strong {
         font-weight: 500;
@@ -15,7 +14,7 @@
     height: auto;
     max-height: inherit;
 
-    transition: transform .2s;
+    transition: transform 0.2s;
 
     &:hover {
         transform: scale(1.05);
@@ -33,9 +32,9 @@
 }
 
 .merion-logo {
-    transition: transform .2s;
+    transition: transform 0.2s;
 
-    &:hover  {
+    &:hover {
         transform: scale(1.1);
     }
 }
@@ -44,5 +43,18 @@
 .tof-item {
     &:hover {
         background-color: $merion-soft-blue--hover;
+    }
+}
+
+.arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+
+    &-up {
+        @extend .arrow;
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
     }
 }
