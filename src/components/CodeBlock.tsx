@@ -29,10 +29,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
 
     return (
         <SyntaxHighlighter
-            language="javascript"
+            language="c"
             style={atomOneLight}
             showLineNumbers={true}
-
         >
             {fileContent ? fileContent : ''}
         </SyntaxHighlighter>

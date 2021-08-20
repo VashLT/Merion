@@ -6,7 +6,33 @@ import Section from '../Section';
 import LabAnswer from './LabAnswer';
 import CodeBlock from '../CodeBlock';
 
-import andDiagram from '../../static/images/lab2/AND.png'
+
+import NOT from '../../static/images/lab2/diagrams/NOT.png';
+import AND from '../../static/images/lab2/diagrams/AND.png';
+import OR from '../../static/images/lab2/diagrams/OR.png';
+import XOR from '../../static/images/lab2/diagrams/XOR.png';
+
+
+import NOTtest from '../../static/images/lab2/tests/NOT.png';
+import ANDtest from '../../static/images/lab2/tests/AND.png';
+import ORtest from '../../static/images/lab2/tests/OR.png';
+import XORtest from '../../static/images/lab2/tests/XOR.png';
+import MUXtest from '../../static/images/lab2/tests/AND.png';
+import DMUXtest from '../../static/images/lab2/tests/AND.png';
+import NOT16test from '../../static/images/lab2/tests/AND.png';
+import AND16test from '../../static/images/lab2/tests/AND.png';
+import OR16test from '../../static/images/lab2/tests/AND.png';
+import OR8WAYtest from '../../static/images/lab2/tests/AND.png';
+import MUX16test from '../../static/images/lab2/tests/AND.png';
+import MUX4WAY16test from '../../static/images/lab2/tests/AND.png';
+import MUX8WAY16test from '../../static/images/lab2/tests/AND.png';
+import DMUX4WAYtest from '../../static/images/lab2/tests/AND.png';
+import DMUX8WAYtest from '../../static/images/lab2/tests/AND.png';
+
+
+import getUserOS from '../../utils/os';
+
+const FILES_PATH = "/files/lab2/gates";
 
 const sections: Isection[] = [
     {
@@ -46,16 +72,96 @@ export const Lab2: React.FC = () => {
 
 
                 <Section id="gates" title="Compuertas Lógicas">
-                    <GateSection title="And">
-                        <p>La compuerta AND se construyó a partir de 2 compuertas NAND conectadas entre sí.</p>
+                    <p>Cada una de las compuertas programadas para el laboratorio fueron testeadas con un <a href={"/files/lab2/HardwareSimulator." + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta mera, se garantizó el correcto funcionamiento de las mismas.</p>
+
+                    <GateSection className="section__gate" title="Not">
+                        <p>Para construir la compuerta NOT simplemente se pasa por una compuerta NAND la entrada, de esta manera siempre se conseguirá el valor opuesto de la entrada. </p>
                         <GateDiagram
-                            title="Compuerta AND construida con NANDs"
-                            img={andDiagram}
+                            title="Compuerta NOT construida con una NAND"
+                            figIndex="1"
+                            img={NOT}
                             src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                         />
                         <p>El código para la compuerta se presenta a continuación: </p>
-                        <CodeBlock filePath="/files/lab2/And.hdl" />
+                        <CodeBlock filePath={`${FILES_PATH}/Not.hdl`} />
+                        <p>Utilizando el simulador de Hardware, se testeó la compuerta y pasó las pruebas sin ningún problema. </p>
+                        <GateDiagram
+                            title="Test para compuerta NOT"
+                            figIndex="2"
+                            img={NOTtest}
+                            src={NOTtest}
+                            imgClass="img__test"
+                        />
                     </GateSection>
+
+                    <GateSection className="section__gate" title="And">
+                        <p>La compuerta AND se construyó a partir de 2 compuertas NAND conectadas entre sí, como se muestra en el siguiente diagrama.</p>
+                        <GateDiagram
+                            title="Compuerta AND construida con NANDs"
+                            figIndex="3"
+                            img={AND}
+                            src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
+                        />
+                        <p>El código para la compuerta se presenta a continuación: </p>
+                        <CodeBlock filePath={`${FILES_PATH}/And.hdl`} />
+                        <p>Utilizando el simulador de Hardware, se testeó la compuerta y pasó las pruebas sin ningún problema: </p>
+                        <GateDiagram
+                            title="Test para compuerta AND"
+                            figIndex="4"
+                            img={ANDtest}
+                            src={ANDtest}
+                            imgClass="img__test"
+                        />
+                    </GateSection>
+
+                    <GateSection className="section__gate" title="Or">
+                        <p>La compuerta OR se construye a partir de 2 compuertas NAND para negar las entradas, y finalmente se operan estas 2 a través de otra compuerta NAND</p>
+                        <GateDiagram
+                            title="Compuerta OR construida con una NAND"
+                            figIndex="5"
+                            img={OR}
+                            imgStyle={{ height: "120px" }}
+                            src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
+                        />
+                        <p>El código para la compuerta se presenta a continuación: </p>
+                        <CodeBlock filePath={`${FILES_PATH}/Or.hdl`} />
+                        <p>Utilizando el simulador de Hardware, se testeó la compuerta y pasó las pruebas sin ningún problema. </p>
+                        <GateDiagram
+                            title="Test para compuerta OR"
+                            figIndex="6"
+                            img={ORtest}
+                            src={ORtest}
+                            imgClass="img__test"
+                        />
+                    </GateSection>
+
+                    <GateSection className="section__gate" title="Xor">
+                        <p>Para esta compuerta se opera:</p>
+                        <ul>
+                            <li>En NAND las 2 entradas</li>
+                            <li>En NAND la entrada a con la salida de la primera operación</li>
+                            <li>En NAND la entrada b con la salida de la primera operación</li>
+                            <li>En NAND los resultados de las operaciones 2 y 3</li>
+                        </ul>
+                        <GateDiagram
+                            title="Compuerta OR construida con una NAND"
+                            figIndex="5"
+                            img={XOR}
+                            imgStyle={{ height: "120px" }}
+                            src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
+                        />
+                        <p>El código para la compuerta se presenta a continuación: </p>
+                        <CodeBlock filePath={`${FILES_PATH}/Xor.hdl`} />
+                        <p>Utilizando el simulador de Hardware, se testeó la compuerta y pasó las pruebas sin ningún problema. </p>
+                        <GateDiagram
+                            title="Test para compuerta XOR"
+                            figIndex="6"
+                            img={XORtest}
+                            src={XORtest}
+                            imgClass="img__test"
+                        />
+                    </GateSection>
+
                 </Section>
 
                 <Section id="files" title="Archivos">
@@ -97,20 +203,26 @@ const LabFile: React.FC<LabFileProps> = ({ src }) => {
     );
 }
 
-const GateSection: React.FC<GateSectionProps> = ({ title, children }) => {
+const GateSection: React.FC<GateSectionProps> = ({ title, children, className }) => {
     return (
-        <section>
+        <section className={className ? className : ""}>
             <h4>{title}</h4>
             {children}
         </section>
     )
 }
 
-const GateDiagram: React.FC<GateDiagramProps> = ({ img, src, title }) => {
+const GateDiagram: React.FC<GateDiagramProps> = ({ img, src, title, figIndex, imgClass, imgStyle }) => {
+
     return (
-        <figure>
-            <img src={img} alt={title} />
-            <p>{title}. <a href={src} title="Fuente de la imagen">Fuente</a></p>
+        <figure className="c-diagram">
+            <img
+                src={img}
+                alt={title}
+                className={imgClass ? imgClass : ""}
+                style={imgStyle ? imgStyle : {}}
+            />
+            <p><strong>Fig. {figIndex}.</strong>&nbsp;{title}. <a href={src} title="Fuente de la imagen">Fuente</a></p>
         </figure>
     );
 }

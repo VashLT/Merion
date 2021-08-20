@@ -2,6 +2,7 @@
 
 interface IntrinsicProps {
     id?: string;
+    className?: string;
 }
 
 type MemberProps = Imember & {
@@ -83,12 +84,15 @@ type LabAnswerProps = IntrinsicProps & {
     text?: string[];
 }
 
-interface GateSectionProps {
+type GateSectionProps = IntrinsicProps & {
     title: string;
 }
 
 interface GateDiagramProps {
     img: string;
+    imgClass?: string;
+    imgStyle?: { [key: string]: string; }
     title: string;
+    figIndex: string;
     src: string;
 }
