@@ -61,7 +61,7 @@ const QuestionPreview: React.FC<QuestionPreviewProps> = ({ questions, index }) =
         <ul className="list-group list-group-flush">
             {questions.map((question, i) => {
                 return (
-                    <a key={i} className="list-group-item darky text-left lab-qt__preview" href={prefix + `#Qt${index}`} >
+                    <a key={i} className="list-group-item darky text-left lab-qt__preview" href={prefix + `#qt${index}`} >
                         {question}
                     </a>
                 );

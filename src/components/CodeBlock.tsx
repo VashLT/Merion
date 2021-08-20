@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useLayoutEffect } from 'react';
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
     const [fileContent, setFileContent] = useState<string | null>(null);
@@ -30,7 +30,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
     return (
         <SyntaxHighlighter
             language="c"
-            style={atomOneLight}
+            style={docco}
             showLineNumbers={true}
         >
             {fileContent ? fileContent : ''}
