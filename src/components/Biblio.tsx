@@ -14,9 +14,9 @@ const mapItem = (item: IbibItem, index: number) => {
     );
 }
 
-export const Biblio: React.FC<BiblioProps> = ({ items }) => {
+export const Biblio: React.FC<BiblioProps> = ({ items, title }) => {
     return (
-        <Section id="biblio" title="Bibliografía">
+        <Section id="biblio" title={title ? title : "Bibliografía"}>
             {items.map((item, index) => mapItem(item, index + 1))}
         </Section>
     );

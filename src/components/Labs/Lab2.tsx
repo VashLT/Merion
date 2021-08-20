@@ -117,8 +117,12 @@ const sections: Isection[] = [
         ]
     },
     {
+        href: "#files",
+        displayName: "3. Archivos"
+    },
+    {
         href: "#biblio",
-        displayName: "Bibliografia"
+        displayName: "4. Bibliografía"
     }
 ]
 
@@ -153,7 +157,7 @@ export const Lab2: React.FC = () => {
                     sections={sections}
                 />
 
-                <Section id="questions" title="Preguntas">
+                <Section id="questions" title="1. Preguntas">
                     <LabAnswer
                         id="qt1"
                         question={LAB.raw_questions[0]}
@@ -173,7 +177,7 @@ export const Lab2: React.FC = () => {
                 </Section>
 
 
-                <Section id="gates" title="Compuertas Lógicas">
+                <Section id="gates" title="2. Compuertas Lógicas">
                     <p>Cada una de las compuertas programadas para el laboratorio fueron testeadas con un <a href={"/files/lab2/HardwareSimulator." + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de las mismas.</p>
 
                     <GateSection className="section__gate" title="Not" id="not">
@@ -441,7 +445,7 @@ export const Lab2: React.FC = () => {
 
                 </Section>
 
-                <Section id="files" title="Archivos">
+                <Section id="files" title="3. Archivos">
 
                     <p className="mb-3">
                         A continuación se adjuntan los archivos HDL (Hardware Descriptive Language) de cada uno de los chips.
@@ -452,7 +456,7 @@ export const Lab2: React.FC = () => {
                     </div>
                 </Section>
 
-                <Biblio items={bibliography} />
+                <Biblio items={bibliography} title="4. Bibliografía"/>
             </div >
         </div >
     )

@@ -108,4 +108,5 @@ interface IbibItem {
 
 interface BiblioProps {
     items: IbibItem[];
+    title?: string;
 }
