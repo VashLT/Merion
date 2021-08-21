@@ -39,89 +39,89 @@ const FILES_PATH = "/files/lab2/gates";
 
 const LAB = labs[1];
 
-const sections: Isection[] = [
+const sections: IbiblioSection[] = [
     {
-        href: "#questions",
+        targetId: "questions",
         displayName: "1. Preguntas",
         subSections: [
             {
-                href: "#qt1",
+                targetId: "qt1",
                 displayName: LAB.raw_questions[0]
             }
         ]
     },
     {
-        href: "#gates",
+        targetId: "gates",
         displayName: "2. Compuertas Lógicas",
         subSections: [
             {
-                href: "#not",
+                targetId: "not",
                 displayName: "Not"
             },
             {
-                href: "#and",
+                targetId: "and",
                 displayName: "And"
             },
             {
-                href: "#or",
+                targetId: "or",
                 displayName: "Or"
             },
             {
-                href: "#xor",
+                targetId: "xor",
                 displayName: "Xor"
             },
             {
-                href: "#mux",
+                targetId: "mux",
                 displayName: "Mux"
             },
             {
-                href: "#dmux",
+                targetId: "dmux",
                 displayName: "DMux"
             },
             {
-                href: "#not16",
+                targetId: "not16",
                 displayName: "Not 16 bits"
             },
             {
-                href: "#and16",
+                targetId: "and16",
                 displayName: "And 16 bits"
             },
             {
-                href: "#or16",
+                targetId: "or16",
                 displayName: "Or 16 bits"
             },
             {
-                href: "#mux16",
+                targetId: "mux16",
                 displayName: "Mux 16 bits"
             },
             {
-                href: "#or8way",
+                targetId: "or8way",
                 displayName: "Or 8 Way"
             },
             {
-                href: "#mux4way16",
+                targetId: "mux4way16",
                 displayName: "Mux 4 Way 16 bits"
             },
             {
-                href: "#mux8way16",
+                targetId: "mux8way16",
                 displayName: "Mux 8 Way 16 bits"
             },
             {
-                href: "#dmux4way",
+                targetId: "dmux4way",
                 displayName: "DMux 4 Way"
             },
             {
-                href: "#dmux8way",
+                targetId: "dmux8way",
                 displayName: "DMux 8 Way"
             },
         ]
     },
     {
-        href: "#files",
+        targetId: "files",
         displayName: "3. Archivos"
     },
     {
-        href: "#biblio",
+        targetId: "biblio",
         displayName: "4. Bibliografía"
     }
 ]
@@ -148,7 +148,7 @@ const bibliography: IbibItem[] = [
 
 export const Lab2: React.FC = () => {
     return (
-        <div className="lab" id="labSheet">
+        <>
             <div className="lab-header">
                 <h3>{LAB.header}: <br /> {LAB.title}</h3>
             </div>
@@ -458,7 +458,7 @@ export const Lab2: React.FC = () => {
 
                 <Biblio items={bibliography} title="4. Bibliografía" />
             </div >
-        </div >
+        </>
     )
 }
 
