@@ -55,11 +55,11 @@ interface LabFileProps {
     src: string;
 }
 
-interface Isection {
-    href: string;
+interface IbiblioSection {
+    targetId: string;
     displayName: string;
     subSections?: {
-        href: string;
+        targetId: string;
         displayName: string;
     }[]
 }
@@ -109,4 +109,9 @@ interface IbibItem {
 interface BiblioProps {
     items: IbibItem[];
     title?: string;
+}
+
+type BiblioSectionProps = IbiblioSection & IntrinsicProps & {
+    key: string;
+    subSections?: any;
 }

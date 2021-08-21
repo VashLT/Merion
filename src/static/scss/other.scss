@@ -45,6 +45,7 @@
         background-color: $merion-soft-blue--hover;
     }
     &__subsection {
+        @extend .tof-item;
         margin-left: 25px;
         width: calc(100% - 25px);
     }

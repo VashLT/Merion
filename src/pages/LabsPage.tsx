@@ -49,7 +49,7 @@ const LabPreview: React.FC<LabPreviewProps> = ({ header, title, index, id, raw_q
             <div id={"c" + index} className="collapse" aria-labelledby={'h' + index} data-parent="#accordion">
                 <div className="card card-body darky">
                     <ul className="list-group list-group-flush">
-                        <QuestionPreview questions={raw_questions} index={index} />
+                        <QuestionPreview questions={raw_questions} index={index + 1} />
                     </ul>
                 </div>
             </div>
@@ -58,12 +58,12 @@ const LabPreview: React.FC<LabPreviewProps> = ({ header, title, index, id, raw_q
 }
 
 const QuestionPreview: React.FC<QuestionPreviewProps> = ({ questions, index }) => {
-    const prefix = "/labs/" + (index + 1); // increases labIndex before concatenate
+    const prefix = `/labs/${index}`; // increases labIndex before concatenate
     return (
         <ul className="list-group list-group-flush">
             {questions.map((question, i) => {
                 return (
-                    <Link key={i} className="list-group-item darky text-left lab-qt__preview" to={prefix + `#qt${index}`} >
+                    <Link key={`L${i}`} className="list-group-item darky text-left lab-qt__preview" to={prefix + `#qt${i + 1}`} >
                         {question}
                     </Link>
                 );
