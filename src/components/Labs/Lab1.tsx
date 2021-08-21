@@ -1,41 +1,47 @@
 import React from 'react';
+import TableOfContent from '../TableOfContent';
 import labs from '../../data/labs';
 
-const mapQuestion = (question: string, index: number) => {
-    return (
-        <a key={index} href={"#Qt" + index} className="list-group-item list-group-item-action tof-item">
-            {question}
-        </a>
-    )
-}
+const LAB = labs[0];
+
+const sections: IbiblioSection[] = [
+    {
+        targetId: "questions",
+        displayName: "1. Preguntas",
+        subSections: LAB.raw_questions.map((question, index) => {
+            return { targetId: `qt${index + 1}`, displayName: question }
+        }
+        )
+    },
+    {
+        targetId: "video",
+        displayName: "2. Vídeo"
+    },
+    {
+        targetId: "biblio",
+        displayName: "3. Bibliografía"
+    }
+]
 
 export const Lab1: React.FC = () => {
-    const lab = labs[0];
     return (
-        <div id="labSheet">
+        <>
             <div className="lab-header">
-                <h3>{lab.header}: <br /> {lab.title}</h3>
+                <h3>{LAB.header}: <br /> {LAB.title}</h3>
                 <div className="hbar"></div>
             </div>
             <div className="lab-content">
-                <section id="TOC">
-                    <h4>Contenido del laboratorio</h4>
-                    <div className="hbar"></div>
-                    <div className="list-group list-group-flush mb-4">
-                        {lab.raw_questions.map((question, index) => mapQuestion(question, index + 1))}
-                        <a href="#video" className="list-group-item list-group-item-action tof-item" >Video del grupo</a>
-                        <a href="#biblio" className="list-group-item list-group-item-action tof-item" >Bibliografia</a>
-                    </div>
+                <TableOfContent
+                    sections={sections}
+                />
 
-                </section>
-
-                <section id="Qt">
+                <section id="qt">
 
                     <h4>Preguntas</h4>
                     <div className="hbar"></div>
 
-                    <h4 id="Qt1">
-                        {lab.raw_questions[0]}
+                    <h4 id="qt1">
+                        {LAB.raw_questions[0]}
                     </h4>
                     <p className="mb-4">
                         Lo más trascendental que se pudo notar de la charla es la capacidad de
@@ -47,8 +53,8 @@ export const Lab1: React.FC = () => {
                         que al día de hoy no podemos imaginar nuestras vidas sin ellas, las cuales son
                         puertas para conectarnos con el mundo.
                     </p>
-                    <h4 id="Qt2">
-                        {lab.raw_questions[1]}
+                    <h4 id="qt2">
+                        {LAB.raw_questions[1]}
                     </h4>
                     <p>
                         Más que una situación cotidiana el paralelismo entre las computadoras antiguas y
@@ -67,8 +73,8 @@ export const Lab1: React.FC = () => {
                         resuelva correctamente todas las instrucciones que se le impongan
                     </p>
 
-                    <h4 id="Qt3" className="mb-2">
-                        {lab.raw_questions[2]}
+                    <h4 id="qt3" className="mb-2">
+                        {LAB.raw_questions[2]}
                     </h4>
                     <table className="table table-hover">
                         <thead>
@@ -119,8 +125,8 @@ export const Lab1: React.FC = () => {
                         capacidad
                     </p>
 
-                    <h4 id="Qt4">
-                        {lab.raw_questions[3]}
+                    <h4 id="qt4">
+                        {LAB.raw_questions[3]}
                     </h4>
                     <p>
                         La transformación digital es un proceso que conlleva a la aplicación e integración de tecnologías
@@ -137,8 +143,8 @@ export const Lab1: React.FC = () => {
                         revolución industrial.
                     </p>
 
-                    <h4 id="Qt5">
-                        {lab.raw_questions[4]}
+                    <h4 id="qt5">
+                        {LAB.raw_questions[4]}
                     </h4>
                     <p>
                         Concordamos con que la pandemia COVID-19 ha acelerado la transformación
@@ -158,8 +164,8 @@ export const Lab1: React.FC = () => {
                         aceleración de la transformación digital.
                     </p>
 
-                    <h4 id="Qt6">
-                        {lab.raw_questions[5]}
+                    <h4 id="qt6">
+                        {LAB.raw_questions[5]}
                     </h4>
                     <p>
                         La invención del transistor es sin duda un aporte que ha influido en el
@@ -227,7 +233,7 @@ export const Lab1: React.FC = () => {
                     </p>
                 </section>
             </div>
-        </div>
+        </>
     )
 }
 

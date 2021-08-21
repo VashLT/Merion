@@ -1,25 +1,22 @@
 import React from 'react';
 
-const mapSection = (section: Isection, index: number) => {
+const mapSection = (section: IbiblioSection, index: number) => {
     return (
         <>
-            <a
+            <Section
+                {...section}
                 key={'s' + index}
-                href={section.href}
-                className="list-group-item list-group-item-action tof-item" >
-                {section.displayName}
-            </a>
+                className="list-group-item list-group-item-action tof-item"
+            />
             {"subSections" in section
                 ? section.subSections!.map(
                     (subSection, index) => {
                         return (
-                            <a
+                            <Section
+                                {...subSection}
                                 key={'ss' + index}
-                                href={subSection.href}
                                 className="list-group-item list-group-item-action tof-item__subsection"
-                            >
-                                {subSection.displayName}
-                            </a>
+                            />
                         )
                     })
                 : ""
@@ -39,6 +36,30 @@ export const TableOfContent: React.FC<TableOfContentProps> = ({ sections }) => {
 
         </section>
     );
+}
+
+const goToElementById = (id: string) => {
+    const element = document.getElementById(id) as HTMLElement;
+    if (!element) {
+        console.log(`element with id: ${id} is not in the document. `);
+        return;
+    }
+    console.log("goToElementById", { element });
+    element.scrollIntoView();
+}
+
+const Section: React.FC<BiblioSectionProps> = ({ targetId, displayName, key, className }) => {
+
+    return (
+        <a
+            key={key}
+            href={`#${targetId}`}
+            className={className}
+            onClick={() => goToElementById(targetId)}
+        >
+            {displayName}
+        </a>
+    )
 }
 
 export default TableOfContent;
