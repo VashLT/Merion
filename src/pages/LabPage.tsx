@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import labs from '../data/labs';
 import { useParams } from "react-router-dom";
 
@@ -19,16 +19,39 @@ export const LabPage: React.FC = () => {
 
     const labId = parseInt(params.labId);
 
+    useEffect(() => {
+        // no id in url
+        if (!window.location.href.includes('#')) return;
+
+        const targetId = window.location.href.split('#').slice(-1)[0];
+        const target = document.getElementById(targetId) as HTMLElement;
+
+        if (!target) return;
+
+        target.scrollIntoView();
+
+    });
+
     if (!labExists(labId)) return <LabNotFound />;
+
+    var Lab;
 
     switch (labId) {
         case 1:
-            return <Lab1 />
+            Lab = Lab1;
+            break;
         case 2:
-            return <Lab2 />
+            Lab = Lab2;
+            break;
         default:
-            return <LabNotFound />
+            Lab = Lab1;
     }
+
+    return (
+        <div className="lab" id="labSheet">
+            <Lab />
+        </div>
+    );
 }
 
 const LabNotFound: React.FC = () => {
