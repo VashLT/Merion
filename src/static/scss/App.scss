@@ -1,5 +1,5 @@
 // colors, common widths and more
-@import "./constants";
+@import "./variables";
 
 // Containers
 @import "./containers";
@@ -9,8 +9,6 @@
 @import "./other";
 
 @import "./position";
-
-@import "./variables.scss";
 
 body,
 html {
