@@ -55,16 +55,21 @@ interface LabFileProps {
     src: string;
 }
 
-interface IbiblioSection {
+interface ITOFItem {
+    key?: string;
     targetId: string;
     displayName: string;
+    className?: string;
     subSections?: {
+        key?: string;
         targetId: string;
         displayName: string;
     }[]
 }
 
-interface TableOfContentProps {
+type TOFSectionProps = ITOFItem;
+
+interface TOFContentProps {
     sections: Isection[];
 }
 
@@ -106,12 +111,27 @@ interface IbibItem {
     srcLinkName?: string;
 }
 
-interface BiblioProps {
-    items: IbibItem[];
+interface Ibiblio {
     title?: string;
+    items: IbibItem[];
 }
+
+type BiblioProps = Ibiblio;
 
 type BiblioSectionProps = IbiblioSection & IntrinsicProps & {
     key: string;
     subSections?: any;
+}
+
+interface Ilab {
+    id: number;
+    header: string;
+    title: string;
+    raw_questions: string[];
+}
+
+interface LabProps {
+    tableOfContent: ITOFItem[];
+    biblio: Ibiblio;
+    data: Ilab;
 }

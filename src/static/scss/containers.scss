@@ -1,6 +1,6 @@
-@import './constants';
-@import './position';
-@import './fonts.scss';
+@import "./variables";
+@import "./position";
+@import "./fonts.scss";
 
 .c {
     display: flex;
@@ -99,6 +99,68 @@
         align-items: flex-start !important;
         justify-content: space-around;
     }
+
+    &-other__labs {
+        display: flex;
+        justify-content: space-between;
+        width: 90vw;
+        max-width: 1100px;
+        min-width: 300px;
+
+        margin-top: 20px;
+        margin-bottom: 50px;
+
+        & a {
+            min-width: 100px;
+            width: 7vw;
+            max-width: 250px;
+            height: 30px;
+
+            text-align: center;
+            text-decoration: none;
+            line-height: 30px;
+            border-radius: $c-radius;
+
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color: map-get($colors, "blue");
+            color: white;
+
+            transition: all 0.2s ease-in;
+
+            &:hover {
+                background-color: map-get($colors, "blue__hover");
+                text-decoration: none;
+
+                &.lab__previous::before {
+                    transform: translateX(-10px);
+                }
+
+                &.lab__next::after {
+                    transform: translateX(10px);
+                }
+            }
+
+            &.lab__next {
+                margin-left: auto;
+            }
+
+            &::before,
+            &::after {
+                transition: all 0.2s ease-in;
+                display: inline-block;
+            }
+
+            &.lab__previous::before {
+                margin-right: 5px;
+                content: "\2190";
+            }
+
+            &.lab__next::after {
+                margin-left: 5px;
+                content: "\2192";
+            }
+        }
+    }
 }
 
 .lab {
@@ -150,8 +212,7 @@
     &-item {
         @extend .clicky;
         &:hover {
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
-                rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
         }
     }
     &-qt {
@@ -166,7 +227,7 @@
 #labSheet {
     @extend .c;
 
-    font-family: 'Computer Modern Serif', serif;
+    font-family: "Computer Modern Serif", serif;
 
     max-width: 1100px;
     min-width: 300px;
@@ -179,7 +240,7 @@
     transition: all 0.2s ease-in-out;
 
     padding: 30px 40px 40px;
-    margin: 40px 0;
+    margin-top: 40px;
 
     background-color: $sheet-color;
 
@@ -199,7 +260,7 @@
     }
 
     &:hover {
-        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     }
 }
 
