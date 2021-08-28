@@ -1,6 +1,6 @@
 import React from 'react';
 
-const mapSection = (section: IbiblioSection, index: number) => {
+const mapSection = (section: ITOFItem, index: number) => {
     return (
         <>
             <Section
@@ -25,7 +25,7 @@ const mapSection = (section: IbiblioSection, index: number) => {
     )
 }
 
-export const TableOfContent: React.FC<TableOfContentProps> = ({ sections }) => {
+export const TableOfContent: React.FC<TOFContentProps> = ({ sections }) => {
     return (
         <section id="TOC">
             <h4>Contenido del laboratorio</h4>
@@ -44,17 +44,16 @@ const goToElementById = (id: string) => {
         console.log(`element with id: ${id} is not in the document. `);
         return;
     }
-    console.log("goToElementById", { element });
     element.scrollIntoView();
 }
 
-const Section: React.FC<BiblioSectionProps> = ({ targetId, displayName, key, className }) => {
+const Section: React.FC<TOFSectionProps> = ({ targetId, displayName, key, className }) => {
 
     return (
         <a
-            key={key}
+            key={key ? key : `tofS${targetId}`}
             href={`#${targetId}`}
-            className={className}
+            className={className ? className : ""}
             onClick={() => goToElementById(targetId)}
         >
             {displayName}

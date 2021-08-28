@@ -41,6 +41,15 @@ let labs = [
             `${staticRoot}/lab2/gates/DMux8Way.hdl`
         ],
         zip: `${staticRoot}/lab2/grupo4_lab2.zip`
+    },
+    {
+        id: 3,
+        header: "Laboratorio 3",
+        title: "Aritmética Booleana Y Lógica Secuencial",
+        raw_questions: [
+            "¿Cuál es el objetivo de ese proyecto con sus palabras y describa que debe hacer para desarrollarlo?"
+        ],
+        date: "3 de Septiembre del 2021",
     }
 ];
 
