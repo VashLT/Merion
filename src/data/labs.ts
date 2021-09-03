@@ -50,6 +50,24 @@ let labs = [
             "¿Cuál es el objetivo de ese proyecto con sus palabras y describa que debe hacer para desarrollarlo?"
         ],
         date: "3 de Septiembre del 2021",
+        files: [
+            `${staticRoot}/lab3/chips/HalfAdder.hdl`,
+            `${staticRoot}/lab3/chips/FullAdder.hdl`,
+            `${staticRoot}/lab3/chips/Add16.hdl`,
+            `${staticRoot}/lab3/chips/Inc16_1.hdl`,
+            `${staticRoot}/lab3/chips/Inc16_2.hdl`,
+            `${staticRoot}/lab3/chips/ALU-nostat.hdl`,
+            `${staticRoot}/lab3/chips/ALU.hdl`,
+            `${staticRoot}/lab3/chips/Bit.hdl`,
+            `${staticRoot}/lab3/chips/Register.hdl`,
+            `${staticRoot}/lab3/chips/RAM8.hdl`,
+            `${staticRoot}/lab3/chips/RAM64.hdl`,
+            `${staticRoot}/lab3/chips/RAM512.hdl`,
+            `${staticRoot}/lab3/chips/RAM4K.hdl`,
+            `${staticRoot}/lab3/chips/RAM16K.hdl`,
+            `${staticRoot}/lab3/chips/PC.hdl`,
+        ],
+        zip: `${staticRoot}/lab3/grupo4_lab3.zip`
     }
 ];
 
