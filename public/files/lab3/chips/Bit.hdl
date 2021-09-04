@@ -9,6 +9,6 @@ CHIP Bit {
     OUT out;
 
     PARTS:
-        Mux(a=outG4, b=in, sel=load, out=wG4);
-        DFF(in=wG4, out=outG4, out=out);
+        Mux(a=outG4, b=in, sel=load, out=toRegister);
+        DFF(in=toRegister, out=outG4, out=out);
 }

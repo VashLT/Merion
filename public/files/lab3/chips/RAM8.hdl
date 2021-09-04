@@ -1,0 +1,23 @@
+/**
+ * Memory of 8 registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+CHIP RAM8 {
+    IN in[16], load, address[3];
+    OUT out[16];
+
+    PARTS:
+        DMux8Way(in=load, sel=address, a=la, b=lb, c=lc, d=ld, e=le, f=lf, g=lg, h=lh);
+        Register(in=in, load=la, out=ra);
+        Register(in=in, load=lb, out=rb);
+        Register(in=in, load=lc, out=rc);
+        Register(in=in, load=ld, out=rd);
+        Register(in=in, load=le, out=re);
+        Register(in=in, load=lf, out=rf);
+        Register(in=in, load=lg, out=rg);
+        Register(in=in, load=lh, out=rh);
+        Mux8Way16(a=ra, b=rb, c=rc, d=rd, e=re, f=rf, g=rg, h=rh, sel=address, out=out);
+}
