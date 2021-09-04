@@ -102,7 +102,7 @@ interface FigureProps {
     imgStyle?: { [key: string]: string; }
     title: string;
     figIndex: string;
-    src: string;
+    src?: string;
 }
 
 interface IbibItem {

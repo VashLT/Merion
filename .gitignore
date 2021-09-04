@@ -8,6 +8,7 @@ settings.py
 # npm
 node_modules/
 
+todo.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -242,4 +243,3 @@ dist
 
 # TernJS port file
 .tern-port
-
