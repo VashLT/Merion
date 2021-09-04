@@ -173,7 +173,7 @@ export const Lab3: React.FC = () => {
                         title='Esquema de referencia para el chip "Half Adder"'
                         figIndex="1"
                         img={HALFADDER}
-                        imgStyle={{ height: "150px" }}
+                        imgStyle={{ height: "160px" }}
                         src="https://es.m.wikipedia.org/wiki/Archivo:Half_Adder.svg"
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -194,8 +194,7 @@ export const Lab3: React.FC = () => {
                         title='Esquema de referencia para el chip "Full Adder"'
                         figIndex="3"
                         img={FULLADDER}
-                        imgStyle={{ height: "250px" }}
-                        src="#"
+                        imgStyle={{ height: "120px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/FullAdder.hdl`} />
@@ -221,7 +220,6 @@ export const Lab3: React.FC = () => {
                         figIndex="5"
                         img={ADD16}
                         imgStyle={{ height: "300px" }}
-                        src="#"
                     />
                     <p>El código para el chip se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/Add16.hdl`} />
@@ -323,7 +321,7 @@ export const Lab3: React.FC = () => {
                         title='Esquema de referencia para el chip "Bit"'
                         figIndex="14"
                         img={BIT}
-                        imgStyle={{ height: "200px" }}
+                        imgStyle={{ height: "150px" }}
                         src="#"
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -461,7 +459,7 @@ export const Lab3: React.FC = () => {
                         title='Esquema de referencia para el chip "PC"'
                         figIndex="23"
                         img={PC}
-                        imgStyle={{ height: "400px" }}
+                        imgStyle={{ height: "500px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/PC.hdl`} />
