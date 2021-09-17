@@ -9,7 +9,7 @@ export const Figure: React.FC<FigureProps> = ({ img, src, title, figIndex, imgCl
                 className={imgClass ? imgClass : ""}
                 style={imgStyle ? imgStyle : {}}
             />
-            <p><strong>Fig. {figIndex}. </strong>&nbsp;{title}.
+            <p><strong>Fig. {figIndex}. </strong>&nbsp;{title}.&nbsp;
                 {src ?
                     <a href={src} title="Fuente de la figura">Fuente</a>
                     : ""

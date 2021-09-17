@@ -1,4 +1,5 @@
-const staticRoot = "/files";
+import { CDN_DOMAIN } from "../utils/constants";
+const STATIC_ROOT = `${CDN_DOMAIN}/files`;
 
 let labs = [
     {
@@ -24,23 +25,23 @@ let labs = [
         ],
         date: "30 de Abril del 2021",
         files: [
-            `${staticRoot}/lab2/gates/Not.hdl`,
-            `${staticRoot}/lab2/gates/And.hdl`,
-            `${staticRoot}/lab2/gates/Or.hdl`,
-            `${staticRoot}/lab2/gates/Xor.hdl`,
-            `${staticRoot}/lab2/gates/Mux.hdl`,
-            `${staticRoot}/lab2/gates/Dmux.hdl`,
-            `${staticRoot}/lab2/gates/Not16.hdl`,
-            `${staticRoot}/lab2/gates/And16.hdl`,
-            `${staticRoot}/lab2/gates/Or16.hdl`,
-            `${staticRoot}/lab2/gates/Mux16.hdl`,
-            `${staticRoot}/lab2/gates/Or8Way.hdl`,
-            `${staticRoot}/lab2/gates/Mux4Way16.hdl`,
-            `${staticRoot}/lab2/gates/Mux8Way16.hdl`,
-            `${staticRoot}/lab2/gates/DMux4Way.hdl`,
-            `${staticRoot}/lab2/gates/DMux8Way.hdl`
+            `${STATIC_ROOT}/lab2/gates/Not.hdl`,
+            `${STATIC_ROOT}/lab2/gates/And.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Or.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Xor.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Mux.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Dmux.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Not16.hdl`,
+            `${STATIC_ROOT}/lab2/gates/And16.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Or16.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Mux16.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Or8Way.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Mux4Way16.hdl`,
+            `${STATIC_ROOT}/lab2/gates/Mux8Way16.hdl`,
+            `${STATIC_ROOT}/lab2/gates/DMux4Way.hdl`,
+            `${STATIC_ROOT}/lab2/gates/DMux8Way.hdl`
         ],
-        zip: `${staticRoot}/lab2/grupo4_lab2.zip`
+        zip: `${STATIC_ROOT}/lab2/grupo4_lab2.zip`
     },
     {
         id: 3,
@@ -51,23 +52,23 @@ let labs = [
         ],
         date: "3 de Septiembre del 2021",
         files: [
-            `${staticRoot}/lab3/chips/HalfAdder.hdl`,
-            `${staticRoot}/lab3/chips/FullAdder.hdl`,
-            `${staticRoot}/lab3/chips/Add16.hdl`,
-            `${staticRoot}/lab3/chips/Inc16_1.hdl`,
-            `${staticRoot}/lab3/chips/Inc16_2.hdl`,
-            `${staticRoot}/lab3/chips/ALU-nostat.hdl`,
-            `${staticRoot}/lab3/chips/ALU.hdl`,
-            `${staticRoot}/lab3/chips/Bit.hdl`,
-            `${staticRoot}/lab3/chips/Register.hdl`,
-            `${staticRoot}/lab3/chips/RAM8.hdl`,
-            `${staticRoot}/lab3/chips/RAM64.hdl`,
-            `${staticRoot}/lab3/chips/RAM512.hdl`,
-            `${staticRoot}/lab3/chips/RAM4K.hdl`,
-            `${staticRoot}/lab3/chips/RAM16K.hdl`,
-            `${staticRoot}/lab3/chips/PC.hdl`,
+            `${STATIC_ROOT}/lab3/chips/HalfAdder.hdl`,
+            `${STATIC_ROOT}/lab3/chips/FullAdder.hdl`,
+            `${STATIC_ROOT}/lab3/chips/Add16.hdl`,
+            `${STATIC_ROOT}/lab3/chips/Inc16_1.hdl`,
+            `${STATIC_ROOT}/lab3/chips/Inc16_2.hdl`,
+            `${STATIC_ROOT}/lab3/chips/ALU-nostat.hdl`,
+            `${STATIC_ROOT}/lab3/chips/ALU.hdl`,
+            `${STATIC_ROOT}/lab3/chips/Bit.hdl`,
+            `${STATIC_ROOT}/lab3/chips/Register.hdl`,
+            `${STATIC_ROOT}/lab3/chips/RAM8.hdl`,
+            `${STATIC_ROOT}/lab3/chips/RAM64.hdl`,
+            `${STATIC_ROOT}/lab3/chips/RAM512.hdl`,
+            `${STATIC_ROOT}/lab3/chips/RAM4K.hdl`,
+            `${STATIC_ROOT}/lab3/chips/RAM16K.hdl`,
+            `${STATIC_ROOT}/lab3/chips/PC.hdl`,
         ],
-        zip: `${staticRoot}/lab3/grupo4_lab3.zip`
+        zip: `${STATIC_ROOT}/lab3/grupo4_lab3.zip`
     }
 ];
 

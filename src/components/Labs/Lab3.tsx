@@ -9,6 +9,8 @@ import GateSection from '../Other/GateSection';
 import DownloadFilesButton from './DownloadFilesButton';
 import Lab from './Lab';
 
+import { CDN_DOMAIN } from '../../utils/constants';
+
 // project 2
 import HALFADDER from '../../static/images/lab3/diagrams/HALFADDER.svg';
 import FULLADDER from '../../static/images/lab3/diagrams/FULLADDER.svg';
@@ -22,8 +24,8 @@ import PC from '../../static/images/lab3/diagrams/PC.svg';
 
 import getUserOS from '../../utils/os';
 
-const FILES_PATH = "/files/lab3/chips";
-const STATIC_PATH = "https://dv48ee7zws6x0.cloudfront.net/static/media"
+const FILES_PATH = `/files/lab3/chips`;
+const STATIC_PATH = `${CDN_DOMAIN}/static/media`;
 const LAB = labs[2];
 
 const sections: ITOFItem[] = [
@@ -146,7 +148,7 @@ export const Lab3: React.FC = () => {
             </Section>
 
             <Section id="chips" title="2. Chips">
-                <p>Cada una de los chips programados para el laboratorio fueron testeadas con un <a href={"/files/HardwareSimulator." + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
+                <p>Cada una de los chips programados para el laboratorio fueron testeadas con un <a href={`${CDN_DOMAIN}/files/HardwareSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
 
                 <GateSection className="section__gate" title="HalfAdder" id="half-adder">
                     <p>Para construir el “half adder” se hace uso de dos compuertas, una compuerta XOR que recibe dos entradas (<em>A</em> y <em>B</em>) y tiene como salida la suma <em>S</em>, y una compuerta AND que recibe estas mismas dos entradas pero como salida tiene el bit de carga <em>C</em>. </p>

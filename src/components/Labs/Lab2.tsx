@@ -9,34 +9,14 @@ import Figure from '../Figure';
 import GateSection from '../Other/GateSection';
 import DownloadFilesButton from './DownloadFilesButton';
 
-import NOT from '../../static/images/lab2/diagrams/NOT.png';
-import AND from '../../static/images/lab2/diagrams/AND.svg';
+import { CDN_DOMAIN } from '../../utils/constants';
+
 import OR from '../../static/images/lab2/diagrams/OR.png';
-import XOR from '../../static/images/lab2/diagrams/XOR.png';
-import MUX from '../../static/images/lab2/diagrams/MUX.svg';
-import DMUX from '../../static/images/lab2/diagrams/DMUX.svg';
-
-import NOTtest from '../../static/images/lab2/tests/NOT.png';
-import ANDtest from '../../static/images/lab2/tests/AND.png';
-import ORtest from '../../static/images/lab2/tests/OR.png';
-import XORtest from '../../static/images/lab2/tests/XOR.png';
-import MUXtest from '../../static/images/lab2/tests/MUX.png';
-import DMUXtest from '../../static/images/lab2/tests/DMUX.png';
-import NOT16test from '../../static/images/lab2/tests/NOT16.png';
-import AND16test from '../../static/images/lab2/tests/AND16.png';
-import OR16test from '../../static/images/lab2/tests/OR16.png';
-import OR8WAYtest from '../../static/images/lab2/tests/OR8WAY.png';
-import MUX16test from '../../static/images/lab2/tests/MUX16.png';
-import MUX4WAY16test from '../../static/images/lab2/tests/MUX4WAY16.png';
-import MUX8WAY16test from '../../static/images/lab2/tests/MUX8WAY16.png';
-import DMUX4WAYtest from '../../static/images/lab2/tests/DMUX4WAY.png';
-import DMUX8WAYtest from '../../static/images/lab2/tests/DMUX8WAY.png';
-
 
 import getUserOS from '../../utils/os';
 
 const FILES_PATH = "/files/lab2/gates";
-
+const STATIC_PATH = `${CDN_DOMAIN}/static/media`;
 const LAB = labs[1];
 
 const sections: ITOFItem[] = [
@@ -177,14 +157,14 @@ export const Lab2: React.FC = () => {
 
 
             <Section id="gates" title="2. Compuertas Lógicas">
-                <p>Cada una de las compuertas programadas para el laboratorio fueron testeadas con un <a href={"/files/HardwareSimulator." + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de las mismas.</p>
+                <p>Cada una de las compuertas programadas para el laboratorio fueron testeadas con un <a href={`${CDN_DOMAIN}/files/HardwareSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de las mismas.</p>
 
                 <GateSection className="section__gate" title="Not" id="not">
                     <p>Para construir la compuerta NOT simplemente se hace pasar la entrada por una compuerta NAND, de esta manera siempre se conseguirá el valor opuesto de la entrada. </p>
                     <Figure
                         title="Compuerta NOT construida con una NAND"
                         figIndex="1"
-                        img={NOT}
+                        img={`${STATIC_PATH}/NOT.a553550c.png`}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
                     <p>El código para la compuerta se presenta a continuación: </p>
@@ -193,8 +173,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta NOT"
                         figIndex="2"
-                        img={NOTtest}
-                        src={NOTtest}
+                        img={`${STATIC_PATH}/NOT.82fcae2d.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -204,7 +183,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Compuerta AND construida con NANDs"
                         figIndex="3"
-                        img={AND}
+                        img={`${STATIC_PATH}/AND.99ac3f1f.svg`}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
                     <p>El código para la compuerta se presenta a continuación: </p>
@@ -213,8 +192,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta AND"
                         figIndex="4"
-                        img={ANDtest}
-                        src={ANDtest}
+                        img={`${STATIC_PATH}/AND.71088206.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -234,8 +212,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta OR"
                         figIndex="6"
-                        img={ORtest}
-                        src={ORtest}
+                        img={`${STATIC_PATH}/OR.3e952c3c.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -251,7 +228,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Compuerta OR construida con NANDs"
                         figIndex="7"
-                        img={XOR}
+                        img={`${STATIC_PATH}/XOR.8d3e153e.png`}
                         imgStyle={{ height: "120px" }}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
@@ -261,8 +238,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta XOR"
                         figIndex="8"
-                        img={XORtest}
-                        src={XORtest}
+                        img={`${STATIC_PATH}/XOR.c7f57f53.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -273,7 +249,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Compuerta MUX construida con NAND, AND y OR"
                         figIndex="9"
-                        img={MUX}
+                        img={`${STATIC_PATH}/MUX.bcd2b266.svg`}
                         imgStyle={{ height: "150px" }}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
@@ -283,8 +259,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta MUX"
                         figIndex="10"
-                        img={MUXtest}
-                        src={MUXtest}
+                        img={`${STATIC_PATH}/MUX.07bdaede.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -295,7 +270,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Compuerta MUX construida con NAND, AND y OR"
                         figIndex="11"
-                        img={DMUX}
+                        img={`${STATIC_PATH}/DMUX.3d449eaf.svg`}
                         imgStyle={{ height: "150px" }}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
@@ -305,8 +280,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta DMUX"
                         figIndex="12"
-                        img={DMUXtest}
-                        src={DMUXtest}
+                        img={`${STATIC_PATH}/DMUX.347b12ef.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -318,8 +292,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta NOT16"
                         figIndex="13"
-                        img={NOT16test}
-                        src={NOT16test}
+                        img={`${STATIC_PATH}/NOT16.2147a81c.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -331,8 +304,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta AND16"
                         figIndex="14"
-                        img={AND16test}
-                        src={AND16test}
+                        img={`${STATIC_PATH}/AND16.cd6b22bf.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -344,8 +316,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta OR16"
                         figIndex="14"
-                        img={OR16test}
-                        src={OR16test}
+                        img={`${STATIC_PATH}/OR16.3daf1e64.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -357,8 +328,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta MUX16"
                         figIndex="15"
-                        img={MUX16test}
-                        src={MUX16test}
+                        img={`${STATIC_PATH}/MUX16.d869cab7.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -371,8 +341,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta OR8WAY"
                         figIndex="16"
-                        img={OR8WAYtest}
-                        src={OR8WAYtest}
+                        img={`${STATIC_PATH}/OR8WAY.4e7a5a8b.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -387,8 +356,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta MUX4WAY16"
                         figIndex="17"
-                        img={MUX4WAY16test}
-                        src={MUX4WAY16test}
+                        img={`${STATIC_PATH}/MUX4WAY16.40dd6c40.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -403,8 +371,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta MUX8WAY16"
                         figIndex="6"
-                        img={MUX8WAY16test}
-                        src={MUX8WAY16test}
+                        img={`${STATIC_PATH}/MUX8WAY16.165ec31c.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -420,8 +387,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta DMUX4WAY"
                         figIndex="18"
-                        img={DMUX4WAYtest}
-                        src={DMUX4WAYtest}
+                        img={`${STATIC_PATH}/DMUX4WAY.978f9421.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -436,8 +402,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta DMUX8WAY"
                         figIndex="19"
-                        img={DMUX8WAYtest}
-                        src={DMUX8WAYtest}
+                        img={`${STATIC_PATH}/DMUX8WAY.825c329b.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
