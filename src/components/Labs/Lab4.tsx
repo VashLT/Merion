@@ -12,7 +12,7 @@ import Lab from './Lab';
 import { CDN_DOMAIN } from '../../utils/constants';
 
 // project 2
-import HALFADDER from '../../static/images/lab3/diagrams/HALFADDER.svg';
+import MULT from '../../static/images/lab4/MULT.svg';
 import FULLADDER from '../../static/images/lab3/diagrams/FULLADDER.svg';
 import ADD16 from '../../static/images/lab3/diagrams/ADD16.svg';
 import INC16 from '../../static/images/lab3/diagrams/INC16.svg';
@@ -49,7 +49,7 @@ const sections: ITOFItem[] = [
             },
             {
                 targetId: "fill",
-                displayName: "Manejo I/O (Input and Output)"
+                displayName: "Llenado con Manejo I/O (Input and Output)"
             },
         ]
     },
@@ -98,7 +98,7 @@ export const Lab3: React.FC = () => {
             tableOfContent={sections}
             biblio={bibliography}
         >
-            <Section id="questions" title="1. Preguntas">
+            <Section id="machine-lang" title="1. Preguntas">
                 <LabAnswer
                     id="qt1"
                     question={LAB.raw_questions[0]}
@@ -118,44 +118,57 @@ export const Lab3: React.FC = () => {
             </Section>
 
             <Section id="chips" title="2. Lenguaje de Máquina">
-                <p>Cada una de los chips programados para el laboratorio fueron testeadas con un <a href={`${CDN_DOMAIN}/files/HardwareSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
+                <p>Tanto la multiplicación como el programa de manejo de la pantalla (manipulación de pixeles desde el teclado) fueron testeados utilizando un <a href={`${CDN_DOMAIN}/files/CPUSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de CPU</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
 
                 <GateSection className="section__gate" title="Multiplicación" id="mult">
-                    <p>Para construir el “half adder” se hace uso de dos compuertas, una compuerta XOR que recibe dos entradas (<em>A</em> y <em>B</em>) y tiene como salida la suma <em>S</em>, y una compuerta AND que recibe estas mismas dos entradas pero como salida tiene el bit de carga <em>C</em>. </p>
-                    {/* <Figure
-                        title='Esquema de referencia para el chip "Half Adder"'
-                        figIndex="1"
-                        img={HALFADDER}
-                        imgStyle={{ height: "160px" }}
-                        src="https://es.m.wikipedia.org/wiki/Archivo:Half_Adder.svg"
-                    /> */}
-                    <p>El código para el chip se presenta a continuación: </p>
-                    <CodeBlock filePath={`${FILES_PATH}/Mult.asm`} />
-                    <p>Utilizando el simulador de Hardware, se testeó el chip y pasó las pruebas sin ningún problema. </p>
+                    <p>Se implementó un programa para multiplar dos números, dicho programa está escrito en el lenguaje <i>Hack</i>. Para realizar la multiplicación se formó el siguiente proceso: </p>
+                    <ol>
+                        <li>Poner la dirección de memoria del resultado (<em>R2</em>) en 0</li>
+                        <li>verificar si los dos números en las direcciones <em>R1</em> y <em>R2</em> no son menores que 0, en caso de que lo sean de va al final del programa y se finaliza, si el valor en <em>R0</em> es 0 se intercambian <em>R1</em> y <em>R0</em> en caso contrario se deja sin modificar</li>
+                        <li>se almacena el valor de <em>R0</em> en <em>R3</em> y se inicia un loop que se ejecutará <em>R0</em> veces sumando en cada iteracion el valor de <em>R1</em> a <em>R2</em> y restando 1 de <em>R3</em> para llevar el conteo, este loop se ejecutará mientras <em>R3</em> sea mayor que 0</li>
+                    </ol>
+                    <p>En el <strong>Fig. 1.</strong> se muestra el flujo lógico del programa. Se destaca también algunas limitaciones del programa, pues en este se asume que los números a multiplicar son mayores que 0, y debido a la arquitectura del computador para el cual va a ser utilizado, el valor máximo de las multiplicaciones es 32 768.
+                    </p>
                     <Figure
-                        title="Test para chip HalfAdder"
+                        title='Diagrama de flujo del programa de multiplicación'
+                        figIndex="1"
+                        img={MULT}
+                        imgStyle={{ height: "700px" }}
+                    />
+                    <p>El código para el chip se presenta a continuación: </p>
+                    <CodeBlock filePath={`${FILES_PATH}/Mult.asm`} lang="c" />
+                    <p>Utilizando el simulador de CPU, se testeó el programa y pasó las pruebas sin ningún problema. </p>
+                    <Figure
+                        title="Test automático para el programa de Multiplicación"
                         figIndex="2"
                         img={`/files/lab4/tests/MULT.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
 
-                <GateSection className="section__gate" title="Fill" id="fill">
-                    <p>Para construir el “half adder” se hace uso de dos compuertas, una compuerta XOR que recibe dos entradas (<em>A</em> y <em>B</em>) y tiene como salida la suma <em>S</em>, y una compuerta AND que recibe estas mismas dos entradas pero como salida tiene el bit de carga <em>C</em>. </p>
-                    {/* <Figure
-                        title='Esquema de referencia para el chip "Half Adder"'
-                        figIndex="1"
-                        img={HALFADDER}
-                        imgStyle={{ height: "160px" }}
-                        src="https://es.m.wikipedia.org/wiki/Archivo:Half_Adder.svg"
-                    /> */}
-                    <p>El código para el chip se presenta a continuación: </p>
+                <GateSection className="section__gate" title="Llenado con Manejo I/O (Fill I/O Handling)" id="fill">
+                    <p>El programa de llenado mediante el manejo de entrada y salida (Fill I/O Handling) realiza un <i>loop</i> infinito en el cual escucha a entradas del teclado y cambia el color de los pixeles en la pantalla. Para realizar lo anterior se sigue el siguiente proceso:
+                        <ol>
+                            <li>se obtiene el valor del teclado ingresado, se verifica que se haya pulsado una tecla (Sea mayor que 0) si es así se mueve al bloque <em>ON</em>.</li>
+                            <li>se pone el valor de dibujo en -1.</li>
+                            <li>se pasa al bloque <em>DRAW</em>, donde se genera un ciclo el cual recorrerá todas las posiciones de la pantalla rellenandolas de negro. </li>
+                            <li>cuando se deja de presionar una tecla se pondrá el valor de dibujo en 0, por lo que realizará el mismo proceso descrito anteriormente pero poniendo todas las posiciones en blanco.</li>
+                        </ol>
+                    </p>
+                    <p>El código del programa se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/Fill.asm`} />
-                    <p>Utilizando el simulador de Hardware, se testeó el chip y pasó las pruebas sin ningún problema. </p>
+                    <p>Utilizando el simulador de CPU, se realizaron dos tests, uno manual y otro automático, en ambos casos  el programa pasó las pruebas sin ningún problema. </p>
                     <Figure
-                        title="Test para chip HalfAdder"
-                        figIndex="2"
+                        title="Test manual para el programa de llenado por teclado"
+                        figIndex="3"
                         img={`/files/lab4/tests/FILL.png`}
+                        imgClass="img__test"
+                    />
+
+                    <Figure
+                        title="Test automático para el programa de llenado por teclado"
+                        figIndex="4"
+                        img={`/files/lab4/tests/FILL_AUTO.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -166,7 +179,9 @@ export const Lab3: React.FC = () => {
                 <p>Cada una de los chips programados para el laboratorio fueron testeadas con un <a href={`${CDN_DOMAIN}/files/HardwareSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
 
                 <GateSection className="section__gate" title="Memoría" id="memory">
-                    <p>Para construir el “half adder” se hace uso de dos compuertas, una compuerta XOR que recibe dos entradas (<em>A</em> y <em>B</em>) y tiene como salida la suma <em>S</em>, y una compuerta AND que recibe estas mismas dos entradas pero como salida tiene el bit de carga <em>C</em>. </p>
+                    <p>El chip de memoria es utilizado por la CPU para poder almacenar, acceder y procesar los datos del computador. Este chip tiene 3 entradas ( <em>in[16]</em> , <em>load</em>, <em>address[15]</em> ) y 1 salida( <em>out[16]</em> ).</p>
+
+                    <p>En la computadora se encuentran dos memorias, una que va a almacenar los datos y la otra memoria será la encargada de almacenar las instrucciones, estas memorias consisten en 32k registros de 16 bits.</p>
                     {/* <Figure
                         title='Esquema de referencia para el chip "Half Adder"'
                         figIndex="1"
@@ -198,7 +213,7 @@ export const Lab3: React.FC = () => {
                     <CodeBlock filePath={`${FILES_PATH}/CPU.hdl`} />
                     <p>Utilizando el simulador de Hardware, se testeó el chip y pasó las pruebas sin ningún problema. </p>
                     <Figure
-                        title="Test para chip HalfAdder"
+                        title="Test para chip CPU"
                         figIndex="2"
                         img={`/files/lab4/tests/CPU.png`}
                         imgClass="img__test"
@@ -215,22 +230,22 @@ export const Lab3: React.FC = () => {
                         src="https://es.m.wikipedia.org/wiki/Archivo:Half_Adder.svg"
                     /> */}
                     <p>El código para el chip se presenta a continuación: </p>
-                    <CodeBlock filePath={`${FILES_PATH}/CPU.hdl`} />
-                    <p>Utilizando el simulador de Hardware, se testeó el chip y pasó las pruebas sin ningún problema. </p>
+                    <CodeBlock filePath={`${FILES_PATH}/Computer.hdl`} />
+                    <p>Utilizando el simulador de Hardware, se realizaron tres tests para el computador, un test realizando la operación de adición, otro para la operación <strong>max</strong> y un último de dibujado de un rectangulo en pantalla. En todos los casos, el computador pasó las pruebas sin ningún problema. </p>
                     <Figure
-                        title="Test para chip HalfAdder"
+                        title="Test de adición para el computador"
                         figIndex="2"
                         img={`/files/lab4/tests/COMPUTER_ADD.png`}
                         imgClass="img__test"
                     />
                     <Figure
-                        title="Test para chip HalfAdder"
+                        title="Test de operación max para el computador"
                         figIndex="2"
                         img={`/files/lab4/tests/COMPUTER_MAX.png`}
                         imgClass="img__test"
                     />
                     <Figure
-                        title="Test para chip HalfAdder"
+                        title="Test de dibujado en pantalla para el computador"
                         figIndex="2"
                         img={`/files/lab4/tests/COMPUTER_RECT.png`}
                         imgClass="img__test"

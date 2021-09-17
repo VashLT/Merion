@@ -3,7 +3,7 @@ import React, { useCallback, useState, useLayoutEffect } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
+const CodeBlock: React.FC<CodeBlockProps> = ({ filePath, lang }) => {
     const [fileContent, setFileContent] = useState<string | null>(null);
 
     const loadFile = useCallback(async () => {
@@ -29,7 +29,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ filePath }) => {
 
     return (
         <SyntaxHighlighter
-            language="c"
+            language={lang ? lang : "c"}
             style={docco}
             showLineNumbers={true}
         >

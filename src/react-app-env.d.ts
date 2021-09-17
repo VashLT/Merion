@@ -85,6 +85,7 @@ interface DownloadFilesButtonProps {
 
 interface CodeBlockProps {
     filePath: string;
+    lang?: string;
 }
 
 type LabAnswerProps = IntrinsicProps & {

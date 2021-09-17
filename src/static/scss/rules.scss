@@ -122,7 +122,8 @@
         background-color: rgba(214, 214, 218, 0.52) !important;
     }
 
-    p {
+    p,
+    li {
         em {
             background-color: rgba(0, 0, 0, 0.03);
             border-radius: $c-radius;
