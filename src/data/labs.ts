@@ -69,6 +69,23 @@ let labs = [
             `${STATIC_ROOT}/lab3/chips/PC.hdl`,
         ],
         zip: `${STATIC_ROOT}/lab3/grupo4_lab3.zip`
+    },
+    {
+        id: 4,
+        header: "Laboratorio 4",
+        title: "Lenguaje de Máquina y Arquitectura Computacional",
+        raw_questions: [
+            "¿Cuál es el objetivo de cada uno de esos proyectos con sus palabras y describa que debe hacer para desarrollarlo?"
+        ],
+        date: "17 de Septiembre del 2021",
+        files: [
+            `${STATIC_ROOT}/lab4/assembly/mult.asm`,
+            `${STATIC_ROOT}/lab4/assembly/fill.asm`,
+            `${STATIC_ROOT}/lab4/chips/memory.hdl`,
+            `${STATIC_ROOT}/lab4/chips/cpu.hdl`,
+            `${STATIC_ROOT}/lab4/chips/computer.hdl`,
+        ],
+        zip: `${STATIC_ROOT}/lab4/grupo4_lab4.zip`
     }
 ];
 

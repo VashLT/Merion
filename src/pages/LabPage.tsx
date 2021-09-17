@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Lab1 from '../components/Labs/Lab1';
 import Lab2 from '../components/Labs/Lab2';
 import Lab3 from '../components/Labs/Lab3';
+import Lab4 from '../components/Labs/Lab4';
 
 export const LabPage: React.FC = () => {
     const params: IlabUrlParams = useParams();
@@ -40,8 +41,11 @@ export const LabPage: React.FC = () => {
         case 3:
             Lab = Lab3;
             break;
+        case 4:
+            Lab = Lab4;
+            break;
         default:
-            Lab = LabNotFound;
+            return <LabNotFound />;
     }
 
     return (
