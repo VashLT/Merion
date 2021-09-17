@@ -244,7 +244,7 @@
 
     background-color: $sheet-color;
 
-    section:not(#TOC, #files) a {
+    section:not(#TOC):not(#files) a {
         font-weight: 550;
         color: hsl(221, 38%, 52%);
         &:hover {

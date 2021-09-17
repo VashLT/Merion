@@ -124,11 +124,12 @@
 
     p {
         em {
-            background-color: rgba(0, 0, 0, 0.062);
+            background-color: rgba(0, 0, 0, 0.03);
             border-radius: $c-radius;
-            font-family: Consolas, Monaco, Lucida Console, Liberation Mono, monospace;
+            font-family: FMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
             font-style: normal;
             font-size: 16px;
+            padding: 2px;
         }
     }
 
@@ -140,6 +141,10 @@
         // center img
         display: block;
         margin: 0 auto;
+    }
+
+    li {
+        font-size: 18px;
     }
 }
 
