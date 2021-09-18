@@ -11,21 +11,10 @@ import Lab from './Lab';
 
 import { CDN_DOMAIN } from '../../utils/constants';
 
-// project 2
-import MULT from '../../static/images/lab4/MULT.svg';
-import FULLADDER from '../../static/images/lab3/diagrams/FULLADDER.svg';
-import ADD16 from '../../static/images/lab3/diagrams/ADD16.svg';
-import INC16 from '../../static/images/lab3/diagrams/INC16.svg';
-import INC16_2 from '../../static/images/lab3/diagrams/INC16_2.svg';
-import ALU from '../../static/images/lab3/diagrams/ALU.svg';
-import BIT from '../../static/images/lab3/diagrams/BIT.svg';
-import PC from '../../static/images/lab3/diagrams/PC.svg';
-
-
 import getUserOS from '../../utils/os';
 
 const FILES_PATH = `/files/lab4/chips`;
-const STATIC_PATH = `${CDN_DOMAIN}/static/media`;
+const STATIC_PATH = `${CDN_DOMAIN}/files/lab4`;
 const LAB = labs[3];
 
 const sections: ITOFItem[] = [
@@ -102,7 +91,7 @@ export const Lab4: React.FC = () => {
             tableOfContent={sections}
             biblio={bibliography}
         >
-            <Section id="machine-lang" title="1. Preguntas">
+            <Section id="questions" title="1. Preguntas">
                 <LabAnswer
                     id="qt1"
                     question={LAB.raw_questions[0]}
@@ -116,7 +105,7 @@ export const Lab4: React.FC = () => {
                 </LabAnswer>
             </Section>
 
-            <Section id="chips" title="2. Lenguaje de Máquina">
+            <Section id="machine-lang" title="2. Lenguaje de Máquina">
                 <p>Tanto el programa de multiplicación como el de llenado mediante teclado fueron testeados utilizando un <a href={`${CDN_DOMAIN}/files/CPUSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de CPU</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
 
                 <GateSection className="section__gate" title="Multiplicación" id="mult">
@@ -131,7 +120,7 @@ export const Lab4: React.FC = () => {
                     <Figure
                         title='Diagrama de flujo del programa de multiplicación'
                         figIndex="1"
-                        img={MULT}
+                        img={`${STATIC_PATH}/MULT.svg`}
                         imgStyle={{ height: "700px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -140,7 +129,7 @@ export const Lab4: React.FC = () => {
                     <Figure
                         title="Test automático para el programa de Multiplicación"
                         figIndex="2"
-                        img={`/files/lab4/tests/MULT.png`}
+                        img={`${STATIC_PATH}/tests/MULT.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -160,14 +149,14 @@ export const Lab4: React.FC = () => {
                     <Figure
                         title="Test manual para el programa de llenado por teclado"
                         figIndex="3"
-                        img={`/files/lab4/tests/FILL.png`}
+                        img={`${STATIC_PATH}/tests/FILL.png`}
                         imgClass="img__test"
                     />
 
                     <Figure
                         title="Test automático para el programa de llenado por teclado"
                         figIndex="4"
-                        img={`/files/lab4/tests/FILL_AUTO.png`}
+                        img={`${STATIC_PATH}/tests/FILL_AUTO.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -184,7 +173,7 @@ export const Lab4: React.FC = () => {
                     <Figure
                         title='Componentes con acceso a la memoría'
                         figIndex="5"
-                        img={`/files/lab4/MEMORY.png`}
+                        img={`${STATIC_PATH}/MEMORY.png`}
                         imgStyle={{ height: "300px" }}
                         src="https://drive.google.com/file/d/1nEptWuRpFF9zmqlKYq6s1UfDB_dd16vx/view"
                     />
@@ -199,7 +188,7 @@ export const Lab4: React.FC = () => {
                     <Figure
                         title="Test para chip HalfAdder"
                         figIndex="6"
-                        img={`/files/lab4/tests/MEMORY.png`}
+                        img={`${STATIC_PATH}/tests/MEMORY.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -215,7 +204,7 @@ export const Lab4: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el CPU'
                         figIndex="7"
-                        img={`/files/lab4/CPU.jpeg`}
+                        img={`${STATIC_PATH}/CPU.jpeg`}
                         imgStyle={{ height: "500px" }}
                         src="https://drive.google.com/file/d/1nEptWuRpFF9zmqlKYq6s1UfDB_dd16vx/view"
                     />
@@ -226,7 +215,7 @@ export const Lab4: React.FC = () => {
                     <Figure
                         title="Test para chip CPU"
                         figIndex="8"
-                        img={`/files/lab4/tests/CPU.png`}
+                        img={`${STATIC_PATH}/tests/CPU.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -238,7 +227,7 @@ export const Lab4: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "Half Adder"'
                         figIndex="9"
-                        img={`/files/lab4/COMPUTER.png`}
+                        img={`${STATIC_PATH}/COMPUTER.png`}
                         imgStyle={{ height: "350px" }}
                         src="https://drive.google.com/file/d/1nEptWuRpFF9zmqlKYq6s1UfDB_dd16vx/view"
                     />
@@ -251,19 +240,19 @@ export const Lab4: React.FC = () => {
                     <Figure
                         title="Test de adición para el computador"
                         figIndex="10"
-                        img={`/files/lab4/tests/COMPUTER_ADD.png`}
+                        img={`${STATIC_PATH}/tests/COMPUTER_ADD.png`}
                         imgClass="img__test"
                     />
                     <Figure
                         title="Test de operación max para el computador"
                         figIndex="11"
-                        img={`/files/lab4/tests/COMPUTER_MAX.png`}
+                        img={`${STATIC_PATH}/tests/COMPUTER_MAX.png`}
                         imgClass="img__test"
                     />
                     <Figure
                         title="Test de dibujado en pantalla para el computador"
                         figIndex="12"
-                        img={`/files/lab4/tests/COMPUTER_RECT.png`}
+                        img={`${STATIC_PATH}/tests/COMPUTER_RECT.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
