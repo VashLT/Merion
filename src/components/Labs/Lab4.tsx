@@ -59,11 +59,11 @@ const sections: ITOFItem[] = [
         subSections: [
             {
                 targetId: "memory",
-                displayName: "Memoria"
+                displayName: "Memoría"
             },
             {
                 targetId: "cpu",
-                displayName: "Unidad Central de Proeso (CPU)"
+                displayName: "Unidad Central de Proceso (CPU)"
             },
             {
                 targetId: "computer",
@@ -87,11 +87,15 @@ const bibliography: Ibiblio = {
         {
             srcName: "Noam N., Shimon S. (2005, Junio). Capítulo 4 y 5, The Elements of Computing Systems: Building a Modern Computer from First Principles. [Libro]",
             srcLink: "https://b1391bd6-da3d-477d-8c01-38cdf774495a.filesusr.com/ugd/44046b_d70026d8c1424487a451eaba3e372132.pdf",
+        },
+        {
+            srcName: "Evaluación de Rendimiento de Sistemas Computacionales. (2020, noviembre). [Artículo]",
+            srcLink: "https://archourlives.blogspot.com/2020/11/evaluacion-de-rendimiento-de-sistemas.html",
         }
     ]
 }
 
-export const Lab3: React.FC = () => {
+export const Lab4: React.FC = () => {
     return (
         <Lab
             data={LAB}
@@ -103,22 +107,17 @@ export const Lab3: React.FC = () => {
                     id="qt1"
                     question={LAB.raw_questions[0]}
                 >
-                    <p>Para este cuarto laboratorio, desarrollaremos el <a href="https://www.nand2tetris.org/project04" title="ir al proyecto">proyecto 4</a> y <a href="https://www.nand2tetris.org/project05" title="ir al proyecto">proyecto 5</a> llamado "Programación en Lenguaje de Máquina" y "Arquitectura de Computador" respectivamente. En el proyecto de "Programación en Lenguaje de Máquina" el objetivo primordial es aprender sobre el funcionamiento de las operaciones aritméticas, con ayuda de las compuertas lógicas construidas en el proyecto anterior, para finalmente llegar a construir una Unidad Aritmética Lógica (ALU).</p>
-                    <p>
-                        Para el desarrollo de esta actividad empezamos con una consulta del reglamento básico de la suma binaria luego desarrollamos una primera tabla de verdad que tenía en cuenta  la suma de dos números y el resultado de esta suma con su <strong>carry</strong>, para obtener el circuito correspondiente a esta tabla utilizamos un método llamado <strong>mapa de karnaugh</strong> y ya con el circuito procedemos  hacer el diseño en HDL. Para el sumador completo, que tiene en cuenta aparte de las suma de dos números la suma del carry, unimos dos <a href="#half-adder" title="Ir al chip">Half Adder</a>. Posteriormente, para el sumador de 16 bits se utilizó un sumador <a href="#half-adder" title="Ir al chip">Half Adder</a> seguido de 15 <a href="#full-adder" title="Ir al chip">Full Adder</a>.conectados en secuencia para que el bit de carry se conecte a una entrada del siguiente sumador.
-                    </p>
-                    <p>Por otro lado, para el <a href="#inc16" title="Ir al chip">16-bit Incrementer</a> utilizamos 16 <a href="#half-adder" title="Ir al chip">Half Adder</a> en secuencia y en la primera entrada <em>b</em> le asignamos el valor de <em>true</em> como un incremento de una unidad. Por último, para la realización del <a href="#ALU" title="Ir al chip">ALU</a> se toma de <a href="https://b1391bd6-da3d-477d-8c01-38cdf774495a.filesusr.com/ugd/44046b_89c60703ebfc4bf39acef13bdc050f5d.pdf" title="Descargar guía">guía</a> la tabla que nos proporciona el curso nand2tetris, y con base en esta y a los chips anteriormente realizados construimos nuestro chip ALU.
-
-                    </p>
+                    <p>Para este cuarto laboratorio, desarrollaremos el <a href="https://www.nand2tetris.org/project04" title="ir al proyecto">proyecto 4</a> y <a href="https://www.nand2tetris.org/project05" title="ir al proyecto">proyecto 5</a> llamado "Programación en Lenguaje de Máquina" y "Arquitectura de Computador" respectivamente. Para el proyecto 4 el objetivo es que el estudiante se familiarice con los lenguajes de bajo nivel y mediante la ayuda de la herramienta assembler aprecie la traducción que se hace desde el lenguaje simbólico (entendible por humanos) al lenguaje de máquina (código binario entendible por maquinas). Adicionalmente, se tiene una herramienta para visualizar el almacenamiento en memoria llamada "CPU emulator" donde se visualiza la manera en que son almacenados los datos.</p>
 
                     <p>
-                        En el proyecto tres el objetivo es construir gradualmente unidades de almacenamiento como la RAM (Random Access Memory) e introducirnos con la construcción de chips secuenciales (dependientes de los ciclos del reloj). Para esto, tenemos que repasar conceptos de lógica secuencial y  aprender sobre el funcionamiento de los flip-flps y cómo por medio de ellos podemos construir chips que nos permiten almacenar bits de manera persistente a lo largo del tiempo. Abriendo lo anterior nuevas posibilidades, y a su vez nuevos retos como, por ejemplo, implementar mecanismos para localizar (“direccionar”) el registro de memoria en el que deseamos operar.
+                        Para el proyecto 5 el objetivo general es emplear lo aprendido en el proyecto anterior y construir una computadora llamada "Hack". Para lo anterior se requiere un buen entendimiento de como funcionan las computadoras a bajo nivel (lenguaje de máquina y el hardware subyacente) para poder ensamblar dicho computador con lo que se ha programado hasta este punto. Además, se utilizarán los chips que se implementaron en proyectos anteriores como (AND, OR, NOT,  MUX, ALU y demás) para programar los componentes faltantes (CPU y MEMORY). Dicha computadora tendrá la capacidad de ejecutar los programas escritos en lenguaje de máquina e inclusive dibujar rectangulos en pantalla.
                     </p>
+
                 </LabAnswer>
             </Section>
 
             <Section id="chips" title="2. Lenguaje de Máquina">
-                <p>Tanto la multiplicación como el programa de manejo de la pantalla (manipulación de pixeles desde el teclado) fueron testeados utilizando un <a href={`${CDN_DOMAIN}/files/CPUSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de CPU</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
+                <p>Tanto el programa de multiplicación como el de llenado mediante teclado fueron testeados utilizando un <a href={`${CDN_DOMAIN}/files/CPUSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de CPU</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
 
                 <GateSection className="section__gate" title="Multiplicación" id="mult">
                     <p>Se implementó un programa para multiplar dos números, dicho programa está escrito en el lenguaje <i>Hack</i>. Para realizar la multiplicación se formó el siguiente proceso: </p>
@@ -176,77 +175,94 @@ export const Lab3: React.FC = () => {
             </Section>
 
             <Section id="chips" title="3. Chips">
-                <p>Cada una de los chips programados para el laboratorio fueron testeadas con un <a href={`${CDN_DOMAIN}/files/HardwareSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
+                <p>Cada una de los chips programados para el proyecto 5 de nand2tetris fueron testeados con un <a href={`${CDN_DOMAIN}/files/HardwareSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
 
                 <GateSection className="section__gate" title="Memoría" id="memory">
-                    <p>El chip de memoria es utilizado por la CPU para poder almacenar, acceder y procesar los datos del computador. Este chip tiene 3 entradas ( <em>in[16]</em> , <em>load</em>, <em>address[15]</em> ) y 1 salida( <em>out[16]</em> ).</p>
+                    <p>El chip de memoria es utilizado por la <a href="#CPU" title="ir al chip">CPU</a> para poder almacenar, acceder y procesar los datos del computador. Para objetivos del proyecto, se utilizarán dos memorias, una para almacenar los datos y la otra memoria almacenará tanto datos como instrucciones.</p>
 
-                    <p>En la computadora se encuentran dos memorias, una que va a almacenar los datos y la otra memoria será la encargada de almacenar las instrucciones, estas memorias consisten en 32k registros de 16 bits.</p>
-                    {/* <Figure
-                        title='Esquema de referencia para el chip "Half Adder"'
-                        figIndex="1"
-                        img={HALFADDER}
-                        imgStyle={{ height: "160px" }}
-                        src="https://es.m.wikipedia.org/wiki/Archivo:Half_Adder.svg"
-                    /> */}
+                    <p>Este chip requiere dos piezas de información: los datos y el destino. El destino de los datos puede ser la RAM o la pantalla, por lo que se emplea un <a href="/labs/2#dmux4way" title="Ir al chip">DMUX4WAY</a> para procesarlo.</p>
+                    <Figure
+                        title='Componentes con acceso a la memoría'
+                        figIndex="5"
+                        img={`/files/lab4/MEMORY.png`}
+                        imgStyle={{ height: "300px" }}
+                        src="https://drive.google.com/file/d/1nEptWuRpFF9zmqlKYq6s1UfDB_dd16vx/view"
+                    />
+                    <p>La memoria funciona de la siguiente manera: </p>
+                    <ol>
+                        <li>si <em>load = 1</em>, <em>in[16]</em> es guardado en la dirección definida por <em>address[15]</em> y la salida muestra dicho valor.</li>
+                        <li>si <em>load = 0</em>, solo se muestra como salida el valor que se almacene en el registro que se encuentra en la dirección definida por <em>address[15]</em>.</li>
+                    </ol>
                     <p>El código para el chip se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/Memory.hdl`} />
                     <p>Utilizando el simulador de Hardware, se testeó el chip y pasó las pruebas sin ningún problema. </p>
                     <Figure
                         title="Test para chip HalfAdder"
-                        figIndex="2"
+                        figIndex="6"
                         img={`/files/lab4/tests/MEMORY.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
 
                 <GateSection className="section__gate" title="Unidad Central de Proceso (CPU)" id="cpu">
-                    <p>Para construir el “half adder” se hace uso de dos compuertas, una compuerta XOR que recibe dos entradas (<em>A</em> y <em>B</em>) y tiene como salida la suma <em>S</em>, y una compuerta AND que recibe estas mismas dos entradas pero como salida tiene el bit de carga <em>C</em>. </p>
-                    {/* <Figure
-                        title='Esquema de referencia para el chip "Half Adder"'
-                        figIndex="1"
-                        img={HALFADDER}
-                        imgStyle={{ height: "160px" }}
-                        src="https://es.m.wikipedia.org/wiki/Archivo:Half_Adder.svg"
-                    /> */}
+                    <p>Esta pieza es fundamental en la arquitectura de una computadora, es la encargada de controlar la ejecución de las operaciones. Para que una CPU tenga la capacidad de poder llevar acabo  sus operaciones, esta se basa en tres dispositivos de hardware: </p>
+                    <ul>
+                        <li><a href="/labs/3#ALU" title="ir al chip">Unidad Aritmética Lógica (ALU)</a></li>
+                        <li><a href="/labs/3#register" title="ir al chip">Registros</a></li>
+                        <li>Unidad de Control</li>
+                    </ul>
+                    <p>En cuanto a la implementación, con base en el diagrama de la <strong>Fig. 7.</strong> se implementó una CPU de 16-bit. Esta consta de dos módulos de memoria, uno que será usado para los datos y el faltante será usado para las instrucciones --la memoria de instrucciones será solo de lectura (ROM). además, para el correcto funcionamiento interno de esta, se cuenta con tres registros D,A Y PC.</p>
+                    <Figure
+                        title='Esquema de referencia para el CPU'
+                        figIndex="7"
+                        img={`/files/lab4/CPU.jpeg`}
+                        imgStyle={{ height: "500px" }}
+                        src="https://drive.google.com/file/d/1nEptWuRpFF9zmqlKYq6s1UfDB_dd16vx/view"
+                    />
+                    <p>El registro D solo almacenará datos; El registro A será el encargado de almacenar datos y direcciones de los dos módulos de memoria. Las operaciones que la CPU va a realizar son de dos tipos, para poder acceder a palabras en cualquiera de las dos memorias o una operación lógica llevada a finalidad por la <a href="/labs/3#ALU" title="ir al chip">ALU</a>. Estas instrucciones tendrán una cantidad de bits reservados para la condición de salto, la cual es opcional, y determinará la siguiente instrucción que se debe ejecutar. Si un salto se realiza en el registro, PC toma el valor de dirección señalado en el registro A, de lo contrario PC se incrementa en uno.</p>
                     <p>El código para el chip se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/CPU.hdl`} />
                     <p>Utilizando el simulador de Hardware, se testeó el chip y pasó las pruebas sin ningún problema. </p>
                     <Figure
                         title="Test para chip CPU"
-                        figIndex="2"
+                        figIndex="8"
                         img={`/files/lab4/tests/CPU.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
 
                 <GateSection className="section__gate" title="Computador" id="computer">
-                    <p>Para construir el “half adder” se hace uso de dos compuertas, una compuerta XOR que recibe dos entradas (<em>A</em> y <em>B</em>) y tiene como salida la suma <em>S</em>, y una compuerta AND que recibe estas mismas dos entradas pero como salida tiene el bit de carga <em>C</em>. </p>
-                    {/* <Figure
+                    <p>El computador se desarrolló utilizando una <a href="#CPU" title="ir al chip">CPU</a>, una memoria de datos y una memoria de instrucciones  llamada ROM32k, tal y como se muestra en <strong>Fig. 9.</strong>. Por un lado, el chip ROM32k (nativo de nand2tetris) recibe como entrada <em>address</em> (dirección), y devuelve una <em>instruction</em> (instrucción) la cual hará parte de una de las entradas de la CPU. Esta ultima tiene como entradas <em>instruction</em>, <em>inM</em> ( la salida de la memoría) y <em>reset</em>, y sus salidas corresponden a <em>writeM</em>, <em>outM</em>, <em>addressM</em>, <em>pc</em> la cual sirve de entrada para la ROM32K. </p>
+
+                    <p>Por otro lado, el chip <a href="#memory" title="ir al chip">MEMORY</a> recibe como entradas <em>outCPU</em>, <em>writeM</em> (si debe cargar o sobreescribir), <em>addressM</em> (dirección en memoria) y su salida es inM, la cual es una entrada de la CPU.</p>
+                    <Figure
                         title='Esquema de referencia para el chip "Half Adder"'
-                        figIndex="1"
-                        img={HALFADDER}
-                        imgStyle={{ height: "160px" }}
-                        src="https://es.m.wikipedia.org/wiki/Archivo:Half_Adder.svg"
-                    /> */}
-                    <p>El código para el chip se presenta a continuación: </p>
+                        figIndex="9"
+                        img={`/files/lab4/COMPUTER.png`}
+                        imgStyle={{ height: "350px" }}
+                        src="https://drive.google.com/file/d/1nEptWuRpFF9zmqlKYq6s1UfDB_dd16vx/view"
+                    />
+
+                    <p>Con todo lo anterior, se tiene una computadora de 16-bit funcional capaz de: Almacenar valores en memoría (<a href="#memory" title="ir al chip">MEMORY</a>); Cargar instrucciones de una memoria de solo lectura (ROM32K); Realizar operaciones lógicas y aritméticas, recibir entradas del teclado e incluso manipular las intensidades de los pixeles en pantalla (<a href="#CPU" title="ir al chip">CPU</a>).</p>
+
+                    <p>El código para el computador se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/Computer.hdl`} />
                     <p>Utilizando el simulador de Hardware, se realizaron tres tests para el computador, un test realizando la operación de adición, otro para la operación <strong>max</strong> y un último de dibujado de un rectangulo en pantalla. En todos los casos, el computador pasó las pruebas sin ningún problema. </p>
                     <Figure
                         title="Test de adición para el computador"
-                        figIndex="2"
+                        figIndex="10"
                         img={`/files/lab4/tests/COMPUTER_ADD.png`}
                         imgClass="img__test"
                     />
                     <Figure
                         title="Test de operación max para el computador"
-                        figIndex="2"
+                        figIndex="11"
                         img={`/files/lab4/tests/COMPUTER_MAX.png`}
                         imgClass="img__test"
                     />
                     <Figure
                         title="Test de dibujado en pantalla para el computador"
-                        figIndex="2"
+                        figIndex="12"
                         img={`/files/lab4/tests/COMPUTER_RECT.png`}
                         imgClass="img__test"
                     />
@@ -269,4 +285,4 @@ export const Lab3: React.FC = () => {
     );
 }
 
-export default Lab3;
+export default Lab4;

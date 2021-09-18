@@ -22,11 +22,20 @@ CHIP Memory {
     OUT out[16];
 
     PARTS:
-        DMux4Way(in=load, sel=address[13..14], a=leftRAM1, b=leftRAM2, c=leftScreen, d=leftKey);
-        Or(a=leftRAM1, b=leftRAM2, out=loadRAM);
-        RAM16K(in=in, load=loadRAM, address=address[0..13], out=outRAM);
-        Screen(in=in, load=leftScreen, address=address[0..12], out=outScreen);
-        Keyboard(out=keyOut);
-        Mux4Way16(a=outRAM, b=outRAM, c=outScreen, d=keyOut, sel=address[13..14], out=out);
+        // load right data located at address
+        // bits 13 and 14 of address dictates the destination (RAM or Screen)
+        // if address[13..14] = 00 | 01 then dest = RAM, else if address[13..14] = 10 then dest = Screen
+        DMux4Way(in=load, sel=address[13..14], a=RAM1, b=RAM2, c=screen, d=keyboard);
+
+        Or(a=RAM1, b=RAM2, out=RAM);
+
+        // bits from 0 to 13 index correspond to the actual address
+        RAM16K(in=in, load=RAM, address=address[0..13], out=outRAM);
+
+        // 14 bits are available, however, 13 bits is all what
+        // the Hack's screen needs
+        Screen(in=in, load=screen, address=address[0..12], out=outScreen);
+        Keyboard(out=outKeyboard);
+        Mux4Way16(a=outRAM, b=outRAM, c=outScreen, d=outKeyboard, sel=address[13..14], out=out);
 
 }
