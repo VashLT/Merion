@@ -25,7 +25,7 @@ import PC from '../../static/images/lab3/diagrams/PC.svg';
 import getUserOS from '../../utils/os';
 
 const FILES_PATH = `/files/lab3/chips`;
-const STATIC_PATH = `${CDN_DOMAIN}/static/media`;
+const STATIC_PATH = `${CDN_DOMAIN}/files/lab3`;
 const LAB = labs[2];
 
 const sections: ITOFItem[] = [
@@ -155,7 +155,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "Half Adder"'
                         figIndex="1"
-                        img={HALFADDER}
+                        img={`${STATIC_PATH}/HALFADDER.svg`}
                         imgStyle={{ height: "160px" }}
                         src="https://es.m.wikipedia.org/wiki/Archivo:Half_Adder.svg"
                     />
@@ -165,7 +165,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para chip HalfAdder"
                         figIndex="2"
-                        img={`${STATIC_PATH}/HALFADDER.a6b34ae2.png`}
+                        img={`${STATIC_PATH}/tests/HALFADDER.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -175,7 +175,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "Full Adder"'
                         figIndex="3"
-                        img={FULLADDER}
+                        img={`${STATIC_PATH}/FULLADDER.svg`}
                         imgStyle={{ height: "120px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -184,7 +184,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para chip FullAdder"
                         figIndex="4"
-                        img={`${STATIC_PATH}/FULLADDER.c800918c.png`}
+                        img={`${STATIC_PATH}/tests/FULLADDER.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -199,7 +199,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "16-bit Add"'
                         figIndex="5"
-                        img={ADD16}
+                        img={`${STATIC_PATH}/ADD16.svg`}
                         imgStyle={{ height: "300px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -208,7 +208,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para compuerta NOT"
                         figIndex="6"
-                        img={`${STATIC_PATH}/ADD16.d9232142.png`}
+                        img={`${STATIC_PATH}/tests/ADD16.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -220,7 +220,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "16-bit incrementer" (Método 1)'
                         figIndex="7"
-                        img={INC16}
+                        img={`${STATIC_PATH}/INC16.svg`}
                         imgStyle={{ height: "320px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -229,7 +229,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para el chip Inc16 (solución 1)"
                         figIndex="8"
-                        img={`${STATIC_PATH}/INC16_1.fc5e90b3.png`}
+                        img={`${STATIC_PATH}/tests/INC16_1.png`}
                         imgClass="img__test"
                     />
                     <h5>Solución 2</h5>
@@ -237,7 +237,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "16-bit incrementer" (Método 2)'
                         figIndex="9"
-                        img={INC16_2}
+                        img={`${STATIC_PATH}/INC16_2.svg`}
                         imgStyle={{ height: "70px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -246,7 +246,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para el chip Inc16 (solución 2)"
                         figIndex="10"
-                        img={`${STATIC_PATH}/INC16_2.5c8cdf9e.png`}
+                        img={`${STATIC_PATH}/tests/INC16_2.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -262,7 +262,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para compuerta ALU sin estados"
                         figIndex="11"
-                        img={`${STATIC_PATH}/ALU-NOSTAT.684b9b13.png`}
+                        img={`${STATIC_PATH}/tests/ALU-NOSTAT.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -278,7 +278,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "ALU"'
                         figIndex="12"
-                        img={ALU}
+                        img={`${STATIC_PATH}/ALU.svg`}
                         imgStyle={{ height: "820px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -287,7 +287,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para compuerta NOT"
                         figIndex="13"
-                        img={`${STATIC_PATH}/ALU.f2080d0b.png`}
+                        img={`${STATIC_PATH}/tests/ALU.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -297,7 +297,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "Bit"'
                         figIndex="14"
-                        img={BIT}
+                        img={`${STATIC_PATH}/BIT.svg`}
                         imgStyle={{ height: "150px" }}
                         src="#"
                     />
@@ -307,7 +307,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para chip Bit"
                         figIndex="15"
-                        img={`${STATIC_PATH}/BIT.724d67fd.png`}
+                        img={`${STATIC_PATH}/tests/BIT.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -317,7 +317,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "Register"'
                         figIndex="16"
-                        img={BIT}
+                        img={`${STATIC_PATH}/BIT.svg`}
                         imgStyle={{ height: "150px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -326,7 +326,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para chip Register"
                         figIndex="17"
-                        img={`${STATIC_PATH}/REGISTER.edca5ab6.png`}
+                        img={`${STATIC_PATH}/tests/REGISTER.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -344,7 +344,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para 8-bit RAM"
                         figIndex="18"
-                        img={`${STATIC_PATH}/RAM8.dad3aeb4.png`}
+                        img={`${STATIC_PATH}/tests/RAM8.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -361,7 +361,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para 64-bit RAM"
                         figIndex="19"
-                        img={`${STATIC_PATH}/RAM64.8a06160a.png`}
+                        img={`${STATIC_PATH}/tests/RAM64.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -379,7 +379,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para 512-bit RAM"
                         figIndex="20"
-                        img={`${STATIC_PATH}/RAM512.5da6ad93.png`}
+                        img={`${STATIC_PATH}/tests/RAM512.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -397,7 +397,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para 4K-bit RAM"
                         figIndex="21"
-                        img={`${STATIC_PATH}/RAM4K.3e7ada83.png`}
+                        img={`${STATIC_PATH}/tests/RAM4K.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -415,7 +415,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para 16K-bit RAM"
                         figIndex="22"
-                        img={`${STATIC_PATH}/RAM16K.10447af1.png`}
+                        img={`${STATIC_PATH}/tests/RAM16K.png`}
                         imgClass="img__test"
                     />
                 </GateSection>
@@ -434,7 +434,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title='Esquema de referencia para el chip "PC"'
                         figIndex="23"
-                        img={PC}
+                        img={`${STATIC_PATH}/PC.svg`}
                         imgStyle={{ height: "500px" }}
                     />
                     <p>El código para el chip se presenta a continuación: </p>
@@ -443,7 +443,7 @@ export const Lab3: React.FC = () => {
                     <Figure
                         title="Test para chip PC"
                         figIndex="24"
-                        img={`${STATIC_PATH}/PC.6fa08822.png`}
+                        img={`${STATIC_PATH}/tests/PC.png`}
                         imgClass="img__test"
                     />
                 </GateSection>

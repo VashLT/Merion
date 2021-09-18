@@ -186,7 +186,7 @@ export const Lab4: React.FC = () => {
                     <CodeBlock filePath={`${FILES_PATH}/Memory.hdl`} />
                     <p>Utilizando el simulador de Hardware, se testeó el chip y pasó las pruebas sin ningún problema. </p>
                     <Figure
-                        title="Test para chip HalfAdder"
+                        title="Test para chip MEMORY"
                         figIndex="6"
                         img={`${STATIC_PATH}/tests/MEMORY.png`}
                         imgClass="img__test"
@@ -221,11 +221,11 @@ export const Lab4: React.FC = () => {
                 </GateSection>
 
                 <GateSection className="section__gate" title="Computador" id="computer">
-                    <p>El computador se desarrolló utilizando una <a href="#CPU" title="ir al chip">CPU</a>, una memoria de datos y una memoria de instrucciones  llamada ROM32k, tal y como se muestra en <strong>Fig. 9.</strong>. Por un lado, el chip ROM32k (nativo de nand2tetris) recibe como entrada <em>address</em> (dirección), y devuelve una <em>instruction</em> (instrucción) la cual hará parte de una de las entradas de la CPU. Esta ultima tiene como entradas <em>instruction</em>, <em>inM</em> ( la salida de la memoría) y <em>reset</em>, y sus salidas corresponden a <em>writeM</em>, <em>outM</em>, <em>addressM</em>, <em>pc</em> la cual sirve de entrada para la ROM32K. </p>
+                    <p>El computador se desarrolló utilizando una <a href="#CPU" title="ir al chip">CPU</a>, una memoria de datos y una memoria de instrucciones  llamada ROM32K, tal y como se muestra en <strong>Fig. 9.</strong>. Por un lado, el chip ROM32K (nativo de nand2tetris) recibe como entrada <em>address</em> (dirección), y devuelve una <em>instruction</em> (instrucción) la cual hará parte de una de las entradas de la CPU. Esta ultima tiene como entradas <em>instruction</em>, <em>inM</em> ( la salida de la memoría) y <em>reset</em>, y sus salidas corresponden a <em>writeM</em>, <em>outM</em>, <em>addressM</em>, <em>pc</em> la cual sirve de entrada para la ROM32K. </p>
 
                     <p>Por otro lado, el chip <a href="#memory" title="ir al chip">MEMORY</a> recibe como entradas <em>outCPU</em>, <em>writeM</em> (si debe cargar o sobreescribir), <em>addressM</em> (dirección en memoria) y su salida es inM, la cual es una entrada de la CPU.</p>
                     <Figure
-                        title='Esquema de referencia para el chip "Half Adder"'
+                        title='Esquema de referencia para el computador'
                         figIndex="9"
                         img={`${STATIC_PATH}/COMPUTER.png`}
                         imgStyle={{ height: "350px" }}
