@@ -79,8 +79,8 @@ let labs = [
         ],
         date: "17 de Septiembre del 2021",
         files: [
-            `${STATIC_ROOT}/lab4/assembly/Mult.asm`,
-            `${STATIC_ROOT}/lab4/assembly/Fill.asm`,
+            `${STATIC_ROOT}/lab4/chips/Mult.asm`,
+            `${STATIC_ROOT}/lab4/chips/Fill.asm`,
             `${STATIC_ROOT}/lab4/chips/Memory.hdl`,
             `${STATIC_ROOT}/lab4/chips/CPU.hdl`,
             `${STATIC_ROOT}/lab4/chips/Computer.hdl`,
