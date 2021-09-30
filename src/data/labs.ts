@@ -79,13 +79,34 @@ let labs = [
         ],
         date: "17 de Septiembre del 2021",
         files: [
-            `${STATIC_ROOT}/lab4/assembly/mult.asm`,
-            `${STATIC_ROOT}/lab4/assembly/fill.asm`,
-            `${STATIC_ROOT}/lab4/chips/memory.hdl`,
-            `${STATIC_ROOT}/lab4/chips/cpu.hdl`,
-            `${STATIC_ROOT}/lab4/chips/computer.hdl`,
+            `${STATIC_ROOT}/lab4/assembly/Mult.asm`,
+            `${STATIC_ROOT}/lab4/assembly/Fill.asm`,
+            `${STATIC_ROOT}/lab4/chips/Memory.hdl`,
+            `${STATIC_ROOT}/lab4/chips/CPU.hdl`,
+            `${STATIC_ROOT}/lab4/chips/Computer.hdl`,
         ],
         zip: `${STATIC_ROOT}/lab4/grupo4_lab4.zip`
+    },
+    {
+        id: 5,
+        header: "Laboratorio 5",
+        title: "Ensamblador",
+        raw_questions: [
+            "¿Cuál es el objetivo de cada uno de esos proyectos con sus palabras y describa que debe hacer para desarrollarlo?"
+        ],
+        date: "1 de Octubre",
+        files: [
+            `${STATIC_ROOT}/lab5/assembler.py`,
+            `${STATIC_ROOT}/lab5/sym_maps.py`,
+            `${STATIC_ROOT}/lab5/assembly/Add.asm`,
+            `${STATIC_ROOT}/lab5/assembly/Max.asm`,
+            `${STATIC_ROOT}/lab5/assembly/MaxL.asm`,
+            `${STATIC_ROOT}/lab5/assembly/Pong.asm`,
+            `${STATIC_ROOT}/lab5/assembly/PongL.asm`,
+            `${STATIC_ROOT}/lab5/assembly/Rect.asm`,
+            `${STATIC_ROOT}/lab5/assembly/RectL.asm`,
+        ],
+        zip: `${STATIC_ROOT}/lab5/grupo4_lab5.zip`
     }
 ];
 
