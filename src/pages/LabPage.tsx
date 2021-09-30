@@ -7,6 +7,7 @@ import Lab1 from '../components/Labs/Lab1';
 import Lab2 from '../components/Labs/Lab2';
 import Lab3 from '../components/Labs/Lab3';
 import Lab4 from '../components/Labs/Lab4';
+import Lab5 from '../components/Labs/Lab5';
 
 export const LabPage: React.FC = () => {
     const params: IlabUrlParams = useParams();
@@ -44,6 +45,9 @@ export const LabPage: React.FC = () => {
         case 4:
             Lab = Lab4;
             break;
+        case 5:
+            Lab = Lab5;
+            break;
         default:
             return <LabNotFound />;
     }
@@ -80,7 +84,7 @@ const LabNotFound: React.FC = () => {
                     <div className="hbar"></div>
                     <p className="mb-5">
                         El laboratorio que buscas todavía no está disponible, recuerda que se
-                        trabajarán 6 laboratorios :).
+                        trabajarán 5 laboratorios :).
                     </p>
                     <Link className="btn btn-primary" to="/labs/" style={{ color: "white" }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-file-earmark-text" viewBox="0 0 16 16">

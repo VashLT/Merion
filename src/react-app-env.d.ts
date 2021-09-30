@@ -73,7 +73,7 @@ interface TOFContentProps {
     sections: Isection[];
 }
 
-interface SectionProps {
+type SectionProps = IntrinsicProps & {
     id: string;
     title: string;
 }
@@ -83,9 +83,10 @@ interface DownloadFilesButtonProps {
     zipSrc: string;
 }
 
-interface CodeBlockProps {
+type CodeBlockProps = IntrinsicProps & {
     filePath: string;
     lang?: string;
+    showLineNumbers?: boolean;
 }
 
 type LabAnswerProps = IntrinsicProps & {
@@ -104,6 +105,11 @@ interface FigureProps {
     title: string;
     figIndex: string;
     src?: string;
+}
+
+type TableProps = IntrinsicProps & {
+    title: string;
+    tableIndex: string;
 }
 
 interface IbibItem {

@@ -1,11 +1,10 @@
 import React from 'react';
 import labs from '../../data/labs';
 
-import Section from '../Section';
+import Section, {SubSection} from '../Section';
 import LabAnswer from './LabAnswer';
-import CodeBlock from '../CodeBlock';
+import CodeBlock from '../Other/CodeBlock';
 import Figure from '../Figure';
-import GateSection from '../Other/GateSection';
 import DownloadFilesButton from './DownloadFilesButton';
 import Lab from './Lab';
 
@@ -150,7 +149,7 @@ export const Lab3: React.FC = () => {
             <Section id="chips" title="2. Chips">
                 <p>Cada una de los chips programados para el laboratorio fueron testeadas con un <a href={`${CDN_DOMAIN}/files/HardwareSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
 
-                <GateSection className="section__gate" title="HalfAdder" id="half-adder">
+                <SubSection className="section__gate" title="HalfAdder" id="half-adder">
                     <p>Para construir el “half adder” se hace uso de dos compuertas, una compuerta XOR que recibe dos entradas (<em>A</em> y <em>B</em>) y tiene como salida la suma <em>S</em>, y una compuerta AND que recibe estas mismas dos entradas pero como salida tiene el bit de carga <em>C</em>. </p>
                     <Figure
                         title='Esquema de referencia para el chip "Half Adder"'
@@ -168,9 +167,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/HALFADDER.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="FullAdder" id="full-adder">
+                <SubSection className="section__gate" title="FullAdder" id="full-adder">
                     <p>La construcción del sumador completo se hizo a partir de dos medios sumadores (Half adder), a diferencia del anterior el sumador completo tiene una entrada adicional para un acarreo.</p>
                     <Figure
                         title='Esquema de referencia para el chip "Full Adder"'
@@ -187,9 +186,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/FULLADDER.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="16-bit Adder" id="add16">
+                <SubSection className="section__gate" title="16-bit Adder" id="add16">
                     <p>El Add 16 se construyó con:</p>
                     <ul>
                         <li>1 medio sumador</li>
@@ -211,9 +210,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/ADD16.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="16-bit incrementer" id="inc16">
+                <SubSection className="section__gate" title="16-bit incrementer" id="inc16">
                     <p>Para este chip se desarrollaron 2 soluciones:</p>
                     <h5>Solución 1</h5>
                     <p>La primera solución se dio basándose en el diagrama, donde se usaron 16 <a href="#half-adder" title="Ir a la compuerta">HALF-ADDER</a> donde la entrada <em>b</em> del primer sumador se pone en <em>True</em>.</p>
@@ -249,9 +248,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/INC16_2.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="ALU sin estados" id="ALU-nostat">
+                <SubSection className="section__gate" title="ALU sin estados" id="ALU-nostat">
                     <p>Este chip se dice que es "sin estados" debido a que no se manejan los estados de la salida de la ALU. En lo que respecta a la implementacion, en primera instancia se cuenta con <em>X</em> y <em>Y</em> que son las dos entradas de 16 bits del chip. <em>zx</em> nos indica si debe poner el 0 o no la entrada <em>x</em>, y a partir de esta  se obtiene una primera salida llamada <em>x1</em>. Posteriormente, lo que se hace es negar <em>x1</em>, para que más adelante y con base en <em>nx</em>, se obtenga la primera salida de 16 bits de la entrada <em>X</em>, estos pasos se repiten con la entrada <em>Y</em>. </p>
 
                     <p>Una vez hecho lo anterior, se realizan las operaciones <em>x+y</em> con un <a href="#add16">ADD16</a> y la operación <em>y*x</em> con un <a href="/labs/1/#and16">AND16</a>, con estos resultados se utiliza un <a href="/labs/2/#mux16">MUX16</a> para seleccionar a partir de <em>f</em> cuál de estas 2 operaciones se llevará a la salida <em>o1</em>. </p>
@@ -265,9 +264,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/ALU-NOSTAT.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="ALU (Unidad Aritmética Lógica)" id="ALU">
+                <SubSection className="section__gate" title="ALU (Unidad Aritmética Lógica)" id="ALU">
                     <p>Este chip juega un papel fundamental para el calculo de operaciones en un procesador. A grandes rasgos, la ALU se encarga de aplicar operaciones aritméticas sobre sus entradas (<em>X</em> y <em>Y</em>). Cada una de las operaciones que se pueden aplicar se controlan mediante las entradas <em>zx</em> (volver cero todos los bits de <em>x</em>), <em>nx</em> (negar el input <em>x</em>), <em>zy</em> (volver cero todos los bits de <em>y</em>), <em>ny</em> (negar el input <em>y</em>), <em>f</em> (puede aplicar la operación suma o la operación AND a las entradas) y <em>no</em> (niega la salida de la ALU).</p>
 
                     <p>En lo que respecta al implementación, en primera instancia se cuenta con <em>X</em> y <em>Y</em> que son las dos entradas de 16 bits del chip. Primero, de acuerdo a <em>zx</em>, nos indica si debe poner el 0 o no la entrada, y a partir de esta  se obtiene una primera salida llamada <em>x1</em>. Posteriormente, lo que se hace es negar <em>x1</em>, para que más adelante y con base en <em>nx</em>, se obtenga la primera salida de 16 bits de la entrada <em>X</em>, estos pasos se repiten con la entrada <em>Y</em>. </p>
@@ -290,9 +289,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/ALU.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Bit" id="bit">
+                <SubSection className="section__gate" title="Bit" id="bit">
                     <p>Este chip es la puerta de entrada para almacenar bits, permite almacenar (load) o leer (read). Lo anterior se controla mediante la entrada <em>load</em> (1 para sobreescribir o 0 para leer).Se parte de la condición de, si <em>load == 1</em> entonces la salida es la entrada <em>in</em>, en caso contrario la salida es la de la operación DFF (Data Flip-Flop). </p>
                     <Figure
                         title='Esquema de referencia para el chip "Bit"'
@@ -310,9 +309,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/BIT.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="16-bit Register" id="register">
+                <SubSection className="section__gate" title="16-bit Register" id="register">
                     <p>Es una extensión del chip <a href="#bit" title="Ir al chip">BIT</a>, haciendolo práctico el hecho de que puede almacenar hasta 16-bits,permitiendo también la lectura/sobreescritura del valor almacenado. Este chip se implementa utilizando 16 <a href="#bit" title="Ir al chip">BIT</a> en cadena para cada uno bits de la entrada.</p>
                     <Figure
                         title='Esquema de referencia para el chip "Register"'
@@ -329,9 +328,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/REGISTER.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="8-bit RAM" id="ram8">
+                <SubSection className="section__gate" title="8-bit RAM" id="ram8">
                     <p>Este chip trabaja con tres entradas y una única salida.</p>
                     <ul>
                         <li>Entradas: in[16], load, address[3]</li>
@@ -347,9 +346,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/RAM8.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="64-bit RAM" id="ram64">
+                <SubSection className="section__gate" title="64-bit RAM" id="ram64">
                     <p>Este chip trabaja con tres entradas y una única salida.</p>
                     <ul>
                         <li>Entradas: in[16], load, address[6]</li>
@@ -364,9 +363,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/RAM64.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="512-bit RAM" id="ram512">
+                <SubSection className="section__gate" title="512-bit RAM" id="ram512">
                     <p>Este chip trabaja con tres entradas y una única salida.</p>
                     <ul>
                         <li>Entradas: in[16], load, address[9]</li>
@@ -382,9 +381,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/RAM512.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="4K-bit RAM" id="ram4k">
+                <SubSection className="section__gate" title="4K-bit RAM" id="ram4k">
                     <p>Este chip trabaja con tres entradas y una única salida.</p>
                     <ul>
                         <li>Entradas: in[16], load, address[12]</li>
@@ -400,9 +399,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/RAM4K.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="16K-bit RAM" id="ram16k">
+                <SubSection className="section__gate" title="16K-bit RAM" id="ram16k">
                     <p>Este chip trabaja con tres entradas y una única salida.</p>
                     <ul>
                         <li>Entradas: in[16], load, address[15]</li>
@@ -418,9 +417,9 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/RAM16K.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="PC (contador de programa)" id="pc">
+                <SubSection className="section__gate" title="PC (contador de programa)" id="pc">
                     <p>Para el “program counter” se emplearon los chips:</p>
                     <ul>
                         <li><a href="#inc16" title="Ir al chip">INC16</a></li>
@@ -446,7 +445,7 @@ export const Lab3: React.FC = () => {
                         img={`${STATIC_PATH}/tests/PC.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
             </Section>
 

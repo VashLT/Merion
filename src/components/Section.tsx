@@ -10,4 +10,13 @@ export const Section: React.FC<SectionProps> = ({ id, title, children }) => {
     );
 }
 
+export const SubSection: React.FC<SectionProps> = ({ title, id, className, children }) => {
+    return (
+        <section className={className ? className : ""} id={id ? id : ""}>
+            <h4>{title}</h4>
+            {children}
+        </section>
+    );
+}
+
 export default Section;

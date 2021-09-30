@@ -1,11 +1,10 @@
 import React from 'react';
 import labs from '../../data/labs';
 
-import Section from '../Section';
+import Section, { SubSection } from '../Section';
 import LabAnswer from './LabAnswer';
-import CodeBlock from '../CodeBlock';
+import CodeBlock from '../Other/CodeBlock';
 import Figure from '../Figure';
-import GateSection from '../Other/GateSection';
 import DownloadFilesButton from './DownloadFilesButton';
 import Lab from './Lab';
 
@@ -108,7 +107,7 @@ export const Lab4: React.FC = () => {
             <Section id="machine-lang" title="2. Lenguaje de Máquina">
                 <p>Tanto el programa de multiplicación como el de llenado mediante teclado fueron testeados utilizando un <a href={`${CDN_DOMAIN}/files/CPUSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de CPU</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
 
-                <GateSection className="section__gate" title="Multiplicación" id="mult">
+                <SubSection className="section__gate" title="Multiplicación" id="mult">
                     <p>Se implementó un programa para multiplar dos números, dicho programa está escrito en el lenguaje <i>Hack</i>. Para realizar la multiplicación se formó el siguiente proceso: </p>
                     <ol>
                         <li>Poner la dirección de memoria del resultado (<em>R2</em>) en 0</li>
@@ -132,9 +131,9 @@ export const Lab4: React.FC = () => {
                         img={`${STATIC_PATH}/tests/MULT.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Llenado con Manejo I/O (Fill I/O Handling)" id="fill">
+                <SubSection className="section__gate" title="Llenado con Manejo I/O (Fill I/O Handling)" id="fill">
                     <p>El programa de llenado mediante el manejo de entrada y salida (Fill I/O Handling) realiza un <i>loop</i> infinito en el cual escucha a entradas del teclado y cambia el color de los pixeles en la pantalla. Para realizar lo anterior se sigue el siguiente proceso:
                         <ol>
                             <li>se obtiene el valor del teclado ingresado, se verifica que se haya pulsado una tecla (Sea mayor que 0) si es así se mueve al bloque <em>ON</em>.</li>
@@ -159,14 +158,14 @@ export const Lab4: React.FC = () => {
                         img={`${STATIC_PATH}/tests/FILL_AUTO.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
             </Section>
 
             <Section id="chips" title="3. Chips">
                 <p>Cada una de los chips programados para el proyecto 5 de nand2tetris fueron testeados con un <a href={`${CDN_DOMAIN}/files/HardwareSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de los mismos.</p>
 
-                <GateSection className="section__gate" title="Memoría" id="memory">
+                <SubSection className="section__gate" title="Memoría" id="memory">
                     <p>El chip de memoria es utilizado por la <a href="#CPU" title="ir al chip">CPU</a> para poder almacenar, acceder y procesar los datos del computador. Para objetivos del proyecto, se utilizarán dos memorias, una para almacenar los datos y la otra memoria almacenará tanto datos como instrucciones.</p>
 
                     <p>Este chip requiere dos piezas de información: los datos y el destino. El destino de los datos puede ser la RAM o la pantalla, por lo que se emplea un <a href="/labs/2#dmux4way" title="Ir al chip">DMUX4WAY</a> para procesarlo.</p>
@@ -191,9 +190,9 @@ export const Lab4: React.FC = () => {
                         img={`${STATIC_PATH}/tests/MEMORY.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Unidad Central de Proceso (CPU)" id="cpu">
+                <SubSection className="section__gate" title="Unidad Central de Proceso (CPU)" id="cpu">
                     <p>Esta pieza es fundamental en la arquitectura de una computadora, es la encargada de controlar la ejecución de las operaciones. Para que una CPU tenga la capacidad de poder llevar acabo  sus operaciones, esta se basa en tres dispositivos de hardware: </p>
                     <ul>
                         <li><a href="/labs/3#ALU" title="ir al chip">Unidad Aritmética Lógica (ALU)</a></li>
@@ -218,9 +217,9 @@ export const Lab4: React.FC = () => {
                         img={`${STATIC_PATH}/tests/CPU.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Computador" id="computer">
+                <SubSection className="section__gate" title="Computador" id="computer">
                     <p>El computador se desarrolló utilizando una <a href="#CPU" title="ir al chip">CPU</a>, una memoria de datos y una memoria de instrucciones  llamada ROM32K, tal y como se muestra en <strong>Fig. 9.</strong>. Por un lado, el chip ROM32K (nativo de nand2tetris) recibe como entrada <em>address</em> (dirección), y devuelve una <em>instruction</em> (instrucción) la cual hará parte de una de las entradas de la CPU. Esta ultima tiene como entradas <em>instruction</em>, <em>inM</em> ( la salida de la memoría) y <em>reset</em>, y sus salidas corresponden a <em>writeM</em>, <em>outM</em>, <em>addressM</em>, <em>pc</em> la cual sirve de entrada para la ROM32K. </p>
 
                     <p>Por otro lado, el chip <a href="#memory" title="ir al chip">MEMORY</a> recibe como entradas <em>outCPU</em>, <em>writeM</em> (si debe cargar o sobreescribir), <em>addressM</em> (dirección en memoria) y su salida es inM, la cual es una entrada de la CPU.</p>
@@ -255,7 +254,7 @@ export const Lab4: React.FC = () => {
                         img={`${STATIC_PATH}/tests/COMPUTER_RECT.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
             </Section>
 

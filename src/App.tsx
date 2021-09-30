@@ -11,7 +11,7 @@ import MembersPage from './pages/MembersPage';
 import LabPage from './pages/LabPage';
 
 import MerionNavbar from './components/Navbar';
-import ScrollUp from './components/ScrollUp';
+import ScrollUp from './components/Other/ScrollUp';
 
 import './static/scss/App.scss';
 

@@ -2,11 +2,10 @@ import React from 'react';
 import labs from '../../data/labs';
 
 import Lab from "./Lab"
-import Section from '../Section';
+import Section, {SubSection} from '../Section';
 import LabAnswer from './LabAnswer';
-import CodeBlock from '../CodeBlock';
+import CodeBlock from '../Other/CodeBlock';
 import Figure from '../Figure';
-import GateSection from '../Other/GateSection';
 import DownloadFilesButton from './DownloadFilesButton';
 
 import { CDN_DOMAIN } from '../../utils/constants';
@@ -157,7 +156,7 @@ export const Lab2: React.FC = () => {
             <Section id="gates" title="2. Compuertas Lógicas">
                 <p>Cada una de las compuertas programadas para el laboratorio fueron testeadas con un <a href={`${CDN_DOMAIN}/files/HardwareSimulator.` + (getUserOS() === "windows" ? "bat" : "sh")}>Simulador de Hardware</a>. De esta manera, se garantizó el correcto funcionamiento de las mismas.</p>
 
-                <GateSection className="section__gate" title="Not" id="not">
+                <SubSection className="section__gate" title="Not" id="not">
                     <p>Para construir la compuerta NOT simplemente se hace pasar la entrada por una compuerta NAND, de esta manera siempre se conseguirá el valor opuesto de la entrada. </p>
                     <Figure
                         title="Compuerta NOT construida con una NAND"
@@ -174,9 +173,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/NOT.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="And" id="and">
+                <SubSection className="section__gate" title="And" id="and">
                     <p>La compuerta AND se construyó a partir de 2 compuertas NAND conectadas entre sí, como se muestra en el siguiente diagrama.</p>
                     <Figure
                         title="Compuerta AND construida con NANDs"
@@ -193,9 +192,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/AND.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Or" id="or">
+                <SubSection className="section__gate" title="Or" id="or">
                     <p>La compuerta OR se construye a partir de 2 compuertas NAND para negar las entradas, y finalmente se operan estas 2 a través de otra compuerta NAND.</p>
                     <Figure
                         title="Compuerta OR construida con NANDs"
@@ -213,9 +212,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/OR.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Xor" id="xor">
+                <SubSection className="section__gate" title="Xor" id="xor">
                     <p>Para esta compuerta se opera:</p>
                     <ul>
                         <li>En NAND las 2 entradas.</li>
@@ -239,9 +238,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/XOR.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Mux" id="mux">
+                <SubSection className="section__gate" title="Mux" id="mux">
                     <p>La compuerta Mux tiene cómo entradas <em>a</em>, <em>b</em>, <em>sel</em> y cómo salida el valor de <em>a</em> si la <em>sel</em> es 0 y <em>b</em> en cualquier otro caso. Por tanto, se niega la entrada <em>sel</em> con la compuerta NOT anteriormente desarrollado y se opera con la compuerta AND anteriormente desarrollada con entradas <em>a</em> y negación de <em>sel</em> Y finalmente se opera en la compuerta OR las 2 salidas anteriores.
                     </p>
                     <Figure
@@ -260,9 +259,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/MUX.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="DMux" id="dmux">
+                <SubSection className="section__gate" title="DMux" id="dmux">
                     <p>A partir de la lógica propia de la compuerta DMUX se pueden construir las salidas de las siguiente manera: <em>a = in AND NOT(sel)</em> y <em>b = in AND sel</em>, construyéndola a partir de estas dos compuertas anteriormente desarrolladas.
                     </p>
                     <Figure
@@ -281,9 +280,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/DMUX.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Not 16 bits" id="not16">
+                <SubSection className="section__gate" title="Not 16 bits" id="not16">
                     <p>Para esta compuerta se utilizan 16 compuertas <a href="#not" title="Ir a la compuerta">NOT</a> previamente desarrolladas. El código para la compuerta se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/Not16.hdl`} />
                     <p>Utilizando el simulador de Hardware, se testeó la compuerta y pasó las pruebas sin ningún problema. </p>
@@ -293,9 +292,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/NOT16.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="And 16 bits" id="and16">
+                <SubSection className="section__gate" title="And 16 bits" id="and16">
                     <p>Para esta compuerta se utilizan 16 compuertas <a href="#and" title="Ir a la compuerta">AND</a> previamente desarrolladas. Su código se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/And16.hdl`} />
                     <p>Utilizando el simulador de Hardware, se testeó la compuerta y pasó las pruebas sin ningún problema: </p>
@@ -305,9 +304,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/AND16.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Or 16 bits" id="or16">
+                <SubSection className="section__gate" title="Or 16 bits" id="or16">
                     <p>Para esta compuerta se utilizan 16 compuertas <a href="#or" title="Ir a la compuerta">OR</a> previamente desarrolladas. Su código se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/Or16.hdl`} />
                     <p>Utilizando el simulador de Hardware, se testeó la compuerta y pasó las pruebas sin ningún problema: </p>
@@ -317,9 +316,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/OR16.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Mux 16 bits" id="mux16">
+                <SubSection className="section__gate" title="Mux 16 bits" id="mux16">
                     <p>Para esta compuerta se utilizan 16 compuertas <a href="#mux" title="Ir a la compuerta">MUX</a> previamente desarrolladas. El código para la compuerta se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/Mux16.hdl`} />
                     <p>Utilizando el simulador de Hardware, se testeó la compuerta y pasó las pruebas sin ningún problema. </p>
@@ -329,9 +328,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/MUX16.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Or 8 Way" id="or8way">
+                <SubSection className="section__gate" title="Or 8 Way" id="or8way">
                     <p>Esta compuerta tiene una entrada de 8 elementos por lo que se operan entre sí en parejas con la compuerta <a href="#or" title="Ir a la compuerta">OR</a> anteriormente desarrollada, se operan también entre sí en parejas utilizando las compuerta OR con los resultados de las anteriores operaciones y finalmente se operan con OR estos 2 últimos resultados.</p>
                     <p>El código para la compuerta se presenta a continuación: </p>
                     <CodeBlock filePath={`${FILES_PATH}/Or8Way.hdl`} />
@@ -342,9 +341,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/OR8WAY.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Mux 4 Way 16 bits" id="mux4way16">
+                <SubSection className="section__gate" title="Mux 4 Way 16 bits" id="mux4way16">
                     <p>Esta compuerta tiene 4 entradas (<em>a, b, c, d</em>) de 16 elementos cada una y 2 <em>sel</em>.
                         Se utilizan los <a href="#mux16" title="Ir a la compuerta">MUX16</a> anteriormente desarrollados para operar <em>a - b</em> y <em>c - d</em>, y finalmente se operan los 2 resultados anteriores en un MUX16, arrojando este último el resultado final de 16 elementos.
                     </p>
@@ -357,9 +356,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/MUX4WAY16.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="Mux 8 Way 16 bits" id="mux8way16">
+                <SubSection className="section__gate" title="Mux 8 Way 16 bits" id="mux8way16">
                     <p>Esta compuerta cuenta con 8 entradas (<em>a, b, c, d, e, f, g, h</em>) de 16 elementos y una entrada <em>sel</em> de 3 elementos,
                         se operan las parejas de letras <em>a-b</em>, <em>c-d</em>, <em>e-f</em> y <em>g-h</em> con la compuerta MUX16 resultando 4 salidas, una respectiva a cada operación. Se operan con MUX16 parejas de salidas <em>out1 - out2</em> y <em>out3 - out4</em> y estas generan 2 salidas, una respectiva a cada operación. Finalmente se operan las 2 salidas resultantes con MUX16  y esto nos da el resultado final de 16 elementos
                     </p>
@@ -372,9 +371,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/MUX8WAY16.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="DMux 4 Way" id="dmux4way">
+                <SubSection className="section__gate" title="DMux 4 Way" id="dmux4way">
                     <p>Está compuerta se construye a partir de <a href="#dmux" title="Ir a la compuerta">DMUX</a>,
                         operando <em>in</em> y <em>sel[1]</em> en un DMUX para obtener 2 salidas, las cuales
                         posteriormente se operan en un DMUX, la salida 1 con <em>sel[0]</em> y la salida 2 con <em>sel[0]</em>, obteniendo así las salidas <em>a</em>, <em>b</em> y <em>c</em>, <em>d</em> respectivamente.
@@ -388,9 +387,9 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/DMUX4WAY.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
-                <GateSection className="section__gate" title="DMux 8 Way" id="dmux8way">
+                <SubSection className="section__gate" title="DMux 8 Way" id="dmux8way">
                     <p>La compuerta DMUX8WAY es una “continuación” de la <a href="#dmux4way" title="Ir a la compuerta">DMUX4WAY</a>, ya que presenta un comportamiento similar pero con 3 entradas en <em>sel</em> y 8 salidas (<em>a, b, c, d, f, g, h</em>) por lo que se puede extender el comportamiento planteado para la DMUX4WAY obteniendo primero 6 salidas y luego operando estas con <em>sel[0]</em> y así obteniendo las salidas finales.
 
                     </p>
@@ -403,7 +402,7 @@ export const Lab2: React.FC = () => {
                         img={`${STATIC_PATH}/tests/DMUX8WAY.png`}
                         imgClass="img__test"
                     />
-                </GateSection>
+                </SubSection>
 
             </Section>
 
