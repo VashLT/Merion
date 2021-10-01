@@ -69,3 +69,40 @@
     color: rgb(213, 213, 213);
 }
 
+.python {
+    background-color: rgba(0, 0, 0, 0.01);
+    border-radius: $c-radius;
+    font-family: FMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-style: normal;
+    font-size: 16px;
+    padding: 2px;
+
+    &-class {
+        @extend .python;
+        color: map-get($colors, "python:class");
+    }
+    &-function {
+        @extend .python;
+        color: map-get($colors, "python:function");
+    }
+    &-builtin {
+        @extend .python;
+        color: map-get($colors, "python:builtin");
+    }
+    &-type {
+        @extend .python;
+        color: map-get($colors, "python:type");
+    }
+    &-builtin__constant {
+        @extend .python;
+        color: map-get($colors, "python:builtin__constant");
+    }
+    &-keyword {
+        @extend .python;
+        color: map-get($colors, "python:keyword");
+    }
+
+    &.inline {
+        font-size: 14px;
+    }
+}

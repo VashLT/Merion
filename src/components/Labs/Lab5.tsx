@@ -110,7 +110,7 @@ export const Lab5: React.FC = () => {
                         <tbody>
                             <tr>
                                 <td colSpan={3}>
-                                    <strong>Class Assembler</strong> <br></br>
+                                    <strong><em className="python-keyword">Class</em> <em className="python-class">Assembler</em></strong> <br></br>
                                     Clase con objetos usados para convertir un programa escrito en el lenguaje 'Hack assembly' (.asm) en código binario que pueda ser ejecutada por la herramienta ‘Assembler’ (.hack)
                                 </td>
                             </tr>
@@ -118,80 +118,83 @@ export const Lab5: React.FC = () => {
                                 <td colSpan={3}><strong>Constructor</strong></td>
                             </tr>
                             <tr>
-                                <td>__init__</td>
-                                <td>args: files [list]</td>
-                                <td>return Assembler</td>
+                                <td><em className="python-builtin">__init__</em></td>
+                                <td>args: <em className="python inline">files</em> [<em className="python-type">list</em>]</td>
+                                <td><em className="python-keyword">return</em> <em className="python-class">Assembler</em></td>
+                            </tr>
+                            <tr>
+                                <td colSpan={3}>Itera sobre cada archivo en <em className="python inline">files</em>, si es un archivo valido procede a llamar al método <em className="python-function">assemble</em> para ensamblar el archivo.</td>
                             </tr>
                             <tr>
                                 <td colSpan={3}><strong>Métodos</strong></td>
                             </tr>
                             <tr>
-                                <td>assemble</td>
-                                <td>args: file_path [str]</td>
-                                <td>None</td>
+                                <td><em className="python-function">assemble</em></td>
+                                <td>args: <em className="python inline">file_path</em> [<em className="python-type">str</em>]</td>
+                                <td><em className="python-builtin__constant">None</em></td>
                             </tr>
                             <tr>
-                                <td colSpan={3}>Convierte el archivo ingresado a un archivo symbol-less (sin símbolos) traduciendo cada línea y poniéndola en un nuevo archivo con extensión .hack</td>
-                            </tr>
-
-                            <tr>
-                                <td>get_symless_version</td>
-                                <td>args: file_path [str]</td>
-                                <td>return symless_lines [list]</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={3}>Convierte el archivo ingresado a un archivo symbol-less (sin símbolos), eliminando las líneas vacías, carácteres especiales (cómo los salto de línea) y comentarios. Traduce los símbolos utilizando SYM_TABLE de sym_maps.py</td>
+                                <td colSpan={3}>Convierte el archivo ingresado a un archivo symbol-less (sin símbolos), traduce cada línea a bínario y escribe cada una de estas lineas en un nuevo archivo con extensión .hack</td>
                             </tr>
 
                             <tr>
-                                <td>translate</td>
-                                <td>args: line [str]</td>
-                                <td>return a_instruction | c_instruction [str]</td>
+                                <td><em className="python-function">get_symless_version</em></td>
+                                <td>args: <em className="python inline">file_path</em> [<em className="python-type">str</em>]</td>
+                                <td><em className="python-keyword">return</em> <em className="python inline">symless_lines</em> [<em className="python-type">list</em>]</td>
+                            </tr>
+                            <tr>
+                                <td colSpan={3}>Convierte el archivo ingresado a un archivo symbol-less (sin símbolos), eliminando las líneas vacías, carácteres especiales (cómo los salto de línea) y comentarios. Traduce los símbolos utilizando <em className="python inline">SYM_TABLE</em> de <a href="#sym_maps.py" title="ir al archivo">sym_maps.py</a></td>
+                            </tr>
+
+                            <tr>
+                                <td><em className="python-function">translate</em></td>
+                                <td>args: <em className="python inline">line</em> [<em className="python-type">str</em>]</td>
+                                <td><em className="python-keyword">return</em> <em className="python inline">a_instruction | c_instruction</em> [<em className="python-type">str</em>]</td>
                             </tr>
                             <tr>
                                 <td colSpan={3}>Traduce una línea symbol-less a una instrucción de dirección de memoria si la línea inicia con “@” o a una instrucción de cálculo en el caso contrario y la retorna</td>
                             </tr>
 
                             <tr>
-                                <td>a_instruction</td>
-                                <td>args: line [str]</td>
-                                <td>return 16-length str </td>
+                                <td><em className="python-function">a_instruction</em></td>
+                                <td>args: <em className="python inline">line</em> [<em className="python-type">str</em>]</td>
+                                <td><em className="python-keyword">return</em> [<em className="python-type">str</em>] </td>
                             </tr>
                             <tr>
                                 <td colSpan={3}>Convierte una línea symbol-less en una instrucción de memoria con una longitud fija de 16 bits utilizando el diccionario SYM_TABLE de sym_maps.py si la línea son alfabéticos en caso contrario simplemente la convierte a entero.</td>
                             </tr>
 
                             <tr>
-                                <td>c_instruction</td>
-                                <td>args: line [str]</td>
-                                <td>return [str]</td>
+                                <td><em className="python-function">c_instruction</em></td>
+                                <td>args: <em className="python inline">line</em> [<em className="python-type">str</em>]</td>
+                                <td><em className="python-keyword">return</em> [<em className="python-type">str</em>]</td>
                             </tr>
                             <tr>
-                                <td colSpan={3}>Convierte una línea como una instrucción de cálculo, si en la línea hay un ‘=’  con el valor del lado izquierdo se busca su resultado correspondiente en DEST proveniente de sym_maps, si en la línea hay  ‘;’ el valor del lado izquierdo lo busca en COMP y el valor del lado derecho lo busca en JUMP ambos proveniente de sym_maps. </td>
+                                <td colSpan={3}>Convierte una línea como una instrucción de cálculo, si en la línea hay un ‘=’  con el valor del lado izquierdo se busca su resultado correspondiente en <em className="python inline">DEST</em> proveniente de sym_maps, si en la línea hay  ‘;’ el valor del lado izquierdo lo busca en <em className="python inline">COMP</em> y el valor del lado derecho lo busca en <em className="python inline">JUMP</em> ambos proveniente de sym_maps. </td>
                             </tr>
                             <tr>
-                                <td>increase_memory</td>
-                                <td>args: variable [str]</td>
-                                <td>return [int]</td>
+                                <td><em className="python-function">increase_memory</em></td>
+                                <td>args: <em className="python inline">variable</em> [<em className="python-type">str</em>]</td>
+                                <td><em className="python-keyword">return</em> [<em className="python-type">int</em>]</td>
                             </tr>
                             <tr>
                                 <td colSpan={3}>Indexa nuevas variables y reserva más espacio para ellas.</td>
                             </tr>
                             <tr>
-                                <td>clean_line</td>
-                                <td>args: line [str]</td>
-                                <td>return [str]</td>
+                                <td><em className="python-function">clean_line</em></td>
+                                <td>args: <em className="python inline">line</em> [<em className="python-type">str</em>]</td>
+                                <td><em className="python-keyword">return</em> [<em className="python-type">str</em>]</td>
                             </tr>
                             <tr>
                                 <td colSpan={3}>Permite eliminar espacios en blanco, nuevas líneas y comentarios en comentarios en línea</td>
                             </tr>
                             <tr>
-                                <td>format_line</td>
-                                <td>args: line [str]</td>
-                                <td>return [str]</td>
+                                <td><em className="python-function">format_line</em></td>
+                                <td>args: <em className="python inline">line</em> [<em className="python-type">str</em>]</td>
+                                <td><em className="python-keyword">return</em> [<em className="python-type">str</em>]</td>
                             </tr>
                             <tr>
-                                <td colSpan={3}>Permite dar a la línea un formato c-instrucción en caso de ser necesario, es una función que se utiliza en la función c_instruction.</td>
+                                <td colSpan={3}>Permite dar a la línea un formato c-instrucción en caso de ser necesario, es una función que se utiliza en la función <em className="python-function">c_instruction</em>.</td>
                             </tr>
                         </tbody>
 
@@ -221,7 +224,7 @@ export const Lab5: React.FC = () => {
             <Section id="files" title="3. Archivos">
 
                 <p className="mb-3">
-                    A continuación se adjuntan tanto los archivos ASM (Assembly), como los HDL (Hardware Descriptive Language) de cada uno de los chips.
+                    A continuación se adjuntan los archivos correspondientes al ensamblador, y los archivos .asm que provee nand2tetris para probar el ensamblador.
                 </p>
 
                 <div className="c-files">

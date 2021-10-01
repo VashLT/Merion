@@ -99,7 +99,7 @@ class Assembler:
             label: str = line[1:]
 
             value: int = SYM_TABLE.get(label, -1)
-            
+
             if value == -1:
                 value = self.increase_memory(label)
 

@@ -9,7 +9,6 @@ $merion-dolphin-color: #4f6c9bff;
 $merion-dolphin-color--hover: rgb(67, 92, 133);
 $merion-soft-blue--hover: rgb(231, 236, 247);
 
-
 $c-bg: rgba(52, 57, 61, 0.5);
 $c-bg--hover: #3b4044;
 
@@ -23,4 +22,10 @@ $colors: (
     "blue__hover": hsl(217, 32%, 35%),
     "yellow": hsl(50, 84%, 53%),
     "yellow__hover": hsl(50, 84%, 42%),
-)
+    "python:class": rgb(64, 120, 242),
+    "python:builtin": rgb(124, 212, 208),
+    "python:type": rgb(193, 132, 1),
+    "python:builtin__constant": rgb(209, 154, 102),
+    "python:function": rgb(64, 120, 242),
+    "python:keyword": rgb(166, 38, 164),
+);
