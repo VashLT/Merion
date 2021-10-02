@@ -5,6 +5,8 @@ interface IntrinsicProps {
     className?: string;
 }
 
+type style = { [key: string]: string; };
+
 type MemberProps = Imember & {
     index: number;
 }
@@ -101,10 +103,26 @@ type GateSectionProps = IntrinsicProps & {
 interface FigureProps {
     img: string;
     imgClass?: string;
-    imgStyle?: { [key: string]: string; }
+    imgStyle?: style;
     title: string;
     figIndex: string;
     src?: string;
+}
+
+interface FiguresProps {
+    imgs: string[];
+    imgClass?: string;
+    imgStyle?: style | style[];
+    title: string;
+    figIndex: string;
+    src?: string;
+}
+
+interface IfiguresImg {
+    img: string;
+    title: string;
+    imgClass?: string;
+    imgStyle?: style | style[];
 }
 
 type TableProps = IntrinsicProps & {
@@ -114,6 +132,7 @@ type TableProps = IntrinsicProps & {
 
 interface IbibItem {
     srcName: string;
+    id?: string;
     srcLink?: string;
     srcLinkName?: string;
 }

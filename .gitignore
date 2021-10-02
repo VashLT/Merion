@@ -4,7 +4,7 @@
 .webasssets-cache/
 settings.py
 /media
-
+**/**/**.hack
 # npm
 node_modules/
 

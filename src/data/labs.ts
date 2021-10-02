@@ -92,7 +92,7 @@ let labs = [
         header: "Laboratorio 5",
         title: "Ensamblador",
         raw_questions: [
-            "¿Cuál es el objetivo de cada uno de esos proyectos con sus palabras y describa que debe hacer para desarrollarlo?"
+            "¿Cuál es el objetivo de este proyecto con sus palabras y describa que debe hacer para desarrollarlo?"
         ],
         date: "1 de Octubre",
         files: [

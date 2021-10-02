@@ -1,7 +1,7 @@
 import React from 'react';
 import labs from '../../data/labs';
 
-import Section, {SubSection} from '../Section';
+import Section, { SubSection } from '../Section';
 import LabAnswer from './LabAnswer';
 import CodeBlock from '../Other/CodeBlock';
 import Figure from '../Figure';
@@ -9,17 +9,6 @@ import DownloadFilesButton from './DownloadFilesButton';
 import Lab from './Lab';
 
 import { CDN_DOMAIN } from '../../utils/constants';
-
-// project 2
-import HALFADDER from '../../static/images/lab3/diagrams/HALFADDER.svg';
-import FULLADDER from '../../static/images/lab3/diagrams/FULLADDER.svg';
-import ADD16 from '../../static/images/lab3/diagrams/ADD16.svg';
-import INC16 from '../../static/images/lab3/diagrams/INC16.svg';
-import INC16_2 from '../../static/images/lab3/diagrams/INC16_2.svg';
-import ALU from '../../static/images/lab3/diagrams/ALU.svg';
-import BIT from '../../static/images/lab3/diagrams/BIT.svg';
-import PC from '../../static/images/lab3/diagrams/PC.svg';
-
 
 import getUserOS from '../../utils/os';
 

@@ -6,7 +6,7 @@ const mapItem = (item: IbibItem, index: number) => {
     return (
         <p className="mb-1"><strong>{index}.</strong>&nbsp;
             {item.srcName}&nbsp;
-            <a target="_blank" rel="noreferrer" href={"srcLink" in item ? item.srcLink : "#biblio"} title={linkName}>
+            <a id={item.id ? item.id : ""} target="_blank" rel="noreferrer" href={"srcLink" in item ? item.srcLink : "#biblio"} title={linkName}>
                 {linkName}
             </a>
             .

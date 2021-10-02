@@ -126,6 +126,10 @@
     // center horizontally
     margin-left: auto;
     margin-right: auto;
+
+    & table {
+        border-radius: $c-radius;
+    }
 }
 
 .section__gate {
