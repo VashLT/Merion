@@ -2,7 +2,7 @@ import React from 'react';
 import labs from '../../data/labs';
 
 import Lab from "./Lab"
-import Section, {SubSection} from '../Section';
+import Section, { SubSection } from '../Section';
 import LabAnswer from './LabAnswer';
 import CodeBlock from '../Other/CodeBlock';
 import Figure from '../Figure';
@@ -162,6 +162,7 @@ export const Lab2: React.FC = () => {
                         title="Compuerta NOT construida con una NAND"
                         figIndex="1"
                         img={`${STATIC_PATH}/NOT.png`}
+                        imgStyle={{ "height": "100px", "width": "auto" }}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
                     <p>El código para la compuerta se presenta a continuación: </p>
@@ -171,6 +172,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta NOT"
                         figIndex="2"
                         img={`${STATIC_PATH}/tests/NOT.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -181,6 +183,7 @@ export const Lab2: React.FC = () => {
                         title="Compuerta AND construida con NANDs"
                         figIndex="3"
                         img={`${STATIC_PATH}/AND.svg`}
+                        imgStyle={{ "height": "100px", "width": "auto" }}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
                     <p>El código para la compuerta se presenta a continuación: </p>
@@ -189,6 +192,7 @@ export const Lab2: React.FC = () => {
                     <Figure
                         title="Test para compuerta AND"
                         figIndex="4"
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         img={`${STATIC_PATH}/tests/AND.png`}
                         imgClass="img__test"
                     />
@@ -200,7 +204,7 @@ export const Lab2: React.FC = () => {
                         title="Compuerta OR construida con NANDs"
                         figIndex="5"
                         img={`${STATIC_PATH}/OR.svg`}
-                        imgStyle={{ height: "120px" }}
+                        imgStyle={{ "height": "120px", "width": "auto" }}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
                     <p>El código para la compuerta se presenta a continuación: </p>
@@ -210,6 +214,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta OR"
                         figIndex="6"
                         img={`${STATIC_PATH}/tests/OR.png`}
+                        imgStyle={{ "height": "500px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -226,7 +231,7 @@ export const Lab2: React.FC = () => {
                         title="Compuerta OR construida con NANDs"
                         figIndex="7"
                         img={`${STATIC_PATH}/XOR.png`}
-                        imgStyle={{ height: "120px" }}
+                        imgStyle={{ "height": "120px", "width": "auto" }}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
                     <p>El código para la compuerta se presenta a continuación: </p>
@@ -236,6 +241,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta XOR"
                         figIndex="8"
                         img={`${STATIC_PATH}/tests/XOR.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -247,7 +253,7 @@ export const Lab2: React.FC = () => {
                         title="Compuerta MUX construida con NAND, AND y OR"
                         figIndex="9"
                         img={`${STATIC_PATH}/MUX.svg`}
-                        imgStyle={{ height: "150px" }}
+                        imgStyle={{ "height": "150px", "width": "auto" }}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
                     <p>El código para la compuerta se presenta a continuación: </p>
@@ -257,6 +263,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta MUX"
                         figIndex="10"
                         img={`${STATIC_PATH}/tests/MUX.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -268,7 +275,7 @@ export const Lab2: React.FC = () => {
                         title="Compuerta MUX construida con NAND, AND y OR"
                         figIndex="11"
                         img={`${STATIC_PATH}/DMUX.svg`}
-                        imgStyle={{ height: "150px" }}
+                        imgStyle={{ "height": "150px", "width": "auto" }}
                         src="https://qph.fs.quoracdn.net/main-qimg-6664d9b8e96801605a8c257e64477ded.webp"
                     />
                     <p>El código para la compuerta se presenta a continuación: </p>
@@ -278,6 +285,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta DMUX"
                         figIndex="12"
                         img={`${STATIC_PATH}/tests/DMUX.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -290,6 +298,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta NOT16"
                         figIndex="13"
                         img={`${STATIC_PATH}/tests/NOT16.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -302,6 +311,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta AND16"
                         figIndex="14"
                         img={`${STATIC_PATH}/tests/AND16.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -314,6 +324,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta OR16"
                         figIndex="14"
                         img={`${STATIC_PATH}/tests/OR16.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -326,6 +337,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta MUX16"
                         figIndex="15"
                         img={`${STATIC_PATH}/tests/MUX16.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -339,6 +351,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta OR8WAY"
                         figIndex="16"
                         img={`${STATIC_PATH}/tests/OR8WAY.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -354,6 +367,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta MUX4WAY16"
                         figIndex="17"
                         img={`${STATIC_PATH}/tests/MUX4WAY16.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -369,6 +383,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta MUX8WAY16"
                         figIndex="6"
                         img={`${STATIC_PATH}/tests/MUX8WAY16.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -385,6 +400,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta DMUX4WAY"
                         figIndex="18"
                         img={`${STATIC_PATH}/tests/DMUX4WAY.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>
@@ -400,6 +416,7 @@ export const Lab2: React.FC = () => {
                         title="Test para compuerta DMUX8WAY"
                         figIndex="19"
                         img={`${STATIC_PATH}/tests/DMUX8WAY.png`}
+                        imgStyle={{ "height": "600px", "width": "auto" }}
                         imgClass="img__test"
                     />
                 </SubSection>

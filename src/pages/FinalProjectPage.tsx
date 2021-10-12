@@ -44,7 +44,7 @@ export const FinalProjectPage: React.FC = () => {
 
                 <Section id="video" title="2. Recurso Visual del Proyecto">
                     <div className="embed-responsive embed-responsive-16by9 mb-4">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/QN6vZLFRKYo" title="YouTube video player"
+                        <iframe width="560" height="315" src="https://youtu.be/A1SFM7m7L-E" title="YouTube video player"
                             frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen>
                         </iframe>
