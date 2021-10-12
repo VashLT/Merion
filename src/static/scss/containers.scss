@@ -27,7 +27,7 @@
         }
 
         & img {
-            height: 80px;
+            width: 80px;
         }
 
         & p {
@@ -103,6 +103,13 @@
 
         align-items: flex-start !important;
         justify-content: space-around;
+    }
+
+    &-figures {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: flex-end;
     }
 
     &-other__labs {
@@ -198,8 +205,10 @@
         section {
             width: 100%;
             padding-bottom: 20px;
-            p {
+            p,
+            li {
                 font-size: 18px;
+                text-align: justify;
             }
         }
 
@@ -281,4 +290,19 @@
 
 #main {
     height: auto;
+}
+
+.grid {
+    display: grid;
+    &__figures {
+        @extend .grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 10px;
+        justify-content: center;
+        & .card {
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 }

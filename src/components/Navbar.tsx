@@ -21,13 +21,9 @@ export const MerionNavbar: React.FC<NavbarProps> = ({ theme }) => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Link to='/' className="nav-link">Home</Link>
                     <Link to="/members" className="nav-link" >Miembros</Link>
                     <Link to="/labs" className="nav-link" >Labs</Link>
-                </Nav>
-                <Nav>
-                    <Nav.Link href="#">Trabajo final</Nav.Link>
-                    <Nav.Link eventKey={2} href="#">Proyecto</Nav.Link>
+                    <Link to="/project" className="nav-link">Proyecto</Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

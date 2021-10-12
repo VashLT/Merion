@@ -22,7 +22,15 @@ interface Ilab {
     id: number;
     header: string;
     title: string;
-    raw_questions: string[],
+    raw_questions?: string[],
+    date: string;
+    files?: string[]
+}
+
+interface Iproject {
+    id: number;
+    header: string;
+    title: string;
     date: string;
     files?: string[]
 }
@@ -100,7 +108,7 @@ type GateSectionProps = IntrinsicProps & {
     title: string;
 }
 
-interface FigureProps {
+type FigureProps = IntrinsicProps & {
     img: string;
     imgClass?: string;
     imgStyle?: style;
@@ -160,4 +168,29 @@ interface LabProps {
     tableOfContent: ITOFItem[];
     biblio: Ibiblio;
     data: Ilab;
+}
+
+type HPCComponentProps = IntrinsicProps & {
+    title: string;
+    desc: string;
+    img: string;
+    cant?: string;
+    src?: string;
+    style?: style;
+    imgStyle?: style;
+}
+
+type SubFigureProps = IntrinsicProps & {
+    title: string;
+    img: string;
+    imgClass?: string;
+    imgStyle?: style;
+    src?: string;
+
+}
+
+type FigureGroupProps = IntrinsicProps & {
+    title: string;
+    figIndex: string;
+    src?: string;
 }

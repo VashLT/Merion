@@ -14,6 +14,7 @@ import MerionNavbar from './components/Navbar';
 import ScrollUp from './components/Other/ScrollUp';
 
 import './static/scss/App.scss';
+import FinalProjectPage from './pages/FinalProjectPage';
 
 const App: React.FC = () => {
   return (
@@ -24,18 +25,11 @@ const App: React.FC = () => {
           <MerionNavbar theme="dark" />
         </header>
         <Switch>
-          <Route exact path='/'>
-            <HomePage />
-          </Route>
-          <Route path='/members'>
-            <MembersPage />
-          </Route>
-          <Route exact path='/labs'>
-            <LabsPage />
-          </Route>
-          <Route exact path='/labs/:labId'>
-            <LabPage />
-          </Route>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/members' component={MembersPage} />
+          <Route exact path='/labs' component={LabsPage} />
+          <Route exact path='/labs/:labId' component={LabPage} />
+          <Route exact path="/project" component={FinalProjectPage} />
         </Switch>
       </Router>
       <ScrollUp />

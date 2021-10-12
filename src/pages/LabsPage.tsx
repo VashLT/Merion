@@ -1,10 +1,11 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 import { Link } from 'react-router-dom';
 
 import labs from '../data/labs';
 
 export const LabsPage: React.FC = () => {
+    useEffect(() => { document.title = "Merion | Laboratorios" }, [])
     return (
         <div id="labsPage">
             <div id="labsList">
@@ -49,7 +50,7 @@ const LabPreview: React.FC<LabPreviewProps> = ({ header, title, index, id, raw_q
             <div id={"c" + index} className="collapse" aria-labelledby={'h' + index} data-parent="#accordion">
                 <div className="card card-body darky">
                     <ul className="list-group list-group-flush">
-                        <QuestionPreview questions={raw_questions} index={index + 1} />
+                        <QuestionPreview questions={raw_questions!} index={index + 1} />
                     </ul>
                 </div>
             </div>

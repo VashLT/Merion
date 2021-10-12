@@ -27,6 +27,9 @@ export const LabPage: React.FC = () => {
 
     });
 
+    useEffect(() => { document.title = `Merion | Lab ${labId}` }, [])
+
+
     const labIndex = labs.findIndex(lab => lab.id === labId);
     if (labIndex === -1) return <LabNotFound />;
 

@@ -1,13 +1,13 @@
 import React from 'react';
 
-export const Figure: React.FC<FigureProps> = ({ img, src, title, figIndex, imgClass, imgStyle }) => {
+export const Figure: React.FC<FigureProps> = ({ id, img, src, title, figIndex, imgClass, imgStyle }) => {
     return (
-        <figure className="c-diagram">
+        <figure className="c-diagram" id={id ? id : ""}>
             <img
                 src={img}
                 alt={title}
                 className={imgClass ? imgClass : ""}
-                style={imgStyle ? imgStyle : {}}
+                style={imgStyle ? imgStyle : {"width": "90px"}}
             />
             <p><strong>Fig. {figIndex}. </strong>&nbsp;{title}.&nbsp;
                 {src ?

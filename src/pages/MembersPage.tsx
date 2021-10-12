@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import members from '../data/members';
 
 import { ReactComponent as GithubLogo } from '../static/images/icon/github_logo.svg';
 
 export const MembersPage: React.FC = () => {
+    useEffect(() => { document.title = "Merion | Miembros" }, [])
     return (
         <div id="membersPage">
             <div id="membersList">

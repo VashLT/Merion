@@ -320,3 +320,14 @@
         max-height: 120px !important;
     }
 }
+
+section.subsection {
+    & h5 {
+        font-style: italic;
+        font-size: 17px;
+        color: rgb(32, 32, 32);
+    }
+    & p {
+        text-align: justify;
+    }
+}
